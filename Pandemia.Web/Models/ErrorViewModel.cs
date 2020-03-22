@@ -1,6 +1,6 @@
 using System;
 
-namespace Pandemia.Web.Models
+namespace Pandemic.Web.Models
 {
     public class ErrorViewModel
     {

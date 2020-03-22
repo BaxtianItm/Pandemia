@@ -1,12 +1,12 @@
 ﻿using Prism;
 using Prism.Ioc;
-using Pandemia.Prism.ViewModels;
-using Pandemia.Prism.Views;
+using Pandemic.Prism.ViewModels;
+using Pandemic.Prism.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
-namespace Pandemia.Prism
+namespace Pandemic.Prism
 {
     public partial class App
     {

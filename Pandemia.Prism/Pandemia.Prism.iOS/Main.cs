@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Pandemia.Prism.iOS
+namespace Pandemic.Prism.iOS
 {
     public class Application
     {

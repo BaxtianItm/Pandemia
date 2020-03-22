@@ -91,9 +91,9 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pandemia.Prism\Pandemia.Prism.csproj">
-      <Project>{A682884C-CB44-4A89-B752-27BB634E0ABE}</Project>
-      <Name>Pandemia.Prism</Name>
+    <ProjectReference Include="..\Pandemia.Prism\Pandemic.Prism.csproj">
+      <Project>{D6CA36D3-B574-470B-A05E-94C42643B6F2}</Project>
+      <Name>Pandemic.Prism</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

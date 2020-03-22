@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace Pandemia.Prism.Views
+namespace Pandemic.Prism.Views
 {
     public partial class MainPage : ContentPage
     {

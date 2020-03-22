@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Pandemia.Prism.ViewModels
+namespace Pandemic.Prism.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
