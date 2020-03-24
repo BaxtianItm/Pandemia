@@ -3,9 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="Pandemic.Prism.Views.HomePage"
+             x:Class="Pandemic.Prism.Views.ModifyUserPage"
              BackgroundColor="{StaticResource ColorBackgroud}"
-             Title="{Binding Title}" >
+             Title="{Binding Title}">
   
 </ContentPage>
-    

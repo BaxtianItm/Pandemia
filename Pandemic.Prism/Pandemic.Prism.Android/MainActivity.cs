@@ -6,7 +6,11 @@ using Prism.Ioc;
 
 namespace Pandemic.Prism.Droid
 {
-    [Activity(Label = "Pandemic.Prism", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(
+        Label = "Covid-19 reporter",
+        Icon = "@mipmap/ic_launcher", 
+        Theme = "@style/MainTheme", 
+        MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)

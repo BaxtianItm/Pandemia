@@ -3,14 +3,72 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Prism.Navigation;
+using Pandemic.Common.Models;
+using System.Collections.ObjectModel;
+
 
 namespace Pandemic.Prism.ViewModels
 {
-    public class PandemicMasterDetailPageViewModel : BindableBase
+    public class PandemicMasterDetailPageViewModel : ViewModelBase
     {
-        public PandemicMasterDetailPageViewModel()
+        private readonly INavigationService _navigationService;
+        public PandemicMasterDetailPageViewModel(INavigationService navigationService) : base(navigationService)
         {
+            _navigationService = navigationService;
+            LoadMenus();
+        }
+        public ObservableCollection<MenuItemViewModel> Menus { get; set; }
 
+        private void LoadMenus()
+        {
+            List<Menu> menus = new List<Menu>
+            {
+                new Menu
+                {
+                    Icon = "ic_report",
+                    PageName = "HomePage",
+                    Title = "Create report"
+                },
+                new Menu
+                {
+                    Icon = "ic_admin",
+                    PageName = "AdminReportPage",
+                    Title = "Admin reports"
+                },
+                new Menu
+                {
+                    Icon = "ic_dashboard",
+                    PageName = "DashboardPage",
+                    Title = "Dashboard"
+                },
+                new Menu
+                {
+                    Icon = "ic_history",
+                    PageName = "HistoryPage",
+                    Title = "Check history"
+                },
+                new Menu
+                {
+                    Icon = "ic_usermodify",
+                    PageName = "ModifyUserPage",
+                    Title = "Modify User"
+                },  
+                new Menu
+                {
+                    Icon = "ic_login",
+                    PageName = "LoginPage",
+                    Title = "Log in"
+                }
+            };
+
+            Menus = new ObservableCollection<MenuItemViewModel>(
+                menus.Select(m => new MenuItemViewModel(_navigationService)
+                {
+                    Icon = m.Icon,
+                    PageName = m.PageName,
+                    Title = m.Title
+                }).ToList());
         }
     }
 }
