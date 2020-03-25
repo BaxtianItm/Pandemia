@@ -13,4 +13,8 @@
     <Folder Include="Data\Entities\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Pandemia.Common\Pandemic.Common.csproj" />
+  </ItemGroup>
+
 </Project>
