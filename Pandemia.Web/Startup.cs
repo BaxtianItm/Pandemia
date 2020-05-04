@@ -53,6 +53,8 @@ namespace Pandemic.Web
             });
 
             services.AddScoped<IUserHelper, UserHelper>();
+            services.AddTransient<SeedDb>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
