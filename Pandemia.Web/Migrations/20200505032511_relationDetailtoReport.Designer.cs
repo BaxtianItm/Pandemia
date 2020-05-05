@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Pandemic.Web.Data;
 
 namespace Pandemic.Web.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20200505032511_relationDetailtoReport")]
+    partial class relationDetailtoReport
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -173,15 +175,11 @@ namespace Pandemic.Web.Migrations
 
                     b.Property<int?>("StatusId");
 
-                    b.Property<string>("UserId");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ReportId");
 
                     b.HasIndex("StatusId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("ReportDetails");
                 });
@@ -244,7 +242,7 @@ namespace Pandemic.Web.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<int>("Name");
 
                     b.HasKey("Id");
 
@@ -401,10 +399,6 @@ namespace Pandemic.Web.Migrations
                     b.HasOne("Pandemic.Web.Data.Entities.StatusReport", "Status")
                         .WithMany()
                         .HasForeignKey("StatusId");
-
-                    b.HasOne("Pandemic.Web.Data.Entities.UserEntity", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Pandemic.Web.Data.Entities.ReportEntity", b =>

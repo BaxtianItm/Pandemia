@@ -2,6 +2,8 @@
 using Pandemic.Common.Enums;
 using Pandemic.Web.Data.Entities;
 using Pandemic.Web.Helpers;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,6 +28,7 @@ namespace Pandemic.Web.Data
             await CheckAdmin();
             await CheckEmergency();
             await CheckUser();
+            await CheckExampleReportAsync();
         }
 
         private async Task CheckCities()
@@ -146,6 +149,59 @@ namespace Pandemic.Web.Data
                 }
             }
             return user;
+        }
+
+        private async Task CheckExampleReportAsync()
+        {
+            if (!_context.Report.Any())
+            {
+                _context.Report.Add(
+                    new ReportEntity
+                    {
+                        City = _context.Cities.Where(c => c.Name == "Medellin").FirstOrDefault(),
+                        Document = "123456789",
+                        FirstName = "Andres",
+                        LastName = "Palacio",
+                        User = await _userHelper.GetUserByEmailAsync("sebastiangomezjimenez8@gmail.com"),
+                        ReportDetails = new List<ReportDetailsEntity>
+                        {
+                          new ReportDetailsEntity
+                          {
+                              Date = DateTime.Now,
+                              Observation = "Esta enfermo",
+                              Status = new StatusReport
+                              {
+                                  Name = "Positive"
+                              },
+                              User = await _userHelper.GetUserByEmailAsync("katherin.moreno4@gmail.com")
+                          }
+                        }
+                    });
+
+                _context.Report.Add(
+                   new ReportEntity
+                   {
+                       City = _context.Cities.Where(c => c.Name == "Valencia").FirstOrDefault(),
+                       Document = "123456789",
+                       FirstName = "Pepe",
+                       LastName = "Palacio",
+                       User = await _userHelper.GetUserByEmailAsync("sebastiangomezjimenez8@gmail.com"),
+                       ReportDetails = new List<ReportDetailsEntity>
+                       {
+                          new ReportDetailsEntity
+                          {
+                              Date = DateTime.Now,
+                              Observation = "Esta bien",
+                              Status = new StatusReport
+                              {
+                                  Name = "Negative"
+                              },
+                              User = await _userHelper.GetUserByEmailAsync("katherin.moreno4@gmail.com")
+                          }
+                       }
+                   });
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

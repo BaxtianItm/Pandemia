@@ -19,5 +19,9 @@ namespace Pandemic.Web.Data.Entities
 
         public StatusReport Status { get; set; }
 
+        public UserEntity User { get; set; }
+
+        public ReportEntity Report { get; set; }
+
     }
 }

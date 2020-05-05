@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Pandemic.Web.Data.Entities
 {
@@ -28,6 +29,8 @@ namespace Pandemic.Web.Data.Entities
         public double TargetLatitude { get; set; }
 
         public double TargetLongitude { get; set; }
+
+        public ICollection<ReportDetailsEntity> ReportDetails { get; set; }
 
         public UserEntity User { get; set; }
         public Cities City { get; set; }
