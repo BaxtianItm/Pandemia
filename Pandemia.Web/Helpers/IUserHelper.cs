@@ -24,5 +24,7 @@ namespace Pandemic.Web.Helpers
         Task<SignInResult> LoginAsync(LoginViewModel model);
 
         Task LogoutAsync();
+
+        Task CheckStatusAsync(string statusName);
     }
 }

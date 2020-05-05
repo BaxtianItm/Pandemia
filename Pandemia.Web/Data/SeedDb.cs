@@ -1,6 +1,8 @@
-﻿using Pandemic.Common.Enums;
+﻿using Microsoft.EntityFrameworkCore;
+using Pandemic.Common.Enums;
 using Pandemic.Web.Data.Entities;
 using Pandemic.Web.Helpers;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Pandemic.Web.Data
@@ -18,9 +20,66 @@ namespace Pandemic.Web.Data
         {
             await _context.Database.EnsureCreatedAsync();
             await CheckRolesAsync();
+            await CheckCountries();
+            await CheckCities();
+            await CheckStatus();
             await CheckAdmin();
             await CheckEmergency();
             await CheckUser();
+        }
+
+        private async Task CheckCities()
+        {
+            await AddCities("Medellin", "Colombia");
+            await AddCities("Bello", "Colombia");
+            await AddCities("Cucuta", "Colombia");
+            await AddCities("Madrid", "España");
+            await AddCities("Valencia", "España");
+        }
+
+        private async Task AddCities(string nameCity, string nameCountry)
+        {
+            var country = await _context.Countries.Where(c => c.Name == nameCountry).FirstOrDefaultAsync();
+
+            if (!await _context.Cities.AnyAsync(c => c.Name == nameCity && c.Country == country))
+            {
+                var newCity = new Cities()
+                {
+                    Name = nameCity,
+                    Country = country
+                };
+                await _context.Cities.AddAsync(newCity);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckCountries()
+        {
+            if (!await _context.Countries.AnyAsync(c => c.Name == "Colombia"))
+            {
+                var newCountry = new Country()
+                {
+                    Name = "Colombia"
+                };
+                await _context.Countries.AddAsync(newCountry);
+                await _context.SaveChangesAsync();
+            }
+            if (!await _context.Countries.AnyAsync(c => c.Name == "España"))
+            {
+                var newCountry = new Country()
+                {
+                    Name = "España"
+                };
+                await _context.Countries.AddAsync(newCountry);
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        private async Task CheckStatus()
+        {
+            await _userHelper.CheckStatusAsync(StatusType.Accepted.ToString());
+            await _userHelper.CheckStatusAsync(StatusType.Pending.ToString());
+            await _userHelper.CheckStatusAsync(StatusType.Rejected.ToString());
         }
 
         private async Task CheckRolesAsync()
@@ -32,19 +91,19 @@ namespace Pandemic.Web.Data
 
         private async Task CheckAdmin()
         {
-            var rol = UserType.Admin;
+            UserType rol = UserType.Admin;
             await CheckUserAsync("1010", "Nelson", "Palacios", "nelpaga1126@gmail.com", "350 634 2747", "Manrique", rol);
         }
 
         private async Task CheckEmergency()
         {
-            var rol = UserType.Emergency;
+            UserType rol = UserType.Emergency;
             await CheckUserAsync("1010", "Laura", "Moreno", "katherin.moreno4@gmail.com", "350 634 2747", "Manrique", rol);
         }
 
         private async Task CheckUser()
         {
-            var rol = UserType.User;
+            UserType rol = UserType.User;
             await CheckUserAsync("1010", "Sebastian", "Gomez", "sebastiangomezjimenez8@gmail.com", "350 634 2747", "Manrique", rol);
         }
 
@@ -74,6 +133,17 @@ namespace Pandemic.Web.Data
 
                 await _userHelper.AddUserAsync(user, "123456");
                 await _userHelper.AddUserToRoleAsync(user, userType.ToString());
+
+                if (user.UserType == UserType.Emergency)
+                {
+                    UserStatus newUserStatus = new UserStatus()
+                    {
+                        Status = _context.Status.Where(s => s.Name == StatusType.Accepted.ToString()).FirstOrDefault(),
+                        User = user
+                    };
+                    await _context.UserStatus.AddAsync(newUserStatus);
+                    await _context.SaveChangesAsync();
+                }
             }
             return user;
         }

@@ -2,6 +2,8 @@
 using Pandemic.Web.Models;
 using Pandemic.Web.Data.Entities;
 using System.Threading.Tasks;
+using Pandemic.Web.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pandemic.Web.Helpers
 {
@@ -10,20 +12,20 @@ namespace Pandemic.Web.Helpers
         private readonly SignInManager<UserEntity> _signInManager;
         private readonly UserManager<UserEntity> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-
+        private readonly DataContext _context;
 
         public UserHelper(
 
             SignInManager<UserEntity> signInManager,
             UserManager<UserEntity> userManager,
-            RoleManager<IdentityRole> roleManager
-
-
+            RoleManager<IdentityRole> roleManager,
+            DataContext context
             )
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _signInManager = signInManager;
+            _context = context;
         }
 
 
@@ -62,6 +64,20 @@ namespace Pandemic.Web.Helpers
                 });
             }
         }
+
+        public async Task CheckStatusAsync(string statusName)
+        {
+            if (!await _context.Status.AnyAsync(s => s.Name == statusName))
+            {
+                var newStatus = new Status()
+                {
+                    Name = statusName
+                };
+                await _context.Status.AddAsync(newStatus);
+                await _context.SaveChangesAsync();
+            }
+        }
+
 
         public async Task<UserEntity> GetUserByEmailAsync(string email)
         {
