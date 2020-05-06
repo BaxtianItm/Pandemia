@@ -1,0 +1,9 @@
+diff a/Pandemic.Prism/Pandemic.Prism.Android/MainActivity.cs b/Pandemic.Prism/Pandemic.Prism.Android/MainActivity.cs	(rejected hunks)
+@@ -6,7 +6,6 @@
+ 
+ namespace Pandemic.Prism.Droid
+ {
+-    [Activity(Label = "Pandemic.Prism", Icon = "@mipmap/ic_launcher", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+     [Activity(
+         Label = "Covid-19 reporter",
+         Icon = "@mipmap/ic_launcher", 
