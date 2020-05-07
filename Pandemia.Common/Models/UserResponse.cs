@@ -7,7 +7,7 @@ namespace Pandemic.Common.Models
 {
     public class UserResponse
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Document { get; set; }
 

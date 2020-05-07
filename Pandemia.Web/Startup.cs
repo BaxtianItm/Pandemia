@@ -52,6 +52,7 @@ namespace Pandemic.Web
                 cfg.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddScoped<IConverterHelper, ConverterHelper>();
             services.AddScoped<IUserHelper, UserHelper>();
             services.AddTransient<SeedDb>();
 
