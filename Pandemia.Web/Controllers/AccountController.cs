@@ -51,5 +51,7 @@ namespace Pandemic.Web.Controllers
             await _userHelper.LogoutAsync();
             return RedirectToAction("Index", "Home");
         }
+
+        
     }
 }
