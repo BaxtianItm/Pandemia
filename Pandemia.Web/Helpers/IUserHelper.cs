@@ -22,11 +22,17 @@ namespace Pandemic.Web.Helpers
 
         Task<bool> IsUserInRoleAsync(UserEntity user, string roleName);
 
-
         Task<SignInResult> LoginAsync(LoginViewModel model);
 
         Task LogoutAsync();
         Task<IdentityResult> UpdateUserAsync(UserEntity user);
         Task CheckStatusAsync(string statusName);
+        Task<string> GenerateEmailConfirmationTokenAsync(UserEntity user);
+        Task<IdentityResult> ConfirmEmailAsync(UserEntity user, string token);
+        Task<IdentityResult> ChangePasswordAsync(UserEntity user, string oldPassword, string newPassword);
+        Task<string> GeneratePasswordResetTokenAsync(UserEntity user);
+        Task<IdentityResult> ResetPasswordAsync(UserEntity user, string token, string password);
+        Task<SignInResult> ValidatePasswordAsync(UserEntity user, string password);
+
     }
 }

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pandemic.Common", "Pandemia
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pandemic.Web", "Pandemia.Web\Pandemic.Web.csproj", "{F71EE58D-A3F8-4548-9462-4BF987571E74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandemic.Prism", "Pandemic.Prism\Pandemic.Prism\Pandemic.Prism.csproj", "{E71CF4A0-4098-4062-A8FD-CEB9E011C739}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pandemic.Prism", "Pandemic.Prism\Pandemic.Prism\Pandemic.Prism.csproj", "{E71CF4A0-4098-4062-A8FD-CEB9E011C739}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandemic.Prism.Android", "Pandemic.Prism\Pandemic.Prism.Android\Pandemic.Prism.Android.csproj", "{D23A04E7-EBAC-42EC-8E05-6B0DB356FB40}"
 EndProject
@@ -162,6 +162,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+		RESX_PrefixTranslations = False
 		SolutionGuid = {14D97A08-B2C0-43E0-AE4E-04589E3DD34C}
 	EndGlobalSection
 EndGlobal
