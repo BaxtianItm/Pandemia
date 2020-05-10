@@ -10,7 +10,9 @@ namespace Pandemic.Web.Helpers
 {
     public interface IUserHelper
     {
-        Task<UserEntity> GetUserByEmailAsync(string email);
+        Task<UserEntity> GetUserAsync(string email);
+        Task<UserEntity> GetUserAsync(Guid userId);
+
 
         Task<IdentityResult> AddUserAsync(UserEntity user, string password);
 
@@ -24,7 +26,7 @@ namespace Pandemic.Web.Helpers
         Task<SignInResult> LoginAsync(LoginViewModel model);
 
         Task LogoutAsync();
-
+        Task<IdentityResult> UpdateUserAsync(UserEntity user);
         Task CheckStatusAsync(string statusName);
     }
 }

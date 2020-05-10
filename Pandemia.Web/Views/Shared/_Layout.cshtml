@@ -36,6 +36,7 @@
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
                         <li><a asp-area="" asp-controller="Report" asp-action="Reports">Report</a></li>
+                        <li><a asp-area="" asp-controller="Account" asp-action="Index">Admin Roles</a></li>
                     }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

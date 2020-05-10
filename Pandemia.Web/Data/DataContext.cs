@@ -16,6 +16,7 @@ namespace Pandemic.Web.Data
         public DbSet<Country> Countries { get; set; }
         public DbSet<Cities> Cities { get; set; }
         public DbSet<UserStatus> UserStatus { get; set; }
+   
         public DbSet<Status> Status { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

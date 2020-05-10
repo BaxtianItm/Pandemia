@@ -4,6 +4,7 @@ using Pandemic.Web.Data.Entities;
 using System.Threading.Tasks;
 using Pandemic.Web.Data;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Pandemic.Web.Helpers
 {
@@ -79,7 +80,7 @@ namespace Pandemic.Web.Helpers
         }
 
 
-        public async Task<UserEntity> GetUserByEmailAsync(string email)
+        public async Task<UserEntity> GetUserAsync(string email)
         {
             return await _userManager.FindByEmailAsync(email);
         }
@@ -89,5 +90,14 @@ namespace Pandemic.Web.Helpers
             return await _userManager.IsInRoleAsync(user, roleName);
         }
 
+        public async Task<UserEntity> GetUserAsync(Guid userId)
+        {
+            return await _userManager.FindByIdAsync(userId.ToString());
+        }
+
+        public async Task<IdentityResult> UpdateUserAsync(UserEntity user)
+        {
+            return await _userManager.UpdateAsync(user);
+        }
     }
 }
