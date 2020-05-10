@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Pandemic.Web.Models
 {
-    public class EditUserViewModel
+    public class EditUserRoleViewModel
     {
         public int Id { get; set; }
 

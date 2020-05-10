@@ -78,7 +78,7 @@ namespace Pandemic.Web.Controllers
                 return NotFound();
             }
             UserEntity user = await _userHelper.GetUserAsync(id);
-            EditUserViewModel model = new EditUserViewModel
+            EditUserRoleViewModel model = new EditUserRoleViewModel
             {
 
                 Document = user.Document,
@@ -93,7 +93,7 @@ namespace Pandemic.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangeUser(EditUserViewModel model)
+        public async Task<IActionResult> ChangeUser(EditUserRoleViewModel model)
         {
             if (ModelState.IsValid)
             {
