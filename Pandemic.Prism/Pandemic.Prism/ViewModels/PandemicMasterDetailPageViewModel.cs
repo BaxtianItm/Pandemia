@@ -6,7 +6,7 @@ using System.Linq;
 using Prism.Navigation;
 using Pandemic.Common.Models;
 using System.Collections.ObjectModel;
-
+using Pandemic.Prism.Helpers;
 
 namespace Pandemic.Prism.ViewModels
 {
@@ -28,39 +28,44 @@ namespace Pandemic.Prism.ViewModels
                 {
                     Icon = "ic_report",
                     PageName = "HomePage",
-                    Title = "Create report"
+                    Title = Languages.CreateReport,
+
                 },
                 new Menu
                 {
                     Icon = "ic_admin",
                     PageName = "AdminReportPage",
-                    Title = "Admin reports"
+                    Title = Languages.AdminReports,
+
                 },
                 new Menu
                 {
                     Icon = "ic_dashboard",
                     PageName = "DashboardPage",
-                    Title = "Dashboard"
+                    Title = Languages.Dashboard,
                 },
                 new Menu
                 {
                     Icon = "ic_history",
                     PageName = "HistoryPage",
-                    Title = "Check history"
+                    Title = Languages.CheckHistory,
+
                 },
                 new Menu
                 {
                     Icon = "ic_usermodify",
                     PageName = "ModifyUserPage",
-                    Title = "Modify User"
-                },  
+                    Title = Languages.ModifyTitle,
+
+                },
                 new Menu
                 {
                     Icon = "ic_login",
                     PageName = "LoginPage",
-                    Title = "Log in"
+                    Title = Languages.Login
                 }
             };
+
 
             Menus = new ObservableCollection<MenuItemViewModel>(
                 menus.Select(m => new MenuItemViewModel(_navigationService)
