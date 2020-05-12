@@ -4,6 +4,7 @@ using Pandemic.Prism.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Pandemic.Prism.Views;
+using Syncfusion.Licensing;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Pandemic.Prism
@@ -17,7 +18,8 @@ namespace Pandemic.Prism
 
         protected override async void OnInitialized()
         {
-                       InitializeComponent();
+            SyncfusionLicenseProvider.RegisterLicense("MjU1NTkzQDMxMzgyZTMxMmUzMFVJbml2dkk1ZWVSS29SbU9WT3dUWGl0VG9GZW5yc1NhZnNxWmxsbEFpT3M9");
+            InitializeComponent();
 
             await NavigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/HomePage");
         }

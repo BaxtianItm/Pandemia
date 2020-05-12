@@ -2,7 +2,7 @@
 
 namespace Pandemic.Prism.Views
 {
-    public partial class LoginPage : CarouselPage
+    public partial class LoginPage : ContentPage
     {
         public LoginPage()
         {

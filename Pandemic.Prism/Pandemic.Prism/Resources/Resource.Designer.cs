@@ -268,6 +268,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to example@domain.com.
+        /// </summary>
+        internal static string EmailExamp {
+            get {
+                return ResourceManager.GetString("EmailExamp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter your email....
         /// </summary>
         internal static string EmailPlaceHolder {
@@ -610,11 +619,20 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Rememberme in this device.
         /// </summary>
-        internal static string sadsd {
+        internal static string Remember {
             get {
-                return ResourceManager.GetString("sadsd", resourceCulture);
+                return ResourceManager.GetString("Remember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remembering.
+        /// </summary>
+        internal static string Remembering {
+            get {
+                return ResourceManager.GetString("Remembering", resourceCulture);
             }
         }
         
