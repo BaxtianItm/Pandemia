@@ -7,7 +7,7 @@ namespace Pandemic.Common.Models
 {
     public class UserResponse
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         public string Document { get; set; }
 
@@ -26,10 +26,11 @@ namespace Pandemic.Common.Models
         public string FullNameWithDocument => $"{FirstName} {LastName} - {Document}";
 
         public string Email { get; set; }
+        public string PhoneNumber { get; set; }
 
-     /*   public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
-    ? "https://TaxiWeb3.azurewebsites.net//images/noimage.png"
-    : $"https://zulutaxi.blob.core.windows.net/users/{PicturePath}";
-    */
+        /*   public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
+       ? "https://TaxiWeb3.azurewebsites.net//images/noimage.png"
+       : $"https://zulutaxi.blob.core.windows.net/users/{PicturePath}";
+       */
     }
 }
