@@ -11,7 +11,7 @@ namespace Pandemic.Common.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        //[Required]
-       // public string CultureInfo { get; set; }
+        [Required]
+        public string CultureInfo { get; set; }
     }
 }

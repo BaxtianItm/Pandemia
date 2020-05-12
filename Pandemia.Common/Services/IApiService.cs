@@ -12,5 +12,10 @@ namespace Pandemic.Common.Services
         Task<Response> ChangePasswordAsync(string urlBase, string servicePrefix, string controller, ChangePasswordRequest changePasswordRequest, string tokenType, string accessToken);
         Task<bool> CheckConnectionAsync(string url);
         Task<Response> GetUserByEmail(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken, EmailRequest request);
+        Task<Response> GetTokenAsync(
+        string urlBase,
+        string servicePrefix,
+        string controller,
+        TokenRequest request);
     }
 }

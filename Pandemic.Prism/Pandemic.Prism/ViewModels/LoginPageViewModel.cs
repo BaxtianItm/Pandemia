@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Pandemic.Common.Services;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 using System;
@@ -9,8 +10,14 @@ namespace Pandemic.Prism.ViewModels
 {
     public class LoginPageViewModel : ViewModelBase
     {
-        public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
+        private readonly INavigationService _navigationService;
+        private readonly IApiService _apiService;
+
+        public LoginPageViewModel(INavigationService navigationService,
+               IApiService apiService) : base(navigationService)
         {
+            _navigationService = navigationService;
+            _apiService = apiService;
             Title = "Login";
 
         }
