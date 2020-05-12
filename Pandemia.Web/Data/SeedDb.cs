@@ -119,7 +119,7 @@ namespace Pandemic.Web.Data
         string address,
         UserType userType)
         {
-            UserEntity user = await _userHelper.GetUserByEmailAsync(email);
+            UserEntity user = await _userHelper.GetUserAsync(email);
             if (user == null)
             {
                 user = new UserEntity
@@ -162,7 +162,7 @@ namespace Pandemic.Web.Data
                         Document = "123456789",
                         FirstName = "Andres",
                         LastName = "Palacio",
-                        User = await _userHelper.GetUserByEmailAsync("sebastiangomezjimenez8@gmail.com"),
+                        User = await _userHelper.GetUserAsync("sebastiangomezjimenez8@gmail.com"),
                         ReportDetails = new List<ReportDetailsEntity>
                         {
                           new ReportDetailsEntity
@@ -173,7 +173,7 @@ namespace Pandemic.Web.Data
                               {
                                   Name = "Positive"
                               },
-                              User = await _userHelper.GetUserByEmailAsync("katherin.moreno4@gmail.com")
+                              User = await _userHelper.GetUserAsync("katherin.moreno4@gmail.com")
                           }
                         }
                     });
@@ -185,7 +185,7 @@ namespace Pandemic.Web.Data
                        Document = "123456789",
                        FirstName = "Pepe",
                        LastName = "Palacio",
-                       User = await _userHelper.GetUserByEmailAsync("sebastiangomezjimenez8@gmail.com"),
+                       User = await _userHelper.GetUserAsync("sebastiangomezjimenez8@gmail.com"),
                        ReportDetails = new List<ReportDetailsEntity>
                        {
                           new ReportDetailsEntity
@@ -196,7 +196,7 @@ namespace Pandemic.Web.Data
                               {
                                   Name = "Negative"
                               },
-                              User = await _userHelper.GetUserByEmailAsync("katherin.moreno4@gmail.com")
+                              User = await _userHelper.GetUserAsync("katherin.moreno4@gmail.com")
                           }
                        }
                    });
