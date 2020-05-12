@@ -14,7 +14,7 @@ namespace Pandemic.Prism.Helpers
     public class TranslateExtension : IMarkupExtension
     {
         private readonly CultureInfo ci;
-        private const string ResourceId = "TravelExpense.Prism.Resources.Resource";
+        private const string ResourceId = "Pandemic.Prism.Resources.Resource";
         private static readonly Lazy<ResourceManager> ResMgr =
             new Lazy<ResourceManager>(() => new ResourceManager(
                 ResourceId,
