@@ -133,5 +133,15 @@ namespace Pandemic.Web.Helpers
                  password,
                  false);
         }
+
+        public async Task<IdentityResult> UpdateRoleAsync(UserEntity id)
+        {
+            return await _userManager.UpdateAsync(id);
+        }
+
+        public async Task<UserEntity> GetUserRoleAsync(string id)
+        {
+            return await _userManager.FindByIdAsync(id);
+        }
     }
 }

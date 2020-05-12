@@ -9,7 +9,7 @@ namespace Pandemic.Web.Models
 {
     public class EditUserRoleViewModel
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Display(Name = "Document")]
         [MaxLength(20, ErrorMessage = "The {0} field can not have more than {1} characters.")]
@@ -29,10 +29,9 @@ namespace Pandemic.Web.Models
         [Display(Name = "Phone Number")]
         [MaxLength(50, ErrorMessage = "The {0} field can not have more than {1} characters.")]
         public string PhoneNumber { get; set; }
-        //public int UserTypeId { get; set; }
-  
-      //  public IEnumerable<SelectListItem> UserTypes { get; set; }
-
+        public int UserTypeId { get; set; }
+        public string UserName { get; set; }
+        public IEnumerable<SelectListItem> UserTypes { get; set; }
 
     }
 }

@@ -81,20 +81,19 @@ namespace Pandemic.Web.Controllers
         //validate change user role
         public async Task<IActionResult> ChangeUser(string id)
         {
+           
             if (id == null)
             {
                 return NotFound();
             }
-            UserEntity user = await _userHelper.GetUserAsync(id);
+            UserEntity user = await _userHelper.GetUserRoleAsync(id);
             EditUserRoleViewModel model = new EditUserRoleViewModel
             {
-
                 Document = user.Document,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 PhoneNumber = user.PhoneNumber,
-                //UserTypes = _combosHelper.GetComboRoles()
-
+                UserTypes = _combosHelper.GetComboRoles()
             };
 
             return View(model);
@@ -105,14 +104,13 @@ namespace Pandemic.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                //model.UserTypes = _combosHelper.GetComboRoles();
-                //int id = model.UserTypeId;
-                UserEntity user = await _userHelper.GetUserAsync(User.Identity.Name);
+               
+                UserEntity user = await _userHelper.GetUserRoleAsync(model.Id);
                 user.FirstName = model.FirstName;
                 user.LastName = model.LastName;
                 user.Document = model.Document;
                 user.PhoneNumber = model.PhoneNumber;
-                //user.UserType = UserType.Admin;
+                user.UserType = _combosHelper.GetComboRoles(model.UserTypeId);
 
                 await _userHelper.UpdateUserAsync(user);
                 return RedirectToAction("Index", "Home");
@@ -127,12 +125,10 @@ namespace Pandemic.Web.Controllers
             UserEntity user = await _userHelper.GetUserAsync(User.Identity.Name);
             EditUserViewModel model = new EditUserViewModel
             {
-
                 Document = user.Document,
                 FirstName = user.FirstName,
                 LastName = user.LastName,
                 PhoneNumber = user.PhoneNumber
-
             };
 
             return View(model);
@@ -158,8 +154,6 @@ namespace Pandemic.Web.Controllers
 
             return View(model);
         }
-
-
 
         [HttpPost]
         public async Task<IActionResult> CreateToken([FromBody] LoginViewModel model)
