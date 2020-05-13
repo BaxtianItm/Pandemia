@@ -22,7 +22,7 @@ namespace Pandemic.Prism.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource {
+    public class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Pandemic.Prism.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Pandemic.Prism.Resources.Resource", typeof(Resource).Assembly);
@@ -51,7 +51,7 @@ namespace Pandemic.Prism.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Accept.
         /// </summary>
-        internal static string Accept {
+        public static string Accept {
             get {
                 return ResourceManager.GetString("Accept", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
-        internal static string Address {
+        public static string Address {
             get {
                 return ResourceManager.GetString("Address", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter an address..
         /// </summary>
-        internal static string AddressError {
+        public static string AddressError {
             get {
                 return ResourceManager.GetString("AddressError", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter your address....
         /// </summary>
-        internal static string AddressPlaceHolder {
+        public static string AddressPlaceHolder {
             get {
                 return ResourceManager.GetString("AddressPlaceHolder", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Admin reports.
         /// </summary>
-        internal static string AdminReports {
+        public static string AdminReports {
             get {
                 return ResourceManager.GetString("AdminReports", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
-        internal static string Cancel {
+        public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Change Password.
         /// </summary>
-        internal static string ChangePassword {
+        public static string ChangePassword {
             get {
                 return ResourceManager.GetString("ChangePassword", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Check history.
         /// </summary>
-        internal static string CheckHistory {
+        public static string CheckHistory {
             get {
                 return ResourceManager.GetString("CheckHistory", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Confirm new password.
         /// </summary>
-        internal static string ConfirmNewPassword {
+        public static string ConfirmNewPassword {
             get {
                 return ResourceManager.GetString("ConfirmNewPassword", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter a new password confirmation.
         /// </summary>
-        internal static string ConfirmNewPasswordError {
+        public static string ConfirmNewPasswordError {
             get {
                 return ResourceManager.GetString("ConfirmNewPasswordError", resourceCulture);
             }
@@ -153,7 +153,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to The new password and the confirmation does not match.
         /// </summary>
-        internal static string ConfirmNewPasswordError2 {
+        public static string ConfirmNewPasswordError2 {
             get {
                 return ResourceManager.GetString("ConfirmNewPasswordError2", resourceCulture);
             }
@@ -162,7 +162,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter the confirmation for new password.
         /// </summary>
-        internal static string ConfirmNewPasswordPlaceHolder {
+        public static string ConfirmNewPasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("ConfirmNewPasswordPlaceHolder", resourceCulture);
             }
@@ -171,7 +171,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Validate internet connection.
         /// </summary>
-        internal static string ConnectionError {
+        public static string ConnectionError {
             get {
                 return ResourceManager.GetString("ConnectionError", resourceCulture);
             }
@@ -180,7 +180,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Create report.
         /// </summary>
-        internal static string CreateReport {
+        public static string CreateReport {
             get {
                 return ResourceManager.GetString("CreateReport", resourceCulture);
             }
@@ -189,7 +189,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Current Password.
         /// </summary>
-        internal static string CurrentPassword {
+        public static string CurrentPassword {
             get {
                 return ResourceManager.GetString("CurrentPassword", resourceCulture);
             }
@@ -198,7 +198,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter your password.
         /// </summary>
-        internal static string CurrentPasswordError {
+        public static string CurrentPasswordError {
             get {
                 return ResourceManager.GetString("CurrentPasswordError", resourceCulture);
             }
@@ -207,7 +207,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter your current password.
         /// </summary>
-        internal static string CurrentPasswordPlaceHolder {
+        public static string CurrentPasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("CurrentPasswordPlaceHolder", resourceCulture);
             }
@@ -216,7 +216,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Dashboard.
         /// </summary>
-        internal static string Dashboard {
+        public static string Dashboard {
             get {
                 return ResourceManager.GetString("Dashboard", resourceCulture);
             }
@@ -225,7 +225,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Document.
         /// </summary>
-        internal static string Document {
+        public static string Document {
             get {
                 return ResourceManager.GetString("Document", resourceCulture);
             }
@@ -234,7 +234,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter a document.
         /// </summary>
-        internal static string DocumentError {
+        public static string DocumentError {
             get {
                 return ResourceManager.GetString("DocumentError", resourceCulture);
             }
@@ -243,7 +243,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter your document number....
         /// </summary>
-        internal static string DocumentPlaceHolder {
+        public static string DocumentPlaceHolder {
             get {
                 return ResourceManager.GetString("DocumentPlaceHolder", resourceCulture);
             }
@@ -252,7 +252,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
-        internal static string Email {
+        public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
             }
@@ -261,7 +261,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter an email.
         /// </summary>
-        internal static string EmailError {
+        public static string EmailError {
             get {
                 return ResourceManager.GetString("EmailError", resourceCulture);
             }
@@ -270,7 +270,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to example@domain.com.
         /// </summary>
-        internal static string EmailExamp {
+        public static string EmailExamp {
             get {
                 return ResourceManager.GetString("EmailExamp", resourceCulture);
             }
@@ -279,7 +279,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter your email....
         /// </summary>
-        internal static string EmailPlaceHolder {
+        public static string EmailPlaceHolder {
             get {
                 return ResourceManager.GetString("EmailPlaceHolder", resourceCulture);
             }
@@ -288,16 +288,25 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Error.
         /// </summary>
-        internal static string Error {
+        public static string Error {
             get {
                 return ResourceManager.GetString("Error", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This user have a big problem, call support.
+        /// </summary>
+        public static string Error3 {
+            get {
+                return ResourceManager.GetString("Error3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to First name.
         /// </summary>
-        internal static string FirstName {
+        public static string FirstName {
             get {
                 return ResourceManager.GetString("FirstName", resourceCulture);
             }
@@ -306,7 +315,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter a first name.
         /// </summary>
-        internal static string FirstNameError {
+        public static string FirstNameError {
             get {
                 return ResourceManager.GetString("FirstNameError", resourceCulture);
             }
@@ -315,7 +324,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter your first name....
         /// </summary>
-        internal static string FirstNamePlaceHolder {
+        public static string FirstNamePlaceHolder {
             get {
                 return ResourceManager.GetString("FirstNamePlaceHolder", resourceCulture);
             }
@@ -324,7 +333,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Forgot Password?.
         /// </summary>
-        internal static string ForgotPassword {
+        public static string ForgotPassword {
             get {
                 return ResourceManager.GetString("ForgotPassword", resourceCulture);
             }
@@ -333,7 +342,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to From camera.
         /// </summary>
-        internal static string FromCamera {
+        public static string FromCamera {
             get {
                 return ResourceManager.GetString("FromCamera", resourceCulture);
             }
@@ -342,7 +351,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to From gallery.
         /// </summary>
-        internal static string FromGallery {
+        public static string FromGallery {
             get {
                 return ResourceManager.GetString("FromGallery", resourceCulture);
             }
@@ -351,7 +360,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Last name.
         /// </summary>
-        internal static string LastName {
+        public static string LastName {
             get {
                 return ResourceManager.GetString("LastName", resourceCulture);
             }
@@ -360,7 +369,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter a last name.
         /// </summary>
-        internal static string LastNameError {
+        public static string LastNameError {
             get {
                 return ResourceManager.GetString("LastNameError", resourceCulture);
             }
@@ -369,7 +378,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter your last name.
         /// </summary>
-        internal static string LastNamePlaceHolder {
+        public static string LastNamePlaceHolder {
             get {
                 return ResourceManager.GetString("LastNamePlaceHolder", resourceCulture);
             }
@@ -378,7 +387,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Loading....
         /// </summary>
-        internal static string Loading {
+        public static string Loading {
             get {
                 return ResourceManager.GetString("Loading", resourceCulture);
             }
@@ -387,7 +396,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
-        internal static string Login {
+        public static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
             }
@@ -396,7 +405,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Login failed.
         /// </summary>
-        internal static string LoginError {
+        public static string LoginError {
             get {
                 return ResourceManager.GetString("LoginError", resourceCulture);
             }
@@ -405,7 +414,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
-        internal static string Logout {
+        public static string Logout {
             get {
                 return ResourceManager.GetString("Logout", resourceCulture);
             }
@@ -414,7 +423,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Modify User.
         /// </summary>
-        internal static string ModifyTitle {
+        public static string ModifyTitle {
             get {
                 return ResourceManager.GetString("ModifyTitle", resourceCulture);
             }
@@ -423,7 +432,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to New password.
         /// </summary>
-        internal static string NewPassword {
+        public static string NewPassword {
             get {
                 return ResourceManager.GetString("NewPassword", resourceCulture);
             }
@@ -432,7 +441,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter a new password.
         /// </summary>
-        internal static string NewPasswordError {
+        public static string NewPasswordError {
             get {
                 return ResourceManager.GetString("NewPasswordError", resourceCulture);
             }
@@ -441,7 +450,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter a new password.
         /// </summary>
-        internal static string NewPasswordPlaceHolder {
+        public static string NewPasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("NewPasswordPlaceHolder", resourceCulture);
             }
@@ -450,7 +459,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
-        internal static string Ok {
+        public static string Ok {
             get {
                 return ResourceManager.GetString("Ok", resourceCulture);
             }
@@ -459,7 +468,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
-        internal static string Password {
+        public static string Password {
             get {
                 return ResourceManager.GetString("Password", resourceCulture);
             }
@@ -468,7 +477,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Password confirm.
         /// </summary>
-        internal static string PasswordConfirm {
+        public static string PasswordConfirm {
             get {
                 return ResourceManager.GetString("PasswordConfirm", resourceCulture);
             }
@@ -477,7 +486,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter a password confirm.
         /// </summary>
-        internal static string PasswordConfirmError1 {
+        public static string PasswordConfirmError1 {
             get {
                 return ResourceManager.GetString("PasswordConfirmError1", resourceCulture);
             }
@@ -486,7 +495,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to The password and confirm does not match.
         /// </summary>
-        internal static string PasswordConfirmError2 {
+        public static string PasswordConfirmError2 {
             get {
                 return ResourceManager.GetString("PasswordConfirmError2", resourceCulture);
             }
@@ -495,7 +504,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter the password confirm....
         /// </summary>
-        internal static string PasswordConfirmPlaceHolder {
+        public static string PasswordConfirmPlaceHolder {
             get {
                 return ResourceManager.GetString("PasswordConfirmPlaceHolder", resourceCulture);
             }
@@ -504,7 +513,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter a password.
         /// </summary>
-        internal static string PasswordError {
+        public static string PasswordError {
             get {
                 return ResourceManager.GetString("PasswordError", resourceCulture);
             }
@@ -513,7 +522,16 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to User or password incorrect.
         /// </summary>
-        internal static string PasswordIncorrect {
+        public static string PasswordError2 {
+            get {
+                return ResourceManager.GetString("PasswordError2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User or password incorrect.
+        /// </summary>
+        public static string PasswordIncorrect {
             get {
                 return ResourceManager.GetString("PasswordIncorrect", resourceCulture);
             }
@@ -522,7 +540,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter your password....
         /// </summary>
-        internal static string PasswordPlaceHolder {
+        public static string PasswordPlaceHolder {
             get {
                 return ResourceManager.GetString("PasswordPlaceHolder", resourceCulture);
             }
@@ -531,7 +549,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Password recover.
         /// </summary>
-        internal static string PasswordRecover {
+        public static string PasswordRecover {
             get {
                 return ResourceManager.GetString("PasswordRecover", resourceCulture);
             }
@@ -540,7 +558,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Phone.
         /// </summary>
-        internal static string Phone {
+        public static string Phone {
             get {
                 return ResourceManager.GetString("Phone", resourceCulture);
             }
@@ -549,7 +567,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Enter your phone....
         /// </summary>
-        internal static string PhoneError {
+        public static string PhoneError {
             get {
                 return ResourceManager.GetString("PhoneError", resourceCulture);
             }
@@ -558,7 +576,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must enter a phone..
         /// </summary>
-        internal static string PhonePlaceHolder {
+        public static string PhonePlaceHolder {
             get {
                 return ResourceManager.GetString("PhonePlaceHolder", resourceCulture);
             }
@@ -567,7 +585,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Picture.
         /// </summary>
-        internal static string Picture {
+        public static string Picture {
             get {
                 return ResourceManager.GetString("Picture", resourceCulture);
             }
@@ -576,7 +594,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Where do you want to take the picture.
         /// </summary>
-        internal static string PictureSource {
+        public static string PictureSource {
             get {
                 return ResourceManager.GetString("PictureSource", resourceCulture);
             }
@@ -585,7 +603,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
-        internal static string Register {
+        public static string Register {
             get {
                 return ResourceManager.GetString("Register", resourceCulture);
             }
@@ -594,7 +612,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Register as.
         /// </summary>
-        internal static string RegisterAs {
+        public static string RegisterAs {
             get {
                 return ResourceManager.GetString("RegisterAs", resourceCulture);
             }
@@ -603,7 +621,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to You must select a role..
         /// </summary>
-        internal static string RegisterAsError {
+        public static string RegisterAsError {
             get {
                 return ResourceManager.GetString("RegisterAsError", resourceCulture);
             }
@@ -612,7 +630,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Select a role....
         /// </summary>
-        internal static string RegisterAsPlaceHolder {
+        public static string RegisterAsPlaceHolder {
             get {
                 return ResourceManager.GetString("RegisterAsPlaceHolder", resourceCulture);
             }
@@ -621,7 +639,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Rememberme in this device.
         /// </summary>
-        internal static string Remember {
+        public static string Remember {
             get {
                 return ResourceManager.GetString("Remember", resourceCulture);
             }
@@ -630,7 +648,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Remembering.
         /// </summary>
-        internal static string Remembering {
+        public static string Remembering {
             get {
                 return ResourceManager.GetString("Remembering", resourceCulture);
             }
@@ -639,7 +657,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
-        internal static string Save {
+        public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
             }
@@ -648,7 +666,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to User.
         /// </summary>
-        internal static string User {
+        public static string User {
             get {
                 return ResourceManager.GetString("User", resourceCulture);
             }
@@ -657,7 +675,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to User or password incorrect.
         /// </summary>
-        internal static string UserIncorrect {
+        public static string UserIncorrect {
             get {
                 return ResourceManager.GetString("UserIncorrect", resourceCulture);
             }
@@ -666,7 +684,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to This user has problems contact support.
         /// </summary>
-        internal static string UserProblem {
+        public static string UserProblem {
             get {
                 return ResourceManager.GetString("UserProblem", resourceCulture);
             }
@@ -675,7 +693,7 @@ namespace Pandemic.Prism.Resources {
         /// <summary>
         ///   Looks up a localized string similar to User updated successfully.
         /// </summary>
-        internal static string UserUpdated {
+        public static string UserUpdated {
             get {
                 return ResourceManager.GetString("UserUpdated", resourceCulture);
             }

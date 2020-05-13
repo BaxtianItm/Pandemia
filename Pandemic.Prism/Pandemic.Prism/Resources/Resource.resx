@@ -318,6 +318,12 @@
   <data name="EmailExamp" xml:space="preserve">
     <value>example@domain.com</value>
   </data>
+  <data name="Error3" xml:space="preserve">
+    <value>This user have a big problem, call support</value>
+  </data>
+  <data name="PasswordError2" xml:space="preserve">
+    <value>User or password incorrect</value>
+  </data>
   <data name="Remember" xml:space="preserve">
     <value>Rememberme in this device</value>
   </data>

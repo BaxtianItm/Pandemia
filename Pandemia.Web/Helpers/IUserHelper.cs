@@ -11,6 +11,7 @@ namespace Pandemic.Web.Helpers
     public interface IUserHelper
     {
         Task<UserEntity> GetUserAsync(string email);
+
         Task<UserEntity> GetUserAsync(Guid userId);
 
 

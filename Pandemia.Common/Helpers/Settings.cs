@@ -10,7 +10,7 @@ namespace Pandemic.Common.Helpers
     {
         private const string _user = "user";
         private const string _token = "token";
-
+        private const string _isRemembered = "IsRemembered";
         private const string _isLogin = "isLogin";
         private static readonly string _stringDefault = string.Empty;
         private static readonly bool _boolDefault = false;
@@ -34,6 +34,12 @@ namespace Pandemic.Common.Helpers
         {
             get => AppSettings.GetValueOrDefault(_isLogin, _boolDefault);
             set => AppSettings.AddOrUpdateValue(_isLogin, value);
+        }
+
+        public static bool IsRemembered
+        {
+            get => AppSettings.GetValueOrDefault(_isRemembered, _boolDefault);
+            set => AppSettings.AddOrUpdateValue(_isRemembered, value);
         }
     }
 }

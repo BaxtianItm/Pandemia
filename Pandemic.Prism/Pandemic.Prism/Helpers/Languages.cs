@@ -1,9 +1,5 @@
 ﻿using Pandemic.Prism.Interfaces;
 using Pandemic.Prism.Resources;
-using System;
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using System.Text;
 using Xamarin.Forms;
 
 namespace Pandemic.Prism.Helpers
@@ -12,7 +8,7 @@ namespace Pandemic.Prism.Helpers
     {
         static Languages()
         {
-            var ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
+            System.Globalization.CultureInfo ci = DependencyService.Get<ILocalize>().GetCurrentCultureInfo();
             Resource.Culture = ci;
             Culture = ci.Name;
             DependencyService.Get<ILocalize>().SetLocale(ci);
@@ -28,47 +24,88 @@ namespace Pandemic.Prism.Helpers
 
         public static string UserIncorrect => Resource.UserIncorrect;
 
+        public static string PasswordIncorrect => Resource.PasswordIncorrect;
+
         public static string UserProblem => Resource.UserProblem;
+
         public static string EmailError => Resource.EmailError;
 
         public static string ExpenseT => Resource.UserIncorrect;
+
         public static string Email => Resource.Email;
+
         public static string Login => Resource.Login;
+
         public static string Register => Resource.Register;
+
         public static string Loading => Resource.Loading;
+
         public static string EmailPlaceHolder => Resource.EmailPlaceHolder;
+
         public static string PasswordError => Resource.PasswordError;
+
         public static string PasswordPlaceHolder => Resource.PasswordPlaceHolder;
+
         public static string LoginError => Resource.LoginError;
+
         public static string ConnectionError => Resource.ConnectionError;
+
         public static string Logout => Resource.Logout;
+
         public static string Address => Resource.Address;
+
         public static string AddressError => Resource.AddressError;
+
         public static string AddressPlaceHolder => Resource.AddressPlaceHolder;
+
         public static string Phone => Resource.Phone;
+
         public static string PhoneError => Resource.PhoneError;
+
         public static string PhonePlaceHolder => Resource.PhonePlaceHolder;
+
         public static string RegisterAs => Resource.RegisterAs;
+
         public static string RegisterAsError => Resource.RegisterAsError;
+
         public static string RegisterAsPlaceHolder => Resource.RegisterAsPlaceHolder;
+
         public static string PasswordConfirm => Resource.PasswordConfirm;
+
         public static string PasswordConfirmError1 => Resource.PasswordConfirmError1;
+
         public static string PasswordConfirmError2 => Resource.PasswordConfirmError2;
+
         public static string PasswordConfirmPlaceHolder => Resource.PasswordConfirmPlaceHolder;
+
         public static string User => Resource.User;
+
         public static string DocumentError => Resource.DocumentError;
+
         public static string FirstNameError => Resource.FirstNameError;
+
         public static string LastNameError => Resource.LastNameError;
+
         public static string Ok => Resource.Ok;
+
         public static string PictureSource => Resource.PictureSource;
+
         public static string Cancel => Resource.Cancel;
+
         public static string FromCamera => Resource.FromCamera;
+
         public static string FromGallery => Resource.FromGallery;
+
         public static string PasswordRecover => Resource.PasswordRecover;
+
         public static string ForgotPassword => Resource.ForgotPassword;
+
         public static string Save => Resource.Save;
+
         public static string ChangePassword => Resource.ChangePassword;
+
         public static string UserUpdated => Resource.UserUpdated;
+
         public static string ConfirmNewPassword => Resource.ConfirmNewPassword;
 
         public static string ConfirmNewPasswordError => Resource.ConfirmNewPasswordError;
@@ -90,11 +127,39 @@ namespace Pandemic.Prism.Helpers
         public static string NewPasswordPlaceHolder => Resource.NewPasswordPlaceHolder;
 
         public static string Picture => Resource.Picture;
+
         public static string ModifyTitle => Resource.ModifyTitle;
+
         public static string Dashboard => Resource.Dashboard;
+
         public static string CheckHistory => Resource.CheckHistory;
+
         public static string AdminReports => Resource.AdminReports;
+
         public static string CreateReport => Resource.CreateReport;
+
+        public static string Error3 => Resource.Error3;
+
+        public static string Document => Resource.Document;
+
+        public static string DocumentPlaceHolder => Resource.DocumentPlaceHolder;
+
+        public static string FirstName => Resource.FirstName;
+
+        public static string FirstNamePlaceHolder => Resource.FirstNamePlaceHolder;
+
+        public static string LastName => Resource.LastName;
+
+        public static string LastNamePlaceHolder => Resource.LastNamePlaceHolder;
+
+        public static string EmailExamp => Resource.EmailExamp;
+
+        public static string PasswordError2 => Resource.PasswordError2;
+
+        public static string Remember => Resource.Remember;
+
+        public static string Remembering => Resource.Remembering;
+
 
 
     }

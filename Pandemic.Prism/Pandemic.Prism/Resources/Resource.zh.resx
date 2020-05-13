@@ -223,7 +223,7 @@
     <value>正在加载...</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>登录:</value>
+    <value>登录</value>
   </data>
   <data name="LoginError" xml:space="preserve">
     <value>登录失败。</value>
@@ -314,5 +314,23 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>仪表板</value>
+  </data>
+  <data name="EmailExamp" xml:space="preserve">
+    <value>example@domain.com！</value>
+  </data>
+  <data name="Remember" xml:space="preserve">
+    <value>在此设备上记住我！</value>
+  </data>
+  <data name="Remembering" xml:space="preserve">
+    <value>记住！</value>
+  </data>
+  <data name="PasswordIncorrect2" xml:space="preserve">
+    <value>用户或密码不正确！</value>
+  </data>
+  <data name="PasswordError2" xml:space="preserve">
+    <value>用户或密码不正确！</value>
+  </data>
+  <data name="Error3" xml:space="preserve">
+    <value>该用户有大问题，请致电支持！</value>
   </data>
 </root>

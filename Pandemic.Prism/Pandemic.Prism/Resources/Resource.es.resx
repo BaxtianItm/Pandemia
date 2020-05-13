@@ -315,4 +315,22 @@
   <data name="Dashboard" xml:space="preserve">
     <value>Estadisticas</value>
   </data>
+  <data name="EmailExamp" xml:space="preserve">
+    <value>ejemplo@dominio.com</value>
+  </data>
+  <data name="Remember" xml:space="preserve">
+    <value>¡Recordarme en este dispositivo!</value>
+  </data>
+  <data name="Remembering" xml:space="preserve">
+    <value>Recordando</value>
+  </data>
+  <data name="PasswordIncorrect2" xml:space="preserve">
+    <value>El nombre de usuario o contraseña es incorrecto</value>
+  </data>
+  <data name="PasswordError2" xml:space="preserve">
+    <value>El nombre de usuario o contraseña es incorrecto</value>
+  </data>
+  <data name="Error3" xml:space="preserve">
+    <value>Este usuario tiene un gran problema, ¡llame al soporte!</value>
+  </data>
 </root>

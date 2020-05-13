@@ -223,7 +223,7 @@
     <value>Carregando...</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Logon:</value>
+    <value>Logon</value>
   </data>
   <data name="LoginError" xml:space="preserve">
     <value>Falha de logon</value>
@@ -314,5 +314,23 @@
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Painel</value>
+  </data>
+  <data name="EmailExamp" xml:space="preserve">
+    <value>exemplo@domain.com</value>
+  </data>
+  <data name="Remember" xml:space="preserve">
+    <value>Lembre-me neste dispositivo!</value>
+  </data>
+  <data name="Remembering" xml:space="preserve">
+    <value>Lembrando!</value>
+  </data>
+  <data name="PasswordIncorrect2" xml:space="preserve">
+    <value>Usuário ou senha incorreta!</value>
+  </data>
+  <data name="PasswordError2" xml:space="preserve">
+    <value>Usuário ou senha incorreta!</value>
+  </data>
+  <data name="Error3" xml:space="preserve">
+    <value>Este usuário tem um grande problema, ligue para o suporte!</value>
   </data>
 </root>
