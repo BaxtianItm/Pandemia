@@ -25,7 +25,7 @@ namespace Pandemic.Prism.ViewModels
         {
             _navigationService = navigationService;
             _apiService = apiService;
-            Title = Languages.Login;
+            Title = "Languages.Login";
             IsEnabled = true;
             IsRemember = true;
         }
@@ -35,6 +35,7 @@ namespace Pandemic.Prism.ViewModels
         public DelegateCommand RegisterCommand => _registerCommand ?? (_registerCommand = new DelegateCommand(RegisterAsync));
 
         public DelegateCommand ForgotPasswordCommand => _forgotPasswordCommand ?? (_forgotPasswordCommand = new DelegateCommand(ForgotPassword));
+
 
         private bool _isRemember;
 
@@ -95,7 +96,7 @@ namespace Pandemic.Prism.ViewModels
 
             if (!response.IsSuccess)
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.PasswordIncorrect, Languages.Accept);
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.UserIncorrect, Languages.Accept);
                 Password = string.Empty;
                 return;
 
@@ -121,7 +122,7 @@ namespace Pandemic.Prism.ViewModels
             IsRunning = false;
             IsEnabled = true;
 
-            await _navigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/DashboardPage");
+            await _navigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/HistoryPage");
             Password = string.Empty;
 
         }
@@ -136,6 +137,9 @@ namespace Pandemic.Prism.ViewModels
         {
             await _navigationService.NavigateAsync("RememberPasswordPage");
         }
+
+
+
 
     }
 }

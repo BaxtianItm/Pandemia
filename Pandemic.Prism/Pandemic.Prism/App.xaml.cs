@@ -40,7 +40,6 @@ namespace Pandemic.Prism
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
-
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<PandemicMasterDetailPage, PandemicMasterDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<AdminReportPage, AdminReportPageViewModel>();

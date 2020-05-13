@@ -17,5 +17,12 @@ namespace Pandemic.Common.Services
         string servicePrefix,
         string controller,
         TokenRequest request);
+        Task<Response> GetUserByEmailAsync(
+        string urlBase,
+        string servicePrefix,
+        string controller,
+        string tokenType,
+        string accessToken,
+        string email);
     }
 }

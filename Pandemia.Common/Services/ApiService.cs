@@ -67,6 +67,7 @@ namespace Pandemic.Common.Services
 
             return await CrossConnectivity.Current.IsRemoteReachable(url);
         }
+
         public async Task<Response> GetUserByEmail(string urlBase, string servicePrefix, string controller, string tokenType, string accessToken, EmailRequest request)
         {
             try
@@ -109,6 +110,55 @@ namespace Pandemic.Common.Services
             }
 
         }
+
+        public async Task<Response> GetUserByEmailAsync(
+        string urlBase,
+        string servicePrefix,
+        string controller,
+        string tokenType,
+        string accessToken,
+        string email)
+            {
+                try
+                {
+                    EmailRequest request = new EmailRequest { Email = email };
+                    string requestString = JsonConvert.SerializeObject(request);
+                    StringContent content = new StringContent(requestString, Encoding.UTF8, "application/json");
+                    HttpClient client = new HttpClient
+                    {
+                        BaseAddress = new Uri(urlBase)
+                    };
+
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
+                    string url = $"{urlBase}{servicePrefix}{controller}";
+                    HttpResponseMessage response = await client.PostAsync(url, content);
+                    string result = await response.Content.ReadAsStringAsync();
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        return new Response
+                        {
+                            IsSuccess = false,
+                            Message = result,
+                        };
+                    }
+
+                    UserResponse trip = JsonConvert.DeserializeObject<UserResponse>(result);
+                    return new Response
+                    {
+                        IsSuccess = true,
+                        Result = trip
+                    };
+                }
+                catch (Exception ex)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = ex.Message
+                    };
+                }
+            }
         public async Task<Response> ChangePasswordAsync(string urlBase, string servicePrefix, string controller, ChangePasswordRequest changePasswordRequest, string tokenType, string accessToken)
         {
 
