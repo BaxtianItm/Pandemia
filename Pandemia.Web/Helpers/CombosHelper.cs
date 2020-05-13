@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Pandemic.Common.Enums;
 using System.Threading.Tasks;
 
 namespace Pandemic.Web.Helpers
@@ -20,6 +21,21 @@ namespace Pandemic.Web.Helpers
             };
 
             return list;
+        }
+
+
+        public UserType GetComboRoles(int id)
+        {
+            switch (id)
+            {
+                case 1:
+                    return UserType.Admin;
+                case 2:
+                    return UserType.User;
+                case 3:
+                    return UserType.Emergency;
+            }
+            return UserType.User;
         }
     }
 }

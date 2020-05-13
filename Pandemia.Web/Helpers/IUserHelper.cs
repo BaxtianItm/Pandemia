@@ -13,7 +13,7 @@ namespace Pandemic.Web.Helpers
         Task<UserEntity> GetUserAsync(string email);
 
         Task<UserEntity> GetUserAsync(Guid userId);
-
+        Task<UserEntity> GetUserRoleAsync(string id);
 
         Task<IdentityResult> AddUserAsync(UserEntity user, string password);
 
@@ -27,6 +27,7 @@ namespace Pandemic.Web.Helpers
 
         Task LogoutAsync();
         Task<IdentityResult> UpdateUserAsync(UserEntity user);
+        Task<IdentityResult> UpdateRoleAsync(UserEntity id);
         Task CheckStatusAsync(string statusName);
         Task<string> GenerateEmailConfirmationTokenAsync(UserEntity user);
         Task<IdentityResult> ConfirmEmailAsync(UserEntity user, string token);
