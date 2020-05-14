@@ -1,4 +1,5 @@
-﻿using Prism.Navigation;
+﻿using Pandemic.Prism.Helpers;
+using Prism.Navigation;
 
 namespace Pandemic.Prism.ViewModels
 {
@@ -7,7 +8,7 @@ namespace Pandemic.Prism.ViewModels
         public HomePageViewModel(INavigationService navigationService)
             : base(navigationService)
         {
-            Title = "Pandemic Report";
+            Title = Languages.CreateReport;
         }
     }
 }

@@ -2,73 +2,72 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
-  xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-             xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers"           
+             xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers" 
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="Pandemic.Prism.Views.LoginPage"
-             BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}">
-
- <AbsoluteLayout>
-    <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+    
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
                      AbsoluteLayout.LayoutFlags="All" 
                      Padding="10">
-        <Image HeightRequest="250"
+            <Image HeightRequest="250"
                    Margin="0,20,0,5"
                    Source="virus"/>
-        <StackLayout  VerticalOptions="CenterAndExpand">
             <StackLayout  VerticalOptions="CenterAndExpand">
-                <inputLayout:SfTextInputLayout 
+                <StackLayout  VerticalOptions="CenterAndExpand">
+                    <inputLayout:SfTextInputLayout 
                         Hint="{i18n:Translate Email}"  
                         FocusedColor="{StaticResource ColorAccent}"   
                        HelperText="{i18n:Translate EmailExamp}" >
-                    <Entry Margin="30, 0, 0, 30" Text="{Binding Email}"
+                        <Entry Margin="30, 0, 0, 30" Text="{Binding Email}"
                                HorizontalTextAlignment="End"/>
-                </inputLayout:SfTextInputLayout>
-            </StackLayout>
-            <StackLayout  VerticalOptions="CenterAndExpand">
-                <inputLayout:SfTextInputLayout 
+                    </inputLayout:SfTextInputLayout>
+                </StackLayout>
+                <StackLayout  VerticalOptions="CenterAndExpand">
+                    <inputLayout:SfTextInputLayout 
                         Hint="{i18n:Translate Password}"  
                         FocusedColor="{StaticResource ColorAccent}"   
                         EnablePasswordVisibilityToggle="True"  
                         ErrorText="{i18n:Translate PasswordError}"
                         ShowCharCount="True"
                         CharMaxLength="6">
-                    <Entry Text="{Binding Password}"
+                        <Entry Text="{Binding Password}"
                                HorizontalTextAlignment="End"/>
-                </inputLayout:SfTextInputLayout>
-            </StackLayout>
+                    </inputLayout:SfTextInputLayout>
+                </StackLayout>
 
-            <StackLayout
+                <StackLayout
                        HorizontalOptions="Center"
                        Orientation="Horizontal">
-                <Label
+                    <Label
                        Text="{i18n:Translate Remember}"
                        VerticalOptions="Center"/>
-                <CheckBox
+                    <CheckBox
                        IsChecked="{Binding IsRemember}"/>
-            </StackLayout>
+                </StackLayout>
 
-            <Label FontAttributes="Bold"
+                <Label FontAttributes="Bold"
                        HorizontalOptions="Center" 
                        Text="{i18n:Translate ForgotPassword}">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
-        <StackLayout>
-            <Button Command="{Binding LoginCommand}" 
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <StackLayout>
+                <Button Command="{Binding LoginCommand}" 
                         IsEnabled="{Binding IsEnabled}"
                         Text="{i18n:Translate Login}"/>
-            <Button Command="{Binding RegisterCommand}" 
+                <Button Command="{Binding RegisterCommand}" 
                         IsEnabled="{Binding IsEnabled}"
                         Text="{i18n:Translate Register}"
                         Style="{StaticResource SecondaryButton}"/>
+            </StackLayout>
         </StackLayout>
-    </StackLayout>
-    <busyindicator:SfBusyIndicator AnimationType="Globe" 
+        <busyindicator:SfBusyIndicator AnimationType="Globe" 
                                        AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
                 	                   AbsoluteLayout.LayoutFlags="All"
                 	                   HorizontalOptions="Center"
@@ -81,5 +80,4 @@
                 	                   ViewBoxHeight="80" />
     </AbsoluteLayout>
 
-
-    </ContentPage>
+</ContentPage>
