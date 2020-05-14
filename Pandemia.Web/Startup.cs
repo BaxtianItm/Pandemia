@@ -67,6 +67,7 @@ namespace Pandemic.Web
 
             services.AddScoped<IConverterHelper, ConverterHelper>();
             services.AddScoped<IUserHelper, UserHelper>();
+            services.AddScoped<IMailHelper, MailHelper>();
             services.AddScoped<ICombosHelper, CombosHelper>();
             services.AddTransient<SeedDb>();
 
