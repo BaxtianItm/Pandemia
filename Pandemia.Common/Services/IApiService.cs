@@ -24,5 +24,11 @@ namespace Pandemic.Common.Services
         string tokenType,
         string accessToken,
         string email);
+
+        Task<Response> RecoverPasswordAsync(
+        string urlBase,
+        string servicePrefix,
+        string controller,
+        EmailRequest emailRequest);
     }
 }

@@ -646,7 +646,7 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remembering.
+        ///   Looks up a localized string similar to Remembering....
         /// </summary>
         public static string Remembering {
             get {

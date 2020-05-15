@@ -322,7 +322,7 @@
     <value>Lembre-me neste dispositivo!</value>
   </data>
   <data name="Remembering" xml:space="preserve">
-    <value>Lembrando!</value>
+    <value>Lembrando...</value>
   </data>
   <data name="PasswordIncorrect2" xml:space="preserve">
     <value>Usuário ou senha incorreta!</value>

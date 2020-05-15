@@ -322,7 +322,7 @@
     <value>在此设备上记住我！</value>
   </data>
   <data name="Remembering" xml:space="preserve">
-    <value>记住！</value>
+    <value>记住...</value>
   </data>
   <data name="PasswordIncorrect2" xml:space="preserve">
     <value>用户或密码不正确！</value>

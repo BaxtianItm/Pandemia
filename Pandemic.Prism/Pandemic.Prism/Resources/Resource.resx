@@ -328,6 +328,6 @@
     <value>Rememberme in this device</value>
   </data>
   <data name="Remembering" xml:space="preserve">
-    <value>Remembering</value>
+    <value>Remembering...</value>
   </data>
 </root>
