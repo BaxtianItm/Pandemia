@@ -30,5 +30,7 @@ namespace Pandemic.Common.Services
         string servicePrefix,
         string controller,
         EmailRequest emailRequest);
+
+
     }
 }

@@ -1,4 +1,7 @@
-﻿using Pandemic.Common.Models;
+﻿using Newtonsoft.Json;
+using Pandemic.Common.Helpers;
+using Pandemic.Common.Models;
+using Pandemic.Common.Services;
 using Pandemic.Prism.Helpers;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -12,6 +15,7 @@ namespace Pandemic.Prism.ViewModels
     public class LoginPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+        private readonly IApiService _apiService;
         private bool _isRunning;
         private bool _isEnabled;
         private bool _isRemember;
@@ -21,9 +25,11 @@ namespace Pandemic.Prism.ViewModels
         private DelegateCommand _forgotPasswordCommand;
 
         public LoginPageViewModel(
-            INavigationService navigationService) : base(navigationService)
+            INavigationService navigationService,
+            IApiService apiService) : base(navigationService)
         {
             _navigationService = navigationService;
+            _apiService = apiService;
             Title = Languages.Login;
             IsEnabled = true;
             IsRemember = true;
@@ -88,7 +94,7 @@ namespace Pandemic.Prism.ViewModels
 
             //Esto debe activarse al publicar las apis, está probado todo el token
 
-            /* string url = App.Current.Resources["UrlAPI"].ToString();
+            string url = App.Current.Resources["UrlAPI"].ToString();
             Response response = await _apiService.GetTokenAsync(url, "Account", "/CreateToken", request);
 
             IsRunning = false;
@@ -103,7 +109,7 @@ namespace Pandemic.Prism.ViewModels
             }
 
             TokenResponse token = (TokenResponse)response.Result;
-            Response response2 = await _apiService.GetUserByEmailAsync(url, "api", "/Account/GetUserByEmail", "bearer", token.Token, Email);
+            Response response2 = await _apiService.GetUserByEmailAsync(url, "api", "/Account/GetUserByEmail", "bearer", token.Token, EmailRequest);
 
             if (!response2.IsSuccess)
             {
@@ -123,7 +129,7 @@ namespace Pandemic.Prism.ViewModels
 
             await _navigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/HistoryPage");
             Password = string.Empty;
-            */
+            
 
         }
 

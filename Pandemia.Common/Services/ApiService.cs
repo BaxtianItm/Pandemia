@@ -143,11 +143,11 @@ namespace Pandemic.Common.Services
                         };
                     }
 
-                    UserResponse trip = JsonConvert.DeserializeObject<UserResponse>(result);
+                    UserResponse user = JsonConvert.DeserializeObject<UserResponse>(result);
                     return new Response
                     {
                         IsSuccess = true,
-                        Result = trip
+                        Result = user
                     };
                 }
                 catch (Exception ex)
@@ -159,6 +159,7 @@ namespace Pandemic.Common.Services
                     };
                 }
             }
+
         public async Task<Response> ChangePasswordAsync(string urlBase, string servicePrefix, string controller, ChangePasswordRequest changePasswordRequest, string tokenType, string accessToken)
         {
 
@@ -261,6 +262,44 @@ namespace Pandemic.Common.Services
 
         }
 
+        public async Task<Response> GetReportAsync(string urlBase, string servicePrefix, string controller, string id, string tokenType, string accessToken)
+        {
+            try
+            {
+                HttpClient client = new HttpClient
+                {
+                    BaseAddress = new Uri(urlBase)
+                };
+
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, accessToken);
+                string url = $"{servicePrefix}{controller}/{id}";
+                HttpResponseMessage response = await client.GetAsync(url);
+                string answer = await response.Content.ReadAsStringAsync();
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = answer,
+                    };
+                }
+
+                ReportResponse report = JsonConvert.DeserializeObject<ReportResponse>(answer);
+                return new Response
+                {
+                    IsSuccess = true,
+                    Result = report,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
 
 
     }
