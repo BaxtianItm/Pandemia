@@ -9,9 +9,9 @@ namespace Pandemic.Prism.ViewModels
 {
     public class ModifyUserPageViewModel : ViewModelBase
     {
+       private readonly INavigationService _navigationService;
         public ModifyUserPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Title = "Modify user";
 
 
         }
