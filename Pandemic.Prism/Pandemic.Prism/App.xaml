@@ -4,6 +4,7 @@
              xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
              x:Class="Pandemic.Prism.App">
     <Application.Resources>
+        
         <ResourceDictionary>
             <!-- Colors -->
             <Color x:Key="ColorBackgroud">#F1F5FD   </Color>
@@ -36,6 +37,11 @@
             <Style x:Key="DangerButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource ColorDanger}" />
             </Style>
+            
+                <!-- Parameters -->
+                <x:String x:Key="UrlAPI">https://pandemicweb0.azurewebsites.net/</x:String>
+
         </ResourceDictionary>
     </Application.Resources>
+    
 </prism:PrismApplication>

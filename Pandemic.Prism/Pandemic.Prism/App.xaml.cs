@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Pandemic.Common.Models;
 using Pandemic.Common.Helpers;
 using System;
+using Pandemic.Common.Services;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Pandemic.Prism
@@ -39,6 +40,7 @@ namespace Pandemic.Prism
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<PandemicMasterDetailPage, PandemicMasterDetailPageViewModel>();
