@@ -336,4 +336,7 @@
   <data name="Emergency" xml:space="preserve">
     <value>Emergency</value>
   </data>
+  <data name="ChangeTitle" xml:space="preserve">
+    <value>Change password</value>
+  </data>
 </root>

@@ -163,6 +163,8 @@ namespace Pandemic.Prism.Helpers
 
         public static string ValidEmail => Resource.ValidEmail;
 
+        public static string ChangeTitle => Resource.ChangeTitle;
+
 
 
 

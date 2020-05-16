@@ -339,4 +339,7 @@
   <data name="ValidEmail" xml:space="preserve">
     <value>您必须输入有效的电子邮件地址</value>
   </data>
+  <data name="ChangeTitle" xml:space="preserve">
+    <value>更改密码</value>
+  </data>
 </root>

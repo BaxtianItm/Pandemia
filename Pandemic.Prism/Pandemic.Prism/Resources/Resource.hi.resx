@@ -339,4 +339,7 @@
   <data name="ValidEmail" xml:space="preserve">
     <value>आपको एक मान्य ईमेल दर्ज करना होगा!</value>
   </data>
+  <data name="ChangeTitle" xml:space="preserve">
+    <value>पासवर्ड बदलें</value>
+  </data>
 </root>

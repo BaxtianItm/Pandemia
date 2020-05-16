@@ -339,4 +339,7 @@
   <data name="ValidEmail" xml:space="preserve">
     <value>Deve inserir um endereço de email válido</value>
   </data>
+  <data name="ChangeTitle" xml:space="preserve">
+    <value>Alterar Senha</value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
-﻿using Pandemic.Common.Models;
+﻿using Pandemic.Common.Helpers;
+using Pandemic.Common.Models;
 using Prism.Commands;
 using Prism.Navigation;
 
@@ -18,7 +19,21 @@ namespace Pandemic.Prism.ViewModels
 
         private async void SelectMenuAsync()
         {
-            await _navigationService.NavigateAsync($"/PandemicMasterDetailPage/NavigationPage/{PageName}");
+            if (PageName == "LoginPage" && Settings.IsLogin)
+            {
+                Settings.IsLogin = false;
+                Settings.User = null;
+                Settings.Token = null;
+            }
+            if (IsLoginRequired && !Settings.IsLogin)
+            {
+                await _navigationService.NavigateAsync($"/PandemicMasterDetailPage/NavigationPage/LoginPage");
+            }
+            else
+            {
+                await _navigationService.NavigateAsync($"/PandemicMasterDetailPage/NavigationPage/{PageName}");
+            }
+           
         }
     }
 
