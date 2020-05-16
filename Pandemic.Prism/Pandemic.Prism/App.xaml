@@ -5,6 +5,10 @@
              x:Class="Pandemic.Prism.App">
     <Application.Resources>
         <ResourceDictionary>
+            
+            <!-- Parameters -->
+            <x:String x:Key="UrlAPI">https://pandemicweb0.azurewebsites.net/</x:String>
+
             <!-- Colors -->
             <Color x:Key="ColorBackgroud">#F1F5FD   </Color>
             <Color x:Key="ColorPrimary">#1C1C1C</Color>

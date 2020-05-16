@@ -333,4 +333,7 @@
   <data name="Error3" xml:space="preserve">
     <value>इस उपयोगकर्ता की एक बड़ी समस्या है, कॉल समर्थन!</value>
   </data>
+  <data name="Emergency" xml:space="preserve">
+    <value>आपातकाल</value>
+  </data>
 </root>

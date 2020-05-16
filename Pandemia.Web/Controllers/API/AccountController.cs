@@ -2,13 +2,12 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Pandemic.Common.Enums;
 using Pandemic.Common.Models;
 using Pandemic.Web.Data;
 using Pandemic.Web.Data.Entities;
 using Pandemic.Web.Helpers;
 using Pandemic.Web.Resources;
-using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -75,8 +74,7 @@ namespace Pandemic.Web.Controllers.API
                 PhoneNumber = request.Phone,
                 UserName = request.Email,
                 PicturePath = null,
-                //UserType = UserType.Admin
-                // == 1 UserType.Admin : UserType.User
+                UserType = request.UserTypeId == 1 ? UserType.User : UserType.Emergency
             };
 
             IdentityResult result = await _userHelper.AddUserAsync(user, request.Password);

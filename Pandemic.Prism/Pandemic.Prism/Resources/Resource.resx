@@ -330,4 +330,7 @@
   <data name="Remembering" xml:space="preserve">
     <value>Remembering</value>
   </data>
+  <data name="Emergency" xml:space="preserve">
+    <value>Emergency</value>
+  </data>
 </root>
