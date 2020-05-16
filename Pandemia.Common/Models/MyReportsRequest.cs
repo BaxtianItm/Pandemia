@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Pandemic.Common.Models
 {
-    public class ReportRequest
+    public class MyReportsRequest
     {
-        [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public Guid UserId { get; set; }
+
+        public string UserId { get; set; }
 
 
     }

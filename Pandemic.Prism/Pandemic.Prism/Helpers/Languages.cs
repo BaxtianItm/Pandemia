@@ -160,7 +160,7 @@ namespace Pandemic.Prism.Helpers
 
         public static string Remembering => Resource.Remembering;
 
-
+        public static string ValidEmail => Resource.ValidEmail;
 
 
 

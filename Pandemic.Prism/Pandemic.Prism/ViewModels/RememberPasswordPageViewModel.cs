@@ -15,22 +15,23 @@ namespace Pandemic.Prism.ViewModels
     public class RememberPasswordPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
-        //private readonly IApiService _apiService;
+        private readonly IApiService _apiService;
         private bool _isRunning;
         private bool _isEnabled;
-       // private DelegateCommand _recoverCommand;
+        private DelegateCommand _recoverCommand;
 
         public RememberPasswordPageViewModel(
-            INavigationService navigationService/*,
-            IApiService apiService*/) : base(navigationService)
+            INavigationService navigationService,
+            IApiService apiService) : base(navigationService)
 
         {
             _navigationService = navigationService;
-          //  _apiService = apiService;
+            _apiService = apiService;
             Title = Languages.PasswordRecover;
             IsEnabled = true;
         }
-       // public DelegateCommand RecoverCommand => _recoverCommand ?? (_recoverCommand = new DelegateCommand(Recover));
+
+        public DelegateCommand RecoverCommand => _recoverCommand ?? (_recoverCommand = new DelegateCommand(Recover));
 
         public string Email { get; set; }
 
@@ -45,7 +46,7 @@ namespace Pandemic.Prism.ViewModels
             get => _isEnabled;
             set => SetProperty(ref _isEnabled, value);
         }
-/*
+
         private async void Recover()
         { 
             var isValid = await ValidateData();
@@ -98,6 +99,6 @@ namespace Pandemic.Prism.ViewModels
 
               return true;
          
-        }*/
+        }
         }
 }

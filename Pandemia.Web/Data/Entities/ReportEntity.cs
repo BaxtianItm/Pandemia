@@ -33,6 +33,7 @@ namespace Pandemic.Web.Data.Entities
         public ICollection<ReportDetailsEntity> ReportDetails { get; set; }
 
         public UserEntity User { get; set; }
+
         public Cities City { get; set; }
     }
 }

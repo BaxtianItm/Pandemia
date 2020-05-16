@@ -698,5 +698,14 @@ namespace Pandemic.Prism.Resources {
                 return ResourceManager.GetString("UserUpdated", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You must enter a valid email.
+        /// </summary>
+        public static string ValidEmail {
+            get {
+                return ResourceManager.GetString("ValidEmail", resourceCulture);
+            }
+        }
     }
 }

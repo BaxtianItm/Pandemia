@@ -104,6 +104,7 @@ namespace Pandemic.Web.Controllers.API
                 Message = Resource.EmailConfirmationSent
             });
         }
+
         [HttpPost]
         [Route("RecoverPassword")]
         public async Task<IActionResult> RecoverPassword([FromBody] EmailRequest request)

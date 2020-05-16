@@ -109,7 +109,7 @@ namespace Pandemic.Prism.ViewModels
             }
 
             TokenResponse token = (TokenResponse)response.Result;
-            Response response2 = await _apiService.GetUserByEmailAsync(url, "api", "/Account/GetUserByEmail", "bearer", token.Token, EmailRequest);
+            Response response2 = await _apiService.GetUserByEmailAsync(url, "api", "/Account/GetUserByEmail", "bearer", token.Token, Email);
 
             if (!response2.IsSuccess)
             {

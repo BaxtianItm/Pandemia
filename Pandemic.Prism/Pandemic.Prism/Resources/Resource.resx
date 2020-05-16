@@ -330,4 +330,7 @@
   <data name="Remembering" xml:space="preserve">
     <value>Remembering...</value>
   </data>
+  <data name="ValidEmail" xml:space="preserve">
+    <value>You must enter a valid email</value>
+  </data>
 </root>

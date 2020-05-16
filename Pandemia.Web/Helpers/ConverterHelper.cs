@@ -61,6 +61,12 @@ namespace Pandemic.Web.Helpers
 
             };
 
+
+        }
+
+        public List<ReportResponse> ToReportResponse(List<ReportEntity> reportEntity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
