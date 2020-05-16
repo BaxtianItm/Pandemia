@@ -60,7 +60,9 @@ namespace Pandemic.Prism.ViewModels
 
               var request = new EmailRequest
               {
-                  Email = Email
+                  Email = Email,
+                  CultureInfo = Languages.Culture
+                  
               };
 
               var url = App.Current.Resources["UrlAPI"].ToString();
