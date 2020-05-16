@@ -103,7 +103,6 @@ namespace Pandemic.Web.Helpers
         public async Task<string> GenerateEmailConfirmationTokenAsync(UserEntity user)
         {
             return await _userManager.GenerateEmailConfirmationTokenAsync(user);
-
         }
 
         public async Task<IdentityResult> ConfirmEmailAsync(UserEntity user, string token)
