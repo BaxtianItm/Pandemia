@@ -7,6 +7,7 @@ using Prism.Navigation;
 using Pandemic.Common.Models;
 using System.Collections.ObjectModel;
 using Pandemic.Prism.Helpers;
+using Pandemic.Common.Helpers;
 
 namespace Pandemic.Prism.ViewModels
 {
@@ -62,7 +63,7 @@ namespace Pandemic.Prism.ViewModels
                 {
                     Icon = "ic_login",
                     PageName = "LoginPage",
-                    Title = Languages.Login
+                    Title = Settings.IsLogin ? Languages.Logout : Languages.Login
                 }
             };
 

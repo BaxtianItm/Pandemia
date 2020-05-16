@@ -26,17 +26,17 @@ namespace Pandemic.Prism
             SyncfusionLicenseProvider.RegisterLicense("MjU2MTI1QDMxMzgyZTMxMmUzMEd4MUtKekVnc1B1QjFVOWVCM2lzdmZRWWpCbThObUIvVUJzZWpNWk4rcDA9");
             InitializeComponent();
 
-         /*   var token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+            var token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
             if (Settings.IsRemembered && token?.Expiration > DateTime.Now)
-            {*/
+            {
                 await NavigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/HomePage");
-           }/*
+           }
             else
             {
                 await NavigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/LoginPage");
 
             }
-        }*/
+        }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
