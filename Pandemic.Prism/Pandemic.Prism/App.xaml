@@ -41,10 +41,6 @@
             <Style x:Key="DangerButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{StaticResource ColorDanger}" />
             </Style>
-            
-                <!-- Parameters -->
-                <x:String x:Key="UrlAPI">https://pandemicweb0.azurewebsites.net/</x:String>
-
         </ResourceDictionary>
     </Application.Resources>
     

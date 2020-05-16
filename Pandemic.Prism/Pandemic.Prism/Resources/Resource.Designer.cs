@@ -655,7 +655,7 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Remembering.
+        ///   Busca una cadena traducida similar a Remembering....
         /// </summary>
         public static string Remembering {
             get {
@@ -705,6 +705,15 @@ namespace Pandemic.Prism.Resources {
         public static string UserUpdated {
             get {
                 return ResourceManager.GetString("UserUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a You must enter a valid email.
+        /// </summary>
+        public static string ValidEmail {
+            get {
+                return ResourceManager.GetString("ValidEmail", resourceCulture);
             }
         }
     }

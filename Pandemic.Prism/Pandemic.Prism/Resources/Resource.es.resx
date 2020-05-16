@@ -336,4 +336,7 @@
   <data name="Emergency" xml:space="preserve">
     <value>Emergencia</value>
   </data>
+  <data name="ValidEmail" xml:space="preserve">
+    <value>Debes introducir una dirección de correo válida.</value>
+  </data>
 </root>

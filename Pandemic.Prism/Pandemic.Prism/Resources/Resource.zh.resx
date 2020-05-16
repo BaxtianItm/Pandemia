@@ -336,4 +336,7 @@
   <data name="Emergency" xml:space="preserve">
     <value>紧急</value>
   </data>
+  <data name="ValidEmail" xml:space="preserve">
+    <value>您必须输入有效的电子邮件地址</value>
+  </data>
 </root>

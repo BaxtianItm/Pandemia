@@ -336,4 +336,7 @@
   <data name="Emergency" xml:space="preserve">
     <value>आपातकाल</value>
   </data>
+  <data name="ValidEmail" xml:space="preserve">
+    <value>आपको एक मान्य ईमेल दर्ज करना होगा!</value>
+  </data>
 </root>

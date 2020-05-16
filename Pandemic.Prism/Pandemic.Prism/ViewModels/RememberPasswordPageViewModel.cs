@@ -16,17 +16,20 @@ namespace Pandemic.Prism.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
+        private readonly IRegexHelper _regexHelper;
         private bool _isRunning;
         private bool _isEnabled;
         private DelegateCommand _recoverCommand;
 
         public RememberPasswordPageViewModel(
             INavigationService navigationService,
+            IRegexHelper regexHelper,
             IApiService apiService) : base(navigationService)
 
         {
             _navigationService = navigationService;
             _apiService = apiService;
+            _regexHelper = regexHelper;
             Title = Languages.PasswordRecover;
             IsEnabled = true;
         }
@@ -93,7 +96,7 @@ namespace Pandemic.Prism.ViewModels
 
           private async Task<bool> ValidateData()
           {
-              if (string.IsNullOrEmpty(Email) || !RegexHelper.IsValidEmail(Email))
+              if (string.IsNullOrEmpty(Email) || !_regexHelper.IsValidEmail(Email))
               {
                   await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.ValidEmail, Languages.Accept);
                   return false;
