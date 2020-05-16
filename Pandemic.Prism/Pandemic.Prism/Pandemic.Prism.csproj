@@ -10,48 +10,63 @@
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.396" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
   </ItemGroup>
+  <Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Pandemia.Common\Pandemic.Common.csproj" />
-  </ItemGroup>
+    <PropertyGroup>
+      <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Update="Resources\Resource.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resource.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.48" />
+      <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="18.1.0.48" />
+      <PackageReference Include="Xamarin.Forms" Version="4.5.0.396" />
+      <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
+    </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Resources\Resource.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\AdminReportPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\DashboardPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\HistoryPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\HomePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\LoginPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ModifyUserPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\PandemicMasterDetailPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\RegisterPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\..\Pandemia.Common\Pandemic.Common.csproj" />
+    </ItemGroup>
 
-</Project>
+    <ItemGroup>
+      <Compile Update="Resources\Resource.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Resource.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Resource.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\AdminReportPage.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\DashboardPage.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\HistoryPage.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\HomePage.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\LoginPage.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\ModifyUserPage.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\PandemicMasterDetailPage.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\RememberPasswordPage.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\RegisterPage.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+    </ItemGroup>
+
+  </Project>
