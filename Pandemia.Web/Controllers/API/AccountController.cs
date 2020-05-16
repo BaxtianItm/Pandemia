@@ -102,6 +102,7 @@ namespace Pandemic.Web.Controllers.API
                 Message = Resource.EmailConfirmationSent
             });
         }
+
         [HttpPost]
         [Route("RecoverPassword")]
         public async Task<IActionResult> RecoverPassword([FromBody] EmailRequest request)
@@ -198,6 +199,7 @@ namespace Pandemic.Web.Controllers.API
             UserEntity updatedUser = await _userHelper.GetUserAsync(request.Email);
             return Ok(updatedUser);
         }
+
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         [Route("ChangePassword")]

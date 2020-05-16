@@ -328,7 +328,10 @@
     <value>Rememberme in this device</value>
   </data>
   <data name="Remembering" xml:space="preserve">
-    <value>Remembering</value>
+    <value>Remembering...</value>
+  </data>
+  <data name="ValidEmail" xml:space="preserve">
+    <value>You must enter a valid email</value>
   </data>
   <data name="Emergency" xml:space="preserve">
     <value>Emergency</value>

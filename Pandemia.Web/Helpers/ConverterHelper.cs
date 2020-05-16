@@ -25,9 +25,48 @@ namespace Pandemic.Web.Helpers
                 Id = user.Id,
                 LastName = user.LastName,
                 PicturePath = user.PicturePath,
+                PhoneNumber = user.PhoneNumber,
                 UserType = user.UserType
+                
             };
 
+        }
+
+        public ReportResponse ToReportResponse(ReportEntity reportEntity)
+        {
+            if (reportEntity == null)
+            {
+                return null;
+            }
+
+            return new ReportResponse
+            {
+                TargetLongitude = reportEntity.TargetLongitude,
+                Document = reportEntity.Document,
+                TargetLatitude = reportEntity.TargetLatitude,
+                FirstName = reportEntity.FirstName,
+                Id = reportEntity.Id,
+                LastName = reportEntity.LastName,
+                SourceLongitude = reportEntity.SourceLongitude,
+                SourceLatitude = reportEntity.SourceLatitude,
+                ReportDetails = reportEntity.ReportDetails?.Select(rd => new ReportDetailsResponse
+                {
+                    Id = rd.Id,
+                    Date = rd.Date,
+                    Observation = rd.Observation,
+                    Status = rd.Status.Name
+
+                }).ToList(),
+                User = ToUserResponse(reportEntity.User)
+
+            };
+
+
+        }
+
+        public List<ReportResponse> ToReportResponse(List<ReportEntity> reportEntity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

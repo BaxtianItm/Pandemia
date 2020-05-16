@@ -322,7 +322,7 @@
     <value>इस डिवाइस में याद रखें!</value>
   </data>
   <data name="Remembering" xml:space="preserve">
-    <value>याद आती!</value>
+    <value>याद आती...</value>
   </data>
   <data name="PasswordIncorrect2" xml:space="preserve">
     <value>उपयोगकर्ता या पासवर्ड गलत है!</value>
