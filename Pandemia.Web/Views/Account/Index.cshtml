@@ -28,7 +28,12 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.UserType)
                             </th>
-                            <th></th>
+                            <th>
+                                <p>Image Document</p>
+                            </th>
+                            <th>
+
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -47,6 +52,10 @@
                             <td>
                                 @Html.DisplayFor(modelItem => item.UserType)
                             </td>
+                            <td>
+                                <img src=@Html.DisplayFor(modelItem => item.PicturePath) alt="Document" />
+                            </td>
+                            
                             <td>
                                 <a asp-action="ChangeUser" asp-route-id="@item.Id" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
 
