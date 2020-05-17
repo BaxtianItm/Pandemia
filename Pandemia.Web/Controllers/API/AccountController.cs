@@ -23,6 +23,8 @@ namespace Pandemic.Web.Controllers.API
         private readonly IMailHelper _mailHelper;
         private readonly IImageHelper _imageHelper;
         private readonly IConverterHelper _converterHelper;
+   
+
 
         public AccountController(
             DataContext dataContext,
@@ -30,6 +32,7 @@ namespace Pandemic.Web.Controllers.API
             IMailHelper mailHelper,
             IImageHelper imageHelper,
             IConverterHelper converterHelper)
+
         {
             _dataContext = dataContext;
             _userHelper = userHelper;
@@ -64,6 +67,13 @@ namespace Pandemic.Web.Controllers.API
                 });
             }
 
+            string picturePath = string.Empty;
+            if (request.PictureArray != null && request.PictureArray.Length > 0)
+            {
+                picturePath = _imageHelper.UploadImage(request.PictureArray, "Users");
+            }
+
+
             user = new UserEntity
             {
                 Address = request.Address,
@@ -73,7 +83,7 @@ namespace Pandemic.Web.Controllers.API
                 LastName = request.LastName,
                 PhoneNumber = request.Phone,
                 UserName = request.Email,
-                PicturePath = null,
+                PicturePath = picturePath,
                 UserType = request.UserTypeId == 1 ? UserType.User : UserType.Emergency
             };
 
