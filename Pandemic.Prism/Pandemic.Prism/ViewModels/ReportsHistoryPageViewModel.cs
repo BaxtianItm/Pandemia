@@ -22,7 +22,8 @@ namespace Pandemic.Prism.ViewModels
             INavigationService navigationService,
             IApiService apiService) : base(navigationService)
         {
-
+            _navigationService = navigationService;
+            _apiService = apiService;
             Title = Languages.CheckHistory;
             IsEnabled = true;
 
