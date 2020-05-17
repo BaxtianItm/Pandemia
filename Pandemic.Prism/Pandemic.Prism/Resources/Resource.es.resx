@@ -342,4 +342,10 @@
   <data name="ChangeTitle" xml:space="preserve">
     <value>Cambiar contraseña</value>
   </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Agregar detalles</value>
+  </data>
+  <data name="AddReport" xml:space="preserve">
+    <value>Nuevo Reporte</value>
+  </data>
 </root>

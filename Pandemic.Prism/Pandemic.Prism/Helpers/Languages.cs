@@ -165,6 +165,9 @@ namespace Pandemic.Prism.Helpers
 
         public static string ChangeTitle => Resource.ChangeTitle;
 
+        public static string AddReport => Resource.AddReport;
+
+        public static string AddDetails => Resource.AddDetails;
 
 
 
