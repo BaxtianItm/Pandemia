@@ -92,8 +92,6 @@ namespace Pandemic.Prism.ViewModels
             };
 
 
-            //Esto debe activarse al publicar las apis, está probado todo el token
-
             string url = App.Current.Resources["UrlAPI"].ToString();
             Response response = await _apiService.GetTokenAsync(url, "Account", "/CreateToken", request);
 

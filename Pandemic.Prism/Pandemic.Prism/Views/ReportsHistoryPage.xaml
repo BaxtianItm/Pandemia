@@ -81,7 +81,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <Button Command="{Binding RegisterCommand}" 
+            <Button Command="{Binding AddReportCommand}" 
                         IsEnabled="{Binding IsEnabled}"
                         Text="{i18n:Translate AddReport}"/>
         </StackLayout>
