@@ -26,7 +26,7 @@ namespace Pandemic.Web.Helpers
                 return string.Empty;
             }
 
-            return $"~/images/{folder}/{file}";
+            return $"/images/{folder}/{file}";
         }
 
         public async Task<string> UploadImageAsync(IFormFile imageFile, string folder)
@@ -43,7 +43,7 @@ namespace Pandemic.Web.Helpers
                 await imageFile.CopyToAsync(stream);
             }
 
-            return $"~/images/{folder}/{file}";
+            return $"/images/{folder}/{file}";
         }
     }
 }
