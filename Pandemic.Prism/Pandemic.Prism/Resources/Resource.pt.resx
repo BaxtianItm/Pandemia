@@ -342,4 +342,7 @@
   <data name="ChangeTitle" xml:space="preserve">
     <value>Alterar Senha</value>
   </data>
+  <data name="AddImage" xml:space="preserve">
+    <value>Documento de imagem</value>
+  </data>
 </root>

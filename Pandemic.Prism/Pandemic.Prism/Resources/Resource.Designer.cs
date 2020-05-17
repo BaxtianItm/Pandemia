@@ -70,6 +70,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add document image.
+        /// </summary>
+        public static string AddImage {
+            get {
+                return ResourceManager.GetString("AddImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Address.
         /// </summary>
         public static string Address {

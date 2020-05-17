@@ -339,4 +339,7 @@
   <data name="ChangeTitle" xml:space="preserve">
     <value>Change password</value>
   </data>
+  <data name="AddImage" xml:space="preserve">
+    <value>Add document image</value>
+  </data>
 </root>

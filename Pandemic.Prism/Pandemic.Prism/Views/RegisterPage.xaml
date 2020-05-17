@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
          	 xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
-           	 xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers"
+           	 xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="Pandemic.Prism.Views.RegisterPage"
              BackgroundColor="{StaticResource ColorBackgroud}"
@@ -108,14 +110,35 @@
                                IsPassword="True"
                                Placeholder="{i18n:Translate PasswordConfirmPlaceHolder}"
                                Text="{Binding User.PasswordConfirm}"/>
+                        <Label Grid.Row="8"
+                               Grid.Column="0"
+                               Text="{i18n:Translate RegisterAs}"
+                               VerticalOptions="Center"/>
                         <Picker Grid.Row="8"
                                 Grid.Column="1"
                                 ItemDisplayBinding="{Binding Name}"
                                 ItemsSource="{Binding Roles}"
                                 SelectedItem="{Binding Role}"
-                                Title="{i18n:Translate RegisterAsPlaceHolder}">
+                                Title="{i18n:Translate RegisterAsPlaceHolder}"
+                                VerticalOptions="Center">
                         </Picker>
                     </Grid>
+                    <Label     Text="{i18n:Translate AddImage}"
+                               VerticalOptions="Center"/>
+                    <ffimageloading:CachedImage Aspect="AspectFit"
+                                                Source="{Binding Image}" 
+                                                CacheDuration= "50"
+                                                HeightRequest="150"
+                                                Margin="5"
+                                                RetryCount= "3"
+                                                RetryDelay= "600">
+                        <ffimageloading:CachedImage.Transformations>
+                            <fftransformations:CircleTransformation />
+                        </ffimageloading:CachedImage.Transformations>
+                        <ffimageloading:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeImageCommand}"/>
+                        </ffimageloading:CachedImage.GestureRecognizers>
+                    </ffimageloading:CachedImage>
                 </StackLayout>
             </ScrollView>
             <Button Command="{Binding RegisterCommand}"
@@ -126,7 +149,7 @@
                                        AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
                 	                   AbsoluteLayout.LayoutFlags="All"
                 	                   HorizontalOptions="Center"
-                                       BackgroundColor="{StaticResource ColorSecondary}"
+                                       BackgroundColor="{StaticResource ColorDanger}"
                                        TextColor="{StaticResource ColorFontInverse}"
                                        Title="{i18n:Translate Loading}"
                 	                   IsVisible="{Binding IsRunning}"

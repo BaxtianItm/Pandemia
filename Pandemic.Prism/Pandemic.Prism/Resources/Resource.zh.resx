@@ -342,4 +342,7 @@
   <data name="ChangeTitle" xml:space="preserve">
     <value>更改密码</value>
   </data>
+  <data name="AddImage" xml:space="preserve">
+    <value>图像文档</value>
+  </data>
 </root>
