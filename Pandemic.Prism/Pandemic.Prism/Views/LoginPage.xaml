@@ -64,7 +64,7 @@
                 <Button Command="{Binding RegisterCommand}" 
                         IsEnabled="{Binding IsEnabled}"
                         Text="{i18n:Translate Register}"
-                        Style="{StaticResource SecondaryButton}"/>
+                        Style="{StaticResource DangerButton}"/>
             </StackLayout>
         </StackLayout>
         <busyindicator:SfBusyIndicator AnimationType="Globe" 
