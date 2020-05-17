@@ -8,9 +8,9 @@ using System.Linq;
 
 namespace Pandemic.Prism.ViewModels
 {
-    public class HistoryPageViewModel : ViewModelBase
+    public class ReportsHistoryPageViewModel : ViewModelBase
     {
-        public HistoryPageViewModel(INavigationService navigationService) : base(navigationService)
+        public ReportsHistoryPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Title = Languages.CheckHistory;
 

@@ -47,7 +47,7 @@ namespace Pandemic.Prism
             containerRegistry.RegisterForNavigation<PandemicMasterDetailPage, PandemicMasterDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<AdminReportPage, AdminReportPageViewModel>();
             containerRegistry.RegisterForNavigation<DashboardPage, DashboardPageViewModel>();
-            containerRegistry.RegisterForNavigation<HistoryPage, HistoryPageViewModel>();
+            containerRegistry.RegisterForNavigation<HistoryPage, ReportsHistoryPageViewModel>();
             containerRegistry.RegisterForNavigation<ModifyUserPage, ModifyUserPageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
             containerRegistry.RegisterForNavigation<RegisterPage, RegisterPageViewModel>();
