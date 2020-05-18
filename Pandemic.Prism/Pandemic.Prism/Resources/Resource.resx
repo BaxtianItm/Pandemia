@@ -357,4 +357,7 @@
   <data name="LastNamePlaceHolderRep" xml:space="preserve">
     <value>Enter the last name of the reported</value>
   </data>
+  <data name="ImageError" xml:space="preserve">
+    <value>you must add document image</value>
+  </data>
 </root>

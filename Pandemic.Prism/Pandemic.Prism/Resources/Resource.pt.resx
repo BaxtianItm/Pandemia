@@ -360,4 +360,7 @@
   <data name="LastNamePlaceHolderRep" xml:space="preserve">
     <value>Digite o sobrenome do denunciado!</value>
   </data>
+  <data name="ImageError" xml:space="preserve">
+    <value>você deve adicionar uma imagem do documento</value>
+  </data>
 </root>

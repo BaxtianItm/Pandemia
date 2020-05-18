@@ -360,4 +360,7 @@
   <data name="LastNamePlaceHolderRep" xml:space="preserve">
     <value>输入报告的姓氏！</value>
   </data>
+  <data name="ImageError" xml:space="preserve">
+    <value>您必须添加文档图像</value>
+  </data>
 </root>

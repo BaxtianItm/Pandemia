@@ -233,7 +233,7 @@ namespace Pandemic.Prism.ViewModels
             }
             if (_file==null)
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, "error imagen falta", Languages.Accept);
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.ImageError, Languages.Accept);
                 return false;
             }
             return true;

@@ -421,6 +421,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to you must add document image.
+        /// </summary>
+        public static string ImageError {
+            get {
+                return ResourceManager.GetString("ImageError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last name.
         /// </summary>
         public static string LastName {

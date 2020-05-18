@@ -360,4 +360,7 @@
   <data name="LastNamePlaceHolderRep" xml:space="preserve">
     <value>रिपोर्ट का अंतिम नाम दर्ज करें!</value>
   </data>
+  <data name="ImageError" xml:space="preserve">
+    <value>आपको दस्तावेज़ छवि जोड़ना होगा!</value>
+  </data>
 </root>

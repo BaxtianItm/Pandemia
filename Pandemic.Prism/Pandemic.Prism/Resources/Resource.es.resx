@@ -360,4 +360,7 @@
   <data name="LastNamePlaceHolderRep" xml:space="preserve">
     <value>Introduzca el apellido del reportado</value>
   </data>
+  <data name="ImageError" xml:space="preserve">
+    <value>debes agregar la imagen del documento</value>
+  </data>
 </root>
