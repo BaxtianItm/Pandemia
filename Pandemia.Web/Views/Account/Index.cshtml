@@ -55,10 +55,9 @@
                                     @Html.DisplayFor(modelItem => item.UserType)
                                 </td>
                                 <td>
-                                    <a class="fancybox" href=@item.PicturePath alt="Document" target="_blank">
+                                    <a href=@item.PicturePath alt="Document" target="_blank">
                                         <img src=@item.PicturePath alt="Document" style="width:50px;height:51px" />
                                     </a>
-                                </td>
                                 <td>
                                     <a asp-action="ChangeUser" asp-route-id="@item.Id" class="btn btn-warning"><i class="glyphicon glyphicon-pencil"></i></a>
                                 </td>
@@ -70,6 +69,12 @@
         </div>
     </div>
 </div>
+<style type="text/css">
+    img {
+        width: 50px !important;
+        height: 51px !important;
+    }
+</style>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
