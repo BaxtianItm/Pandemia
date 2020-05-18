@@ -29,7 +29,7 @@ namespace Pandemic.Prism.ViewModels
 
         }
 
-        public DelegateCommand AddReportCommand => _addReportCommand ?? (_addReportCommand = new DelegateCommand(AddReport));
+        public DelegateCommand CreateReportCommand => _addReportCommand ?? (_addReportCommand = new DelegateCommand(CreateReport));
 
         public bool IsEnabled
         {
@@ -37,7 +37,7 @@ namespace Pandemic.Prism.ViewModels
             set => SetProperty(ref _isEnabled, value);
         }
 
-        private async void AddReport()
+        private async void CreateReport()
         {
             await _navigationService.NavigateAsync("HomePage");
         }
