@@ -146,10 +146,12 @@ namespace Pandemic.Prism.ViewModels
                 return;
             }
             byte[] imageArray = null;
+
             if (_file != null)
             {
                 imageArray = _filesHelper.ReadFully(_file.GetStream());
             }
+
 
             User.PictureArray = imageArray;
             User.UserTypeId = Role.Id;
@@ -170,6 +172,7 @@ namespace Pandemic.Prism.ViewModels
 
         private async Task<bool> ValidateDataAsync()
         {
+            
             if (string.IsNullOrEmpty(User.Document))
             {
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.DocumentError, Languages.Accept);
@@ -228,7 +231,11 @@ namespace Pandemic.Prism.ViewModels
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.RegisterAsError, Languages.Accept);
                 return false;
             }
-
+            if (_file==null)
+            {
+                await App.Current.MainPage.DisplayAlert(Languages.Error, "error imagen falta", Languages.Accept);
+                return false;
+            }
             return true;
         }
     }

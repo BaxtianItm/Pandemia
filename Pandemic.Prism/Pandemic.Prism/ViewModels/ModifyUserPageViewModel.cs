@@ -34,8 +34,6 @@ namespace Pandemic.Prism.ViewModels
             User = JsonConvert.DeserializeObject<UserResponse>(Settings.User);
             _apiService = apiService;
             Title = Languages.ModifyTitle;
-
-
         }
 
         public DelegateCommand ChangePasswordCommand => _changePasswordCommand ?? (_changePasswordCommand = new DelegateCommand(ChangePasswordAsync));
@@ -78,7 +76,7 @@ namespace Pandemic.Prism.ViewModels
             IsRunning = true;
             IsEnabled = false;
 
-            ModifyRequest userRequest = new ModifyRequest
+            UserRequest userRequest = new UserRequest
             {
                 Address = User.Address,
                 Document = User.Document,
@@ -87,9 +85,10 @@ namespace Pandemic.Prism.ViewModels
                 LastName = User.LastName,
                 Password = "123456", // It doesn't matter what is sent here. It is only for the model to be valid
                 Phone = User.PhoneNumber,
-                UserTypeId =User.UserType == UserType.User ? 1 : 2,
-                CultureInfo = Languages.Culture
-            };
+                UserTypeId = User.UserType == UserType.User ? 1 : 2,
+                CultureInfo = Languages.Culture,
+            
+        };
 
             TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
             string url = App.Current.Resources["UrlAPI"].ToString();
