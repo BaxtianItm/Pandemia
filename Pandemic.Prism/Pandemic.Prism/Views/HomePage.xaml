@@ -3,9 +3,72 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+         	 xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers"
              x:Class="Pandemic.Prism.Views.HomePage"
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}" >
-  
+
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     Padding="5">
+            <ScrollView>
+                <StackLayout>
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Document}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate DocumentPlaceHolderRep}" >
+                       <Entry 
+                            Text="{Binding Document}"/>
+                    </inputLayout:SfTextInputLayout>
+                        
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate FirstName}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate FirstNamePlaceHolderRep}" >
+                        <Entry 
+                            Text="{Binding FirstName}"/>
+                    </inputLayout:SfTextInputLayout>
+                        
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate LastName}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate LastNamePlaceHolderRep}" >
+                        <Entry 
+                            Text="{Binding LastName}"/>
+                        </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Address}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate AddressPlaceHolder}" >
+                        <Entry 
+                             Text="{Binding Address}"/>
+                    </inputLayout:SfTextInputLayout>
+                    
+                    
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="EndAndExpand">
+                <Button Command="{Binding AddReportCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Text="{i18n:Translate CreateReport}"/>
+            </StackLayout>
+        </StackLayout>
+        <busyindicator:SfBusyIndicator AnimationType="Globe" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   HorizontalOptions="Center"
+                                       BackgroundColor="{StaticResource ColorDanger}"
+                                       TextColor="{StaticResource ColorFontInverse}"
+                                       Title="{i18n:Translate Loading}"
+                	                   IsVisible="{Binding IsRunning}"
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
+    </AbsoluteLayout>
 </ContentPage>
     

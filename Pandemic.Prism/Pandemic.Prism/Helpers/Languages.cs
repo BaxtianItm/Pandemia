@@ -172,6 +172,11 @@ namespace Pandemic.Prism.Helpers
 
         public static string AddDetails => Resource.AddDetails;
 
+        public static string DocumentPlaceHolderRep => Resource.DocumentPlaceHolderRep;
+
+        public static string FirstNamePlaceHolderRep => Resource.FirstNamePlaceHolderRep;
+
+        public static string LastNamePlaceHolderRep => Resource.LastNamePlaceHolderRep;
 
 
     }

@@ -351,4 +351,13 @@
   <data name="AddReport" xml:space="preserve">
     <value>Adicionar relatório</value>
   </data>
+  <data name="DocumentPlaceHolderRep" xml:space="preserve">
+    <value>Digite o documento do denunciado!</value>
+  </data>
+  <data name="FirstNamePlaceHolderRep" xml:space="preserve">
+    <value>Digite o primeiro nome do relatado!</value>
+  </data>
+  <data name="LastNamePlaceHolderRep" xml:space="preserve">
+    <value>Digite o sobrenome do denunciado!</value>
+  </data>
 </root>

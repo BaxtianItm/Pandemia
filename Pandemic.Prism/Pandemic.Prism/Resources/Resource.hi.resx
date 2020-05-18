@@ -351,4 +351,13 @@
   <data name="AddReport" xml:space="preserve">
     <value>रिपोर्ट जोड़ें</value>
   </data>
+  <data name="DocumentPlaceHolderRep" xml:space="preserve">
+    <value>रिपोर्ट के दस्तावेज़ दर्ज करें!</value>
+  </data>
+  <data name="FirstNamePlaceHolderRep" xml:space="preserve">
+    <value>रिपोर्ट का पहला नाम दर्ज करें!</value>
+  </data>
+  <data name="LastNamePlaceHolderRep" xml:space="preserve">
+    <value>रिपोर्ट का अंतिम नाम दर्ज करें!</value>
+  </data>
 </root>

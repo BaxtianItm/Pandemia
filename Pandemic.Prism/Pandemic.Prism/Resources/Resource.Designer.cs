@@ -286,6 +286,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter the document of the reported.
+        /// </summary>
+        public static string DocumentPlaceHolderRep {
+            get {
+                return ResourceManager.GetString("DocumentPlaceHolderRep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -376,6 +385,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter the first name of the reported.
+        /// </summary>
+        public static string FirstNamePlaceHolderRep {
+            get {
+                return ResourceManager.GetString("FirstNamePlaceHolderRep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forgot Password?.
         /// </summary>
         public static string ForgotPassword {
@@ -426,6 +444,15 @@ namespace Pandemic.Prism.Resources {
         public static string LastNamePlaceHolder {
             get {
                 return ResourceManager.GetString("LastNamePlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the last name of the reported.
+        /// </summary>
+        public static string LastNamePlaceHolderRep {
+            get {
+                return ResourceManager.GetString("LastNamePlaceHolderRep", resourceCulture);
             }
         }
         
