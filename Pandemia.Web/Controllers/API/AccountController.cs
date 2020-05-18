@@ -192,13 +192,13 @@ namespace Pandemic.Web.Controllers.API
                 return BadRequest(Resource.UserNotFoundError);
             }
 
-            string picturePath = userEntity.PicturePath;
+           // string picturePath = userEntity.PicturePath;
             userEntity.FirstName = request.FirstName;
             userEntity.LastName = request.LastName;
             userEntity.Address = request.Address;
             userEntity.PhoneNumber = request.Phone;
             userEntity.Document = request.Document;
-            userEntity.PicturePath = picturePath;
+           // userEntity.PicturePath = picturePath;
 
             IdentityResult respose = await _userHelper.UpdateUserAsync(userEntity);
             if (!respose.Succeeded)

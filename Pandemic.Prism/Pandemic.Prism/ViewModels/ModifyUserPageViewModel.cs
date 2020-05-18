@@ -4,6 +4,7 @@ using Pandemic.Common.Helpers;
 using Pandemic.Common.Models;
 using Pandemic.Common.Services;
 using Pandemic.Prism.Helpers;
+using Plugin.Media.Abstractions;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -11,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace Pandemic.Prism.ViewModels
 {
@@ -24,7 +26,7 @@ namespace Pandemic.Prism.ViewModels
         private DelegateCommand _saveCommand;
         private DelegateCommand _changePasswordCommand;
 
-        public ModifyUserPageViewModel(INavigationService navigationService, IApiService apiService)
+        public ModifyUserPageViewModel(INavigationService navigationService,IApiService apiService)
             : base(navigationService)
         {
             _navigationService = navigationService;
@@ -41,6 +43,7 @@ namespace Pandemic.Prism.ViewModels
         public DelegateCommand SaveCommand => _saveCommand ?? (_saveCommand = new DelegateCommand(SaveAsync));
 
 
+   
         public UserResponse User
         {
             get => _user;
@@ -61,7 +64,7 @@ namespace Pandemic.Prism.ViewModels
 
         private async void ChangePasswordAsync()
         {
-                    await _navigationService.NavigateAsync("ChangePasswordPage");
+            await _navigationService.NavigateAsync("ChangePasswordPage");
         }
 
         private async void SaveAsync()
@@ -75,7 +78,7 @@ namespace Pandemic.Prism.ViewModels
             IsRunning = true;
             IsEnabled = false;
 
-            UserRequest userRequest = new UserRequest
+            ModifyRequest userRequest = new ModifyRequest
             {
                 Address = User.Address,
                 Document = User.Document,
