@@ -45,7 +45,9 @@ namespace Pandemic.Prism.ViewModels
             Image = App.Current.Resources["UrlNoImage"].ToString();
             Roles = new ObservableCollection<Role>(CombosHelper.GetRoles());
         }
+
         public DelegateCommand ChangeImageCommand => _changeImageCommand ?? (_changeImageCommand = new DelegateCommand(ChangeImageAsync));
+        
         public DelegateCommand RegisterCommand => _registerCommand ?? (_registerCommand = new DelegateCommand(RegisterAsync));
 
         public ImageSource Image

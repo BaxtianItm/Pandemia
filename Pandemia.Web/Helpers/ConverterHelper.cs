@@ -27,7 +27,7 @@ namespace Pandemic.Web.Helpers
                 PicturePath = user.PicturePath,
                 PhoneNumber = user.PhoneNumber,
                 UserType = user.UserType
-                
+                               
             };
 
         }

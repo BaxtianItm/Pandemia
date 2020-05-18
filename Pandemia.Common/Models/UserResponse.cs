@@ -29,9 +29,9 @@ namespace Pandemic.Common.Models
 
         public string PhoneNumber { get; set; }
 
-        /*   public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
-       ? "https://TaxiWeb3.azurewebsites.net//images/noimage.png"
-       : $"https://zulutaxi.blob.core.windows.net/users/{PicturePath}";
-       */
+         public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
+       ? "https://pandemicweb0.azurewebsites.net//images/noimage.png"
+       : $"";
+       
     }
 }
