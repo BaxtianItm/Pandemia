@@ -637,7 +637,7 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter your phone....
+        ///   Looks up a localized string similar to Enter your phone number....
         /// </summary>
         public static string PhoneError {
             get {

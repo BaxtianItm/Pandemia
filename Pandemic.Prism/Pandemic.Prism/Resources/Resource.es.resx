@@ -265,10 +265,10 @@
     <value>Teléfono</value>
   </data>
   <data name="PhoneError" xml:space="preserve">
-    <value>Ingresa tu teléfono</value>
+    <value>Ingresa tu número de teléfono </value>
   </data>
   <data name="PhonePlaceHolder" xml:space="preserve">
-    <value>Debes poner un número de teléfono</value>
+    <value>Ingresa un número de teléfono</value>
   </data>
   <data name="Picture" xml:space="preserve">
     <value>Imagen</value>

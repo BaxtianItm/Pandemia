@@ -4,6 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="Pandemic.Prism.Views.ModifyUserPage"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers" 
              BackgroundColor="{StaticResource ColorBackgroud}"
@@ -16,67 +17,47 @@
             <ScrollView>
                 <StackLayout>
 
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Document}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate DocumentPlaceHolder}" >
+                        <Entry 
+                            Text="{Binding User.Document}"
+                            Keyboard="Numeric"/>
+                    </inputLayout:SfTextInputLayout>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate FirstName}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate FirstNamePlaceHolder}" >
+                        <Entry 
+                            Text="{Binding User.FirstName}"/>
+                    </inputLayout:SfTextInputLayout>
 
-                        <Label Grid.Row="0"
-                               Grid.Column="0"
-                               Text="{i18n:Translate Document}"
-                               VerticalOptions="Center"/>
-                        <Entry Grid.Row="0"
-                               Grid.Column="1"
-                               Keyboard="Numeric"
-                               Placeholder="{i18n:Translate DocumentPlaceHolder}"
-                               Text="{Binding User.Document}"/>
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate LastName}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate LastNamePlaceHolder}" >
+                        <Entry 
+                            Text="{Binding User.LastName}"/>
+                    </inputLayout:SfTextInputLayout>
 
-                        <Label Grid.Row="1"
-                               Grid.Column="0"
-                               Text="{i18n:Translate FirstName}"
-                               VerticalOptions="Center"/>
-                        <Entry Grid.Row="1"
-                               Grid.Column="1"
-                               Placeholder="{i18n:Translate FirstNamePlaceHolder}"
-                               Text="{Binding User.FirstName}"/>
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Address}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate AddressPlaceHolder}" >
+                        <Entry 
+                             Text="{Binding User.Address}"/>
+                    </inputLayout:SfTextInputLayout>
 
-                        <Label Grid.Row="2"
-                               Grid.Column="0"
-                               Text="{i18n:Translate LastName}"
-                               VerticalOptions="Center"/>
-                        <Entry Grid.Row="2"
-                               Grid.Column="1"
-                               Placeholder="{i18n:Translate LastNamePlaceHolder}"
-                               Text="{Binding User.LastName}"/>
-
-                        <Label Grid.Row="3"
-                               Grid.Column="0"
-                               Text="{i18n:Translate Address}"
-                               VerticalOptions="Center"/>
-                        <Entry Grid.Row="3"
-                               Grid.Column="1"
-                               Placeholder="{i18n:Translate AddressPlaceHolder}"
-                               Text="{Binding User.Address}"/>
-
-                        <Label Grid.Row="4"
-                               Grid.Column="0"
-                               Text="{i18n:Translate Phone}"
-                               VerticalOptions="Center"/>
-                        <Entry Grid.Row="4" 
-                               Grid.Column="1"
-                               Keyboard="Telephone"
-                               Placeholder="{i18n:Translate PhonePlaceHolder}"
-                               Text="{Binding User.PhoneNumber}"/>
-                    </Grid>
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Phone}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate PhoneError}" >
+                        <Entry 
+                             Text="{Binding User.PhoneNumber}"
+                             Keyboard="Telephone"/>
+                    </inputLayout:SfTextInputLayout>
                 </StackLayout>
             </ScrollView>
             <StackLayout Orientation="Horizontal"
