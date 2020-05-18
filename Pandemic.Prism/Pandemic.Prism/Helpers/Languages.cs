@@ -159,11 +159,13 @@ namespace Pandemic.Prism.Helpers
         public static string Remember => Resource.Remember;
 
         public static string Remembering => Resource.Remembering;
+
         public static string Emergency => Resource.Emergency;
 
         public static string ValidEmail => Resource.ValidEmail;
 
         public static string ChangeTitle => Resource.ChangeTitle;
+
         public static string AddImage => Resource.AddImage;
 
         public static string AddReport => Resource.AddReport;

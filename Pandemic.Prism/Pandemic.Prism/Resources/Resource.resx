@@ -342,4 +342,10 @@
   <data name="AddImage" xml:space="preserve">
     <value>Add document image</value>
   </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Add details</value>
+  </data>
+  <data name="AddReport" xml:space="preserve">
+    <value>Add report</value>
+  </data>
 </root>

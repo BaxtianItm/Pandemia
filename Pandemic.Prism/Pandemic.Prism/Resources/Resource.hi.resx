@@ -345,4 +345,10 @@
   <data name="AddImage" xml:space="preserve">
     <value>दस्तावेज़ छवि जोड़ें!</value>
   </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>विवरण जोड़ें</value>
+  </data>
+  <data name="AddReport" xml:space="preserve">
+    <value>रिपोर्ट जोड़ें</value>
+  </data>
 </root>

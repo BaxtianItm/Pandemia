@@ -345,4 +345,10 @@
   <data name="AddImage" xml:space="preserve">
     <value>Añadir imagen del documento</value>
   </data>
+  <data name="AddDetails" xml:space="preserve">
+    <value>Agregar detalles</value>
+  </data>
+  <data name="AddReport" xml:space="preserve">
+    <value>Nuevo Reporte</value>
+  </data>
 </root>
