@@ -6,6 +6,7 @@
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers" 
              prism:ViewModelLocator.AutowireViewModel="True"
+             BackgroundColor="{StaticResource ColorBackgroud}"
              x:Class="Pandemic.Prism.Views.LoginPage"
              Title="{Binding Title}">
     
