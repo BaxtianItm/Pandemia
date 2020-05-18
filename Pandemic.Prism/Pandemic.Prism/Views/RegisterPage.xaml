@@ -71,18 +71,22 @@
 
                     <inputLayout:SfTextInputLayout 
                         Hint="{i18n:Translate Password}"  
+                        EnablePasswordVisibilityToggle="True"
                         FocusedColor="{StaticResource ColorAccent}"   
-                        HelperText="{i18n:Translate PasswordPlaceHolder}" >
-                        <Entry 
-                             Text="{Binding User.Password}"/>
+                        HelperText="{i18n:Translate PasswordPlaceHolder}"
+                        ShowCharCount="True" >
+                        <Entry Text="{Binding User.Password}"
+                               IsPassword="True"/>
                     </inputLayout:SfTextInputLayout>
 
                     <inputLayout:SfTextInputLayout 
                         Hint="{i18n:Translate PasswordConfirm}"  
+                        EnablePasswordVisibilityToggle="True"                      
                         FocusedColor="{StaticResource ColorAccent}"   
-                        HelperText="{i18n:Translate PasswordConfirmPlaceHolder}" >
-                        <Entry 
-                             Text="{Binding User.PasswordConfirm}"/>
+                        HelperText="{i18n:Translate PasswordConfirmPlaceHolder}" 
+                        ShowCharCount="True">
+                        <Entry Text="{Binding User.PasswordConfirm}"
+                               IsPassword="True"/>
                     </inputLayout:SfTextInputLayout>
 
                     <inputLayout:SfTextInputLayout 
@@ -98,8 +102,9 @@
                         </Picker> 
                     </inputLayout:SfTextInputLayout>
 
-                    <Label     Text="{i18n:Translate AddImage}"
-                               VerticalOptions="Center"/>
+                    <Label Text="{i18n:Translate AddImage}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
                     <ffimageloading:CachedImage Aspect="AspectFit"
                                                 Source="{Binding Image}" 
                                                 CacheDuration= "50"

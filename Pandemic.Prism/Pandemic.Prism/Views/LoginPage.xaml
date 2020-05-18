@@ -31,12 +31,12 @@
                     <inputLayout:SfTextInputLayout 
                         Hint="{i18n:Translate Password}"  
                         FocusedColor="{StaticResource ColorAccent}"   
-                        EnablePasswordVisibilityToggle="True"  
+                        EnablePasswordVisibilityToggle="True"                      
                         ErrorText="{i18n:Translate PasswordError}"
-                        ShowCharCount="True"
-                        CharMaxLength="6">
+                        ShowCharCount="True">
                         <Entry Text="{Binding Password}"
-                               HorizontalTextAlignment="End"/>
+                               HorizontalTextAlignment="End"
+                               IsPassword="True"/>
                     </inputLayout:SfTextInputLayout>
                 </StackLayout>
 
