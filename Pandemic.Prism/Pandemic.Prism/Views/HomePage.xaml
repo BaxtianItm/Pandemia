@@ -19,9 +19,10 @@
                     <inputLayout:SfTextInputLayout 
                         Hint="{i18n:Translate Document}"  
                         FocusedColor="{StaticResource ColorAccent}"   
-                        HelperText="{i18n:Translate DocumentPlaceHolderRep}" >
+                        HelperText="{i18n:Translate DocumentPlaceHolderRep}">
                        <Entry 
-                            Text="{Binding Document}"/>
+                            Text="{Binding Document}"
+                            Keyboard="Numeric"/>
                     </inputLayout:SfTextInputLayout>
                         
                     <inputLayout:SfTextInputLayout 
