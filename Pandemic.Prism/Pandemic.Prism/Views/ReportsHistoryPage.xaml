@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Pandemic.Prism.Views.HistoryPage"
+             xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers" 
+             BackgroundColor="{StaticResource ColorBackgroud}"
+             Title="{Binding Title}">
+
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" 
+                     Padding="10">
+            <StackLayout  VerticalOptions="CenterAndExpand">
+                <ListView 
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                ItemsSource="{Binding Reports}"
+                SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame
+                                CornerRadius="10"
+                                HasShadow="true"
+                                Margin="6"
+                                BackgroundColor="{StaticResource ColorPrimary}">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectTripCommand}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout 
+                                        Grid.Column="0">
+                                            <Label 
+                                            FontAttributes="Bold"
+                                            FontSize="Medium" 
+                                            Text="{Binding City}"
+                                            TextColor="{StaticResource ColorFontInverse}">
+                                            </Label>
+                                            <Label 
+                                            Text="{Binding FirstName}"
+                                            LineBreakMode="TailTruncation"
+                                            FontAttributes="Italic" 
+                                            FontSize="Small" 
+                                            VerticalOptions="End">
+                                            </Label>
+                                            <Label
+                                            Text="{Binding LastName}"
+                                            FontAttributes="Italic" 
+                                            FontSize="Small">
+                                            </Label>
+                                        </StackLayout>
+                                        <StackLayout 
+                                        Grid.Column="1">
+                                            <Label>
+                                            </Label>
+                                            <Label
+                                        Text="{Binding Document}"
+                                            FontAttributes="Bold">
+                                            </Label>
+                                            <Label>
+                                            </Label>
+                                        </StackLayout>
+                                        <Image  
+                                        Grid.Column="2"
+                                        Source="ic_format_list_bulleted">
+                                        </Image>
+                                    </Grid>
+
+                                </Frame>
+                            </ViewCell>
+
+                        </DataTemplate>
+
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button Command="{Binding AddReportCommand}" 
+                        IsEnabled="{Binding IsEnabled}"
+                        Text="{i18n:Translate AddReport}"/>
+        </StackLayout>
+
+    </AbsoluteLayout>
+
+</ContentPage>
