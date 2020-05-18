@@ -44,14 +44,14 @@
                                             TextColor="{StaticResource ColorFontInverse}">
                                             </Label>
                                             <Label 
-                                            Text="{Binding StartDateLocal, StringFormat='{0:dd/MM/yyyy}'}"
+                                            Text="{Binding FirstName}"
                                             LineBreakMode="TailTruncation"
                                             FontAttributes="Italic" 
                                             FontSize="Small" 
                                             VerticalOptions="End">
                                             </Label>
                                             <Label
-                                            Text="{Binding EndDateLocal, StringFormat='{0:dd/MM/yyyy}'}"
+                                            Text="{Binding LastName}"
                                             FontAttributes="Italic" 
                                             FontSize="Small">
                                             </Label>
@@ -61,7 +61,7 @@
                                             <Label>
                                             </Label>
                                             <Label
-                                        Text="{Binding TotalAmount, StringFormat='{0:C0}'}"
+                                        Text="{Binding Document}"
                                             FontAttributes="Bold">
                                             </Label>
                                             <Label>
