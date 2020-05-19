@@ -139,4 +139,7 @@
   <data name="RequestJoinGroupEmailSent" xml:space="preserve">
     <value>An email has been sent to the user with your request, we hope to respond soon!</value>
   </data>
+  <data name="ReportNotFoundError" xml:space="preserve">
+    <value>Report doesn't exists.</value>
+  </data>
 </root>

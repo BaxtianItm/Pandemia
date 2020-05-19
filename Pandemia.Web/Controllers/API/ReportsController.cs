@@ -7,6 +7,7 @@ using Pandemic.Web.Data;
 using Pandemic.Web.Data.Entities;
 using Pandemic.Web.Helpers;
 using Pandemic.Web.Resources;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -82,6 +83,44 @@ namespace Pandemic.Web.Controllers.API
             };
 
             await _context.Report.AddAsync(newReport);
+            await _context.SaveChangesAsync();
+            return NoContent();
+        }
+
+        [HttpPost]
+        [Route("AddDetails")]
+        public async Task<IActionResult> PostReportDetailEntity([FromBody] ReportDetailRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            CultureInfo cultureInfo = new CultureInfo(request.CultureInfo);
+            Resource.Culture = cultureInfo;
+
+            UserEntity userEntity = await _userHelper.GetUserAsync(request.UserId);
+            if (userEntity == null)
+            {
+                return BadRequest(Resource.UserNotFoundError);
+            }
+
+            var reportEntity = await _context.Report.FirstOrDefaultAsync(r => r.Id == request.ReportId);
+            if (reportEntity == null)
+            {
+                return BadRequest(Resource.ReportNotFoundError);
+            }
+
+            ReportDetailsEntity newReportDetails = new ReportDetailsEntity()
+            {
+              Date = DateTime.Now,
+              Observation = request.Observation,
+              Report = reportEntity,
+              Status = _context.StatusReport.FirstOrDefault(sr => sr.Id == request.StatusId),
+              User = userEntity
+            };
+
+            await _context.ReportDetails.AddAsync(newReportDetails);
             await _context.SaveChangesAsync();
             return NoContent();
         }
