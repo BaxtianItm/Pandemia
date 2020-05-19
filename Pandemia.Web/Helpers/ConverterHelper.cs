@@ -60,13 +60,13 @@ namespace Pandemic.Web.Helpers
                 User = ToUserResponse(reportEntity.User)
 
             };
-
-
         }
 
         public List<ReportResponse> ToReportResponse(List<ReportEntity> reportEntity)
         {
             throw new NotImplementedException();
         }
+
+ 
     }
 }

@@ -1,0 +1,59 @@
+﻿@model Pandemic.Web.Data.Entities.ReportEntity
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Report </h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Document" class="control-label"></label>
+                <input asp-for="Document" class="form-control" />
+                <span asp-validation-for="Document" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SourceLatitude" class="control-label"></label>
+                <input asp-for="SourceLatitude" class="form-control" />
+                <span asp-validation-for="SourceLatitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SourceLongitude" class="control-label"></label>
+                <input asp-for="SourceLongitude" class="form-control" />
+                <span asp-validation-for="SourceLongitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TargetLatitude" class="control-label"></label>
+                <input asp-for="TargetLatitude" class="form-control" />
+                <span asp-validation-for="TargetLatitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TargetLongitude" class="control-label"></label>
+                <input asp-for="TargetLongitude" class="form-control" />
+                <span asp-validation-for="TargetLongitude" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+ 
