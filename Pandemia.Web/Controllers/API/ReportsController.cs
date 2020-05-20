@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Pandemic.Common.Enums;
 using Pandemic.Common.Models;
 using Pandemic.Web.Data;
 using Pandemic.Web.Data.Entities;
@@ -39,16 +40,31 @@ namespace Pandemic.Web.Controllers.API
             {
                 return BadRequest(ModelState);
             }
+            List<ReportEntity> reportEntity = new List<ReportEntity>();
+            UserEntity userEntity = await _userHelper.GetUserRoleAsync(request.UserId);
 
-            List<Data.Entities.ReportEntity> reportEntity = await _context.Report
-                .Include(r => r.User)
-                .Include(r => r.ReportDetails)
-                .ThenInclude(rp => rp.Status)
-                .Where(r => r.User.Id == request.UserId)
-                .OrderByDescending(r => r.City)
-                .ToListAsync();
+            if (userEntity.UserType == UserType.User)
+            {
+                reportEntity = await _context.Report
+                     .Include(r => r.User)
+                     .Include(r => r.ReportDetails)
+                     .ThenInclude(rp => rp.Status)
+                     .Where(r => r.User.Id == request.UserId)
+                     .OrderByDescending(r => r.City)
+                     .ToListAsync();
+            }
+            else
+            {
+                reportEntity = await _context.Report
+                   .Include(r => r.User)
+                   .Include(r => r.ReportDetails)
+                   .ThenInclude(rp => rp.Status)
+                   .OrderByDescending(r => r.City)
+                   .ToListAsync();
+            }
 
-            return Ok(_converterHelper.ToReportResponse(reportEntity));
+
+            return Ok(reportEntity);
         }
 
 
@@ -105,7 +121,7 @@ namespace Pandemic.Web.Controllers.API
                 return BadRequest(Resource.UserNotFoundError);
             }
 
-            var reportEntity = await _context.Report.FirstOrDefaultAsync(r => r.Id == request.ReportId);
+            ReportEntity reportEntity = await _context.Report.FirstOrDefaultAsync(r => r.Id == request.ReportId);
             if (reportEntity == null)
             {
                 return BadRequest(Resource.ReportNotFoundError);
@@ -113,11 +129,11 @@ namespace Pandemic.Web.Controllers.API
 
             ReportDetailsEntity newReportDetails = new ReportDetailsEntity()
             {
-              Date = DateTime.Now,
-              Observation = request.Observation,
-              Report = reportEntity,
-              Status = _context.StatusReport.FirstOrDefault(sr => sr.Id == request.StatusId),
-              User = userEntity
+                Date = DateTime.Now,
+                Observation = request.Observation,
+                Report = reportEntity,
+                Status = _context.StatusReport.FirstOrDefault(sr => sr.Id == request.StatusId),
+                User = userEntity
             };
 
             await _context.ReportDetails.AddAsync(newReportDetails);

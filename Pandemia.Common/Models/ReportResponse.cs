@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Pandemic.Common.Models
 {
@@ -26,6 +24,6 @@ namespace Pandemic.Common.Models
 
         public UserResponse User { get; set; }
 
-        //public CitiesResponse City { get; set; }
+        public CitiesResponse City { get; set; }
     }
 }
