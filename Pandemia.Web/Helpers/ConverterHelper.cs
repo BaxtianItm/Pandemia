@@ -27,7 +27,7 @@ namespace Pandemic.Web.Helpers
                 PicturePath = user.PicturePath,
                 PhoneNumber = user.PhoneNumber,
                 UserType = user.UserType
-                               
+
             };
 
         }
@@ -66,7 +66,34 @@ namespace Pandemic.Web.Helpers
 
         public List<ReportResponse> ToReportResponse(List<ReportEntity> reportEntity)
         {
-            throw new NotImplementedException();
+            return reportEntity.Select(r => new ReportResponse
+            {
+                City = new CitiesResponse
+                {
+                    Id = r.City.Id,
+                    Name = r.City.Name,
+                    Country = new CountryResponse
+                    {
+                        Id = r.City.Country.Id,
+                        Name = r.City.Country.Name
+                    }
+                },
+                Document = r.Document,
+                FirstName = r.FirstName,
+                Id = r.Id,
+                LastName = r.LastName,
+                SourceLatitude = r.SourceLatitude,
+                SourceLongitude = r.SourceLongitude,
+                TargetLatitude = r.TargetLatitude,
+                TargetLongitude = r.TargetLongitude,
+                ReportDetails = r.ReportDetails.Select(rd => new ReportDetailsResponse
+                {
+                    Date = rd.Date,
+                    Id = rd.Id,
+                    Observation = rd.Observation,
+                    Status = rd.Status.Name
+                }).ToList()
+            }).ToList();
         }
     }
 }

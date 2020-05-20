@@ -49,6 +49,8 @@ namespace Pandemic.Web.Controllers.API
                      .Include(r => r.User)
                      .Include(r => r.ReportDetails)
                      .ThenInclude(rp => rp.Status)
+                     .Include(c => c.City)
+                     .ThenInclude(c => c.Country)
                      .Where(r => r.User.Id == request.UserId)
                      .OrderByDescending(r => r.City)
                      .ToListAsync();
@@ -59,12 +61,14 @@ namespace Pandemic.Web.Controllers.API
                    .Include(r => r.User)
                    .Include(r => r.ReportDetails)
                    .ThenInclude(rp => rp.Status)
+                     .Include(c => c.City)
+                     .ThenInclude(c => c.Country)
                    .OrderByDescending(r => r.City)
                    .ToListAsync();
             }
 
 
-            return Ok(reportEntity);
+            return Ok(_converterHelper.ToReportResponse(reportEntity));
         }
 
 
