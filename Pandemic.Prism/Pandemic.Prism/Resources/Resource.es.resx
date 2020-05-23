@@ -304,7 +304,7 @@
     <value>Modificar usuario</value>
   </data>
   <data name="AdminReports" xml:space="preserve">
-    <value>Reportes de administrador</value>
+    <value>Administrador de reportes</value>
   </data>
   <data name="CheckHistory" xml:space="preserve">
     <value>Verificar historial</value>

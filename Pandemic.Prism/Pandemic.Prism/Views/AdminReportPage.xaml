@@ -4,7 +4,75 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="Pandemic.Prism.Views.AdminReportPage"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers" 
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}">
-  
+
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" 
+                     Padding="5">
+            <StackLayout>
+                <CollectionView ItemsSource="{Binding Report}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectReportCommand}" />
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <StackLayout Grid.Column="1"
+                                         VerticalOptions="Center">
+                                    <Label FontSize="14">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{Binding FirstName}" FontAttributes="Bold"  FontSize="Medium" />
+                                                    <Span Text=" " FontAttributes="Bold" />
+                                                    <Span Text="{Binding LastName}" FontAttributes="Bold"  FontSize="Medium" />
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label Text="{Binding Document}" 
+                                       FontAttributes="Bold"
+                                      LineBreakMode="TailTruncation" />
+                                    <Label Text=" "
+                                       LineBreakMode="TailTruncation"
+                                       FontAttributes="Italic" 
+                                       VerticalOptions="End" />
+                                </StackLayout>
+                                <Image Grid.Column="2" 
+                                   Source="ic_go"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+
+            
+        </StackLayout>
+
+        <busyindicator:SfBusyIndicator AnimationType="Globe" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   HorizontalOptions="Center"
+                                       BackgroundColor="{StaticResource ColorDanger}"
+                                       TextColor="{StaticResource ColorFontInverse}"
+                                       Title="{i18n:Translate Loading}"
+                	                   IsVisible="{Binding IsRunning}"
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
+    </AbsoluteLayout>
 </ContentPage>

@@ -29,6 +29,18 @@ namespace Pandemic.Common.Services
         string controller,
         EmailRequest emailRequest);
 
+        Task<Response> ChangeStatusAsync(string urlBase,
+        string servicePrefix,
+        string controller,       
+        ChangeStatusRequest changeStatusRequest,
+        string tokenType, 
+        string accessToken);
 
+        Task<Response> ListReportsAsync<T>(string urlBase, 
+        string servicePrefix,
+        string controller,
+        MyReportsRequest myReportsRequest, 
+        string tokenType, 
+        string accessToken);
     }
 }
