@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Pandemic.Common.Models
 {
-    internal class ChangeStatusRequest
+    public class ChangeStatusRequest
     {
         public int Id { get; set; }
 
