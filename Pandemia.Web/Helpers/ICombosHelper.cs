@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Pandemic.Common.Enums;
-
+using Pandemic.Web.Data.Entities;
 
 namespace Pandemic.Web.Helpers
 {
@@ -12,5 +12,7 @@ namespace Pandemic.Web.Helpers
     {
         IEnumerable<SelectListItem> GetComboRoles();
         UserType GetComboRoles(int Id);
+        IEnumerable<SelectListItem> GetComboStatus();
+        //Status GetComboStatus(int Id);
     }
 }

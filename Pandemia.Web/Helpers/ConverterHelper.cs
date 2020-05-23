@@ -60,8 +60,6 @@ namespace Pandemic.Web.Helpers
                 User = ToUserResponse(reportEntity.User)
 
             };
-
-
         }
 
         public List<ReportResponse> ToReportResponse(List<ReportEntity> reportEntity)
@@ -94,6 +92,23 @@ namespace Pandemic.Web.Helpers
                     Status = rd.Status.Name
                 }).ToList()
             }).ToList();
+        }
+
+        public ReportDetailsResponse ToReportDetailResponse(ReportDetailsResponse reportDetailEntity)
+        {
+            if (reportDetailEntity == null)
+            {
+                return null;
+            }
+            return new ReportDetailsResponse
+            {
+                Id = reportDetailEntity.Id,
+                Observation = reportDetailEntity.Observation,
+               
+                Date = reportDetailEntity.Date,
+                
+
+            };
         }
     }
 }

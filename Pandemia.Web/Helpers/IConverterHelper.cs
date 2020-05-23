@@ -14,5 +14,8 @@ namespace Pandemic.Web.Helpers
         List<ReportResponse> ToReportResponse(List<ReportEntity> reportEntity);
 
         ReportResponse ToReportResponse(ReportEntity reportEntity);
+
+        ReportDetailsResponse ToReportDetailResponse(ReportDetailsResponse reportDetailEntity);
+
     }
 }

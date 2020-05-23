@@ -1,0 +1,41 @@
+﻿@model Pandemic.Web.Data.Entities.ReportEntity
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Report Details</h4>
+    <hr />
+
+    @foreach (var detail in Model.ReportDetails)
+    {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(modelDetail => detail.Date)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelDetail => detail.Date)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(modelDetail => detail.Observation)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelDetail => detail.Observation)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(modelDetail => detail.Status)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelDetail => detail.Status.Name)
+            </dd>
+        </dl>
+    }
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="Index" class="btn btn-success">Back to List</a>
+</div>
