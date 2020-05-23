@@ -144,5 +144,35 @@ namespace Pandemic.Web.Controllers.API
             await _context.SaveChangesAsync();
             return NoContent();
         }
+
+        [HttpPost]
+        [Route("ChangeStatus")]
+        public async Task<IActionResult> PutReportDetailEntity([FromBody] ChangeStatusRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            CultureInfo cultureInfo = new CultureInfo(request.CultureInfo);
+            Resource.Culture = cultureInfo;
+
+            UserEntity userEntity = await _userHelper.GetUserAsync(request.UserId);
+            if (userEntity == null)
+            {
+                return BadRequest(Resource.UserNotFoundError);
+            }
+
+            var reportDetailEntity = await _context.ReportDetails.FirstOrDefaultAsync(r => r.Id == request.Id);
+            if (reportDetailEntity == null)
+            {
+                return BadRequest(Resource.ReportNotFoundError);
+            }
+
+            reportDetailEntity.Status = _context.StatusReport.FirstOrDefault(s => s.Id == request.StatusId);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
     }
 }
