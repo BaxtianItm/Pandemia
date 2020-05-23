@@ -68,10 +68,7 @@ namespace Pandemic.Prism.ViewModels
 
         private void LoadMenus()
         {
-            List<Menu> menus = new List<Menu>();
-            if (Settings.IsLogin)
-            {
-                menus = new List<Menu>
+            List<Menu> menus = new List<Menu>
                 {
                     new Menu
                     {
@@ -119,37 +116,30 @@ namespace Pandemic.Prism.ViewModels
                         Title = Settings.IsLogin ? Languages.Logout : Languages.Login
                     }
                 };
+
+            if (Settings.IsLogin)
+            {
+
+                Menus = new ObservableCollection<MenuItemViewModel>(
+                    menus.Select(m => new MenuItemViewModel(_navigationService)
+                    {
+                        Icon = m.Icon,
+                        PageName = m.PageName,
+                        Title = m.Title,
+                        IsLoginRequired = m.IsLoginRequired
+                    }).ToList());
             }
             else
             {
-                menus = new List<Menu>
-                {
-                    new Menu
-                    {
-                        Icon = "ic_dashboard",
-                        PageName = "DashboardPage",
-                        Title = Languages.Dashboard,
-                    },
-                    new Menu
-                    {
-                        Icon = "ic_login",
-                        PageName = "LoginPage",
-                        Title = Settings.IsLogin ? Languages.Logout : Languages.Login
-                    }
-                };
+                Menus = new ObservableCollection<MenuItemViewModel>(
+                   menus.Where(r => r.IsLoginRequired != true).Select(m => new MenuItemViewModel(_navigationService)
+                   {
+                       Icon = m.Icon,
+                       PageName = m.PageName,
+                       Title = m.Title,
+                       IsLoginRequired = m.IsLoginRequired
+                   }).ToList());
             }
-
-
-
-            Menus = new ObservableCollection<MenuItemViewModel>(
-                menus.Select(m => new MenuItemViewModel(_navigationService)
-                {
-                    Icon = m.Icon,
-                    PageName = m.PageName,
-                    Title = m.Title,
-                    IsLoginRequired = m.IsLoginRequired
-
-                }).ToList());
         }
     }
 }
