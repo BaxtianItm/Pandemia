@@ -38,6 +38,11 @@
                         <li><a asp-area="" asp-controller="Report" asp-action="Index">Report</a></li>
                         <li><a asp-area="" asp-controller="Account" asp-action="Index">Admin Roles</a></li>
                     }
+
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Emergency"))
+                    {
+                        <li><a asp-area="" asp-controller="Report" asp-action="Index">Report</a></li>         
+                    }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)

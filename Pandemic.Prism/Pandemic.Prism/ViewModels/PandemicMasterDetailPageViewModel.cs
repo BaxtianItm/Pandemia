@@ -80,7 +80,6 @@ namespace Pandemic.Prism.ViewModels
                     Title = Languages.CreateReport,
                     IsLoginRequired = true
 
-
                 },
                 new Menu
                 {
@@ -103,7 +102,6 @@ namespace Pandemic.Prism.ViewModels
                     PageName = "HistoryPage",
                     Title = Languages.CheckHistory,
                     IsLoginRequired = true
-
 
                 },
                 new Menu

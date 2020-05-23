@@ -44,9 +44,9 @@ namespace Pandemic.Web.Helpers
             List<SelectListItem> list = new List<SelectListItem>
             {
                 new SelectListItem { Value = "0", Text = "[Select a status...]" },
-                new SelectListItem { Value = "1", Text = "Accepted" },
-                new SelectListItem { Value = "2", Text = "Pending" },
-                new SelectListItem { Value = "3", Text = "Rejected" }
+                new SelectListItem { Value = "1", Text = "Positive" },
+                new SelectListItem { Value = "2", Text = "Negative" },
+          
             };
 
             return list;

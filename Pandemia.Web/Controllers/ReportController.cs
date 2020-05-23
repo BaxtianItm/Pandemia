@@ -8,6 +8,7 @@ using Microsoft.CodeAnalysis.Differencing;
 using Microsoft.EntityFrameworkCore;
 using Pandemic.Web.Data;
 using Pandemic.Web.Data.Entities;
+using Pandemic.Web.Helpers;
 using Pandemic.Web.Models;
 
 namespace Pandemic.Web.Controllers
@@ -15,9 +16,11 @@ namespace Pandemic.Web.Controllers
     public class ReportController : Controller
     {
         private readonly DataContext _context;
+        private readonly ICombosHelper _combosHelper;
 
-        public ReportController(DataContext context)
+        public ReportController(DataContext context, ICombosHelper combosHelper)
         {
+            _combosHelper = combosHelper;
             _context = context;
         }
 
@@ -34,7 +37,6 @@ namespace Pandemic.Web.Controllers
 
             }).ToListAsync());
         }
-
 
         // GET: ReportEntities/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -84,12 +86,20 @@ namespace Pandemic.Web.Controllers
                 return NotFound();
             }
 
-            var reportEntity = await _context.Report.FindAsync(id);
+            var reportEntity = await _context.ReportDetails.FindAsync(id);
+            
             if (reportEntity == null)
             {
                 return NotFound();
             }
-            return View(reportEntity);
+            var editReportDetailsViewModel = new EditReportDetailsViewModel
+            {
+                Id = reportEntity.Id,
+                Date = reportEntity.Date,
+                Observation = reportEntity.Observation,
+                Status = _combosHelper.GetComboStatus()
+            };
+            return View(editReportDetailsViewModel);
         }
 
         // POST: ReportEntities/Edit/5
@@ -97,23 +107,30 @@ namespace Pandemic.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Document,SourceLatitude,SourceLongitude,TargetLatitude,TargetLongitude")] ReportEntity reportEntity)
+        public async Task<IActionResult> Edit(int id, EditReportDetailsViewModel reportDetailsViewModel)
         {
-            if (id != reportEntity.Id)
+            if (id != reportDetailsViewModel.Id)
             {
                 return NotFound();
             }
-
+            var reportDetails = new ReportDetailsEntity();
+            
             if (ModelState.IsValid)
             {
+                    reportDetails = new ReportDetailsEntity { 
+                    Id=reportDetailsViewModel.Id,
+                    Date=reportDetailsViewModel.Date,
+                    Observation=reportDetailsViewModel.Observation,
+                    Status= _context.StatusReport.FirstOrDefault(s=> s.Id== reportDetailsViewModel.StatusId)
+                };
                 try
                 {
-                    _context.Update(reportEntity);
+                    _context.Update(reportDetails);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ReportEntityExists(reportEntity.Id))
+                    if (!ReportEntityExists(reportDetails.Id))
                     {
                         return NotFound();
                     }
@@ -124,7 +141,7 @@ namespace Pandemic.Web.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(reportEntity);
+            return View(reportDetails);
         }
 
         // GET: ReportEntities/Delete/5

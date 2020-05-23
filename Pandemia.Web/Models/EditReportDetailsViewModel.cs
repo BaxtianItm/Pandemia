@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Pandemic.Web.Models
 {
-    public class EditStatusViewModel
+    public class EditReportDetailsViewModel
     {
+        public int Id { get; set; }
+
+        public string Observation { get; set; }
+
+        public DateTime Date { get; set; }
+
         public IEnumerable<SelectListItem> Status { get; set; }
         public int StatusId { get; set; }
-        public string StatusName { get; set; }
 
     }
 }

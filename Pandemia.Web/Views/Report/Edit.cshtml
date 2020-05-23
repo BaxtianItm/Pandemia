@@ -1,4 +1,4 @@
-﻿@model Pandemic.Web.Data.Entities.ReportEntity
+﻿@model Pandemic.Web.Models.EditReportDetailsViewModel
 
 @{
     ViewData["Title"] = "Edit";
@@ -14,42 +14,24 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="text-danger"></span>
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="text-danger"></span>
+                <label asp-for="Observation" class="control-label"></label>
+                <input asp-for="Observation" class="form-control" />
+                <span asp-validation-for="Observation" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Document" class="control-label"></label>
-                <input asp-for="Document" class="form-control" />
-                <span asp-validation-for="Document" class="text-danger"></span>
+                <label asp-for="StatusId" class="control-label"></label>
+                <select asp-for="StatusId" asp-items="Model.Status" class="form-control"></select>
+                <span asp-validation-for="StatusId" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="SourceLatitude" class="control-label"></label>
-                <input asp-for="SourceLatitude" class="form-control" />
-                <span asp-validation-for="SourceLatitude" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SourceLongitude" class="control-label"></label>
-                <input asp-for="SourceLongitude" class="form-control" />
-                <span asp-validation-for="SourceLongitude" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TargetLatitude" class="control-label"></label>
-                <input asp-for="TargetLatitude" class="form-control" />
-                <span asp-validation-for="TargetLatitude" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TargetLongitude" class="control-label"></label>
-                <input asp-for="TargetLongitude" class="form-control" />
-                <span asp-validation-for="TargetLongitude" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save"class="btn btn-info" />
                 <a asp-action="Index" class="btn btn-success">Back to List</a>
             </div>
         </form>

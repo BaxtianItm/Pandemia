@@ -67,6 +67,21 @@ namespace Pandemic.Web.Helpers
             throw new NotImplementedException();
         }
 
- 
+        public ReportDetailsResponse ToReportDetailResponse(ReportDetailsResponse reportDetailEntity)
+        {
+            if (reportDetailEntity == null)
+            {
+                return null;
+            }
+            return new ReportDetailsResponse
+            {
+                Id = reportDetailEntity.Id,
+                Observation = reportDetailEntity.Observation,
+               
+                Date = reportDetailEntity.Date,
+                
+
+            };
+        }
     }
 }
