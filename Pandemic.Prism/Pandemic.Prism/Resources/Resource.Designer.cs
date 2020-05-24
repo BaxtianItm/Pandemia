@@ -574,6 +574,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New status.
+        /// </summary>
+        public static string NewStatus {
+            get {
+                return ResourceManager.GetString("NewStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Observation.
         /// </summary>
         public static string Observation {
@@ -786,6 +795,15 @@ namespace Pandemic.Prism.Resources {
         public static string Remembering {
             get {
                 return ResourceManager.GetString("Remembering", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current status of the report.
+        /// </summary>
+        public static string ReportStatus {
+            get {
+                return ResourceManager.GetString("ReportStatus", resourceCulture);
             }
         }
         

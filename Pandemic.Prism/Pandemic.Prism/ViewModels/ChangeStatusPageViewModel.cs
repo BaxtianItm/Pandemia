@@ -11,12 +11,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Xamarin.Forms;
-
 
 namespace Pandemic.Prism.ViewModels
 {
-    public class ModifyStatusPageViewModel : ViewModelBase
+    public class ChangeStatusPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
@@ -26,14 +24,13 @@ namespace Pandemic.Prism.ViewModels
         private ObservableCollection<Role> _status;
         private DelegateCommand _modifyCommand;
         public ReportResponse Report;
-        private List<ReportDetailsResponse> _reportDetails;
-
-        private int Id;
-        private string FirstName;
-        private string LastName;
-        private string Document;
-        public ModifyStatusPageViewModel(INavigationService navigationService, IApiService apiService
-            ) :base(navigationService)
+        public List<ReportDetailsResponse> _reportDetails;
+        private UserResponse _user;
+        private TokenResponse _token;
+        public int IdDetail;
+ 
+        public ChangeStatusPageViewModel(INavigationService navigationService, IApiService apiService
+            ) : base(navigationService)
         {
             _navigationService = navigationService;
             _apiService = apiService;
@@ -41,7 +38,7 @@ namespace Pandemic.Prism.ViewModels
             IsEnabled = true;
             Status = new ObservableCollection<Role>(CombosHelper.GetStatus());
         }
-   
+
         //public DelegateCommand ModifyCommand => _modifyCommand ?? (_modifyCommand = new DelegateCommand(RegisterAsync));
         public DateTime dateSelect = DateTime.Today;
         public DateTime DataSelect
@@ -83,7 +80,7 @@ namespace Pandemic.Prism.ViewModels
             get => _reportDetails;
             set => SetProperty(ref _reportDetails, value);
         }
- 
+
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
@@ -92,12 +89,7 @@ namespace Pandemic.Prism.ViewModels
             if (parameters.ContainsKey("report"))
             {
                 Report = parameters.GetValue<ReportResponse>("report");
-                Id=Report.Id;
-                FirstName = Report.FirstName;
-                LastName = Report.LastName;
-                Document = Report.Document;
                 ReportDetails = Report.ReportDetails;
-            
             }
         }
 
@@ -109,7 +101,7 @@ namespace Pandemic.Prism.ViewModels
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.StatusError, Languages.Accept);
                 return false;
             }
-          
+
             return true;
         }
 
@@ -124,12 +116,16 @@ namespace Pandemic.Prism.ViewModels
             IsRunning = true;
             IsEnabled = false;
 
+            _user = JsonConvert.DeserializeObject<UserResponse>(Settings.User);
+            _token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+
+
             ChangeStatusRequest statusRequest = new ChangeStatusRequest
             {
-                 
 
-               // UserTypeId = User.UserType == UserType.User ? 1 : 2,
+                UserId = _user.Id,
                 CultureInfo = Languages.Culture,
+               // Id= ReportDetails.ForEach(var id in ReportDetails)
 
             };
 
@@ -146,10 +142,9 @@ namespace Pandemic.Prism.ViewModels
                 return;
             }
 
-           
+
             await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.StateUpdate, Languages.Accept);
         }
 
     }
 }
-

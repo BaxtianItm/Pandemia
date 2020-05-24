@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -158,5 +158,8 @@
   </data>
   <data name="RequestJoinGroupEmailSent" xml:space="preserve">
     <value>Se ha enviado un email al usuario con una nueva contraseña de acceso</value>
+  </data>
+  <data name="ReportNotFoundError" xml:space="preserve">
+    <value>El reporte no existe</value>
   </data>
 </root>

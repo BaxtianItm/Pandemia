@@ -37,10 +37,10 @@
     <EmbeddedResource Update="Views\AdminReportPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\DashboardPage.xaml">
+    <EmbeddedResource Update="Views\ChangeStatusPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ModifyStatusPage.xaml">
+    <EmbeddedResource Update="Views\DashboardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ReportsHistoryPage.xaml">

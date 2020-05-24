@@ -12,7 +12,8 @@
     <AbsoluteLayout>
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
                      AbsoluteLayout.LayoutFlags="All" 
-                     Padding="5">
+                     Padding="5"
+                      Margin="0,25,0,5">
             <StackLayout>
                 <CollectionView ItemsSource="{Binding Report}">
                     <CollectionView.ItemsLayout>
@@ -43,13 +44,18 @@
                                             </FormattedString>
                                         </Label.FormattedText>
                                     </Label>
-
-                                    <Label Text="{Binding Document}" 
-                                       FontAttributes="Bold"
-                                      LineBreakMode="TailTruncation" />
+                                    <Label FontSize="14">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{i18n:Translate Document}" FontAttributes="Bold"  FontSize="Medium" />
+                                                    <Span Text="  " FontAttributes="Bold" />
+                                                    <Span Text="{Binding Document}"   FontSize="Medium" />
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
                                     <Label Text=" "
-                                       LineBreakMode="TailTruncation"
-                                       FontAttributes="Italic" 
                                        VerticalOptions="End" />
                                 </StackLayout>
                                 <Image Grid.Column="2" 

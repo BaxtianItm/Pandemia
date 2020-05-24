@@ -390,4 +390,10 @@
   <data name="StateUpdate" xml:space="preserve">
     <value>राज्य सफलतापूर्वक बदल गया!</value>
   </data>
+  <data name="NewStatus" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="ReportStatus" xml:space="preserve">
+    <value>रिपोर्ट की वर्तमान स्थिति!</value>
+  </data>
 </root>

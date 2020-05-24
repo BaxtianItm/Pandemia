@@ -390,4 +390,10 @@
   <data name="StateUpdate" xml:space="preserve">
     <value>状态成功更改！</value>
   </data>
+  <data name="NewStatus" xml:space="preserve">
+    <value>新状态</value>
+  </data>
+  <data name="ReportStatus" xml:space="preserve">
+    <value>报告的当前状态！</value>
+  </data>
 </root>

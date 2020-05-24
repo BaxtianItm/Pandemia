@@ -387,4 +387,10 @@
   <data name="StateUpdate" xml:space="preserve">
     <value>State successfully changed</value>
   </data>
+  <data name="NewStatus" xml:space="preserve">
+    <value>New status</value>
+  </data>
+  <data name="ReportStatus" xml:space="preserve">
+    <value>Current status of the report</value>
+  </data>
 </root>

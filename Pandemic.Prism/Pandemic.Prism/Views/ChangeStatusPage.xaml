@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Pandemic.Prism.Views.ChangeStatusPage"
+             xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+         	 xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"    
+             BackgroundColor="{StaticResource ColorBackgroud}"
+             Title="{Binding Title}">
+
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All" 
+                     Padding="5" 
+                     Margin="0,25,0,5">
+            <StackLayout>
+                <StackLayout>
+                    <Label  Text="{i18n:Translate NewStatus}" 
+                                            FontSize="20"
+                                            FontAttributes="Bold"/>
+                    <Picker
+                            ItemDisplayBinding="{Binding Name}"
+                            ItemsSource="{Binding Status}"
+                            SelectedItem="{Binding Status}"
+                            Title="{i18n:Translate Status}"
+                            VerticalOptions="Center">
+                    </Picker>
+                </StackLayout>
+                <StackLayout  Margin="0,25,0,5">
+                    <Label  Text="{i18n:Translate ReportStatus}" 
+                                            FontSize="20"
+                                            FontAttributes="Bold"/>
+                    <CollectionView ItemsSource="{Binding ReportDetails}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Grid.Column="1"
+                                             VerticalOptions="Center">
+
+                                        <Label  Text="{i18n:Translate Observation}" 
+                                            FontSize="20"
+                                            FontAttributes="Bold"/>
+                                        <Label  Text="{i18n:Translate Date}"
+                                            FontAttributes="Bold"        
+                                            FontSize="20"  />
+                                        <Label  Text="{i18n:Translate Status}"
+                                            FontAttributes="Bold"
+                                            FontSize="20"  />
+
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="2"
+                                             VerticalOptions="Center">
+                                        <Label  Text="{Binding Observation}"  FontSize="20" />
+                                        <Label  Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"
+                                       LineBreakMode="TailTruncation"
+                                       FontSize="20"/>
+                                        <Label Text="{Binding Status}"  FontSize="20" />
+                                    </StackLayout>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+            </StackLayout>
+
+            <Button Command="{Binding LoginCommand}" 
+                        IsEnabled="{Binding IsEnabled}"
+                        Text="{i18n:Translate ModifyStatus}"/>
+        </StackLayout>
+
+    </AbsoluteLayout>   
+</ContentPage>

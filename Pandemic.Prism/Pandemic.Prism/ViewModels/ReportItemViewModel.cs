@@ -27,7 +27,7 @@ namespace Pandemic.Prism.ViewModels
                 { "report", this }
             };
 
-            await _navigationService.NavigateAsync(nameof(ModifyStatusPage), parameters);
+            await _navigationService.NavigateAsync(nameof(ChangeStatusPage), parameters);
         }
         
     }

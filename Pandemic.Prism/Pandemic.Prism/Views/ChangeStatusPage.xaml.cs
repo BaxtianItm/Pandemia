@@ -2,9 +2,9 @@
 
 namespace Pandemic.Prism.Views
 {
-    public partial class ModifyStatusPage : ContentPage
+    public partial class ChangeStatusPage : ContentPage
     {
-        public ModifyStatusPage()
+        public ChangeStatusPage()
         {
             InitializeComponent();
         }
