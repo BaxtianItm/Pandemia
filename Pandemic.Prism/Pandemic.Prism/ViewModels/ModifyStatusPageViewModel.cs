@@ -25,19 +25,23 @@ namespace Pandemic.Prism.ViewModels
         private bool _isEnabled;
         private ObservableCollection<Role> _status;
         private DelegateCommand _modifyCommand;
-        private List<ReportDetailsItemViewModel> _reportDetails;
-        private ReportResponse _reportResponse;
-        private int Id;
+        public ReportResponse Report;
+        private List<ReportDetailsResponse> _reportDetails;
 
+        private int Id;
+        private string FirstName;
+        private string LastName;
+        private string Document;
         public ModifyStatusPageViewModel(INavigationService navigationService, IApiService apiService
             ) :base(navigationService)
         {
             _navigationService = navigationService;
             _apiService = apiService;
-           // Title = Languages.TitleModify;
+            Title = Languages.TitleModify;
             IsEnabled = true;
             Status = new ObservableCollection<Role>(CombosHelper.GetStatus());
         }
+   
         //public DelegateCommand ModifyCommand => _modifyCommand ?? (_modifyCommand = new DelegateCommand(RegisterAsync));
         public DateTime dateSelect = DateTime.Today;
         public DateTime DataSelect
@@ -74,8 +78,12 @@ namespace Pandemic.Prism.ViewModels
             get => _isEnabled;
             set => SetProperty(ref _isEnabled, value);
         }
-
-
+        public List<ReportDetailsResponse> ReportDetails
+        {
+            get => _reportDetails;
+            set => SetProperty(ref _reportDetails, value);
+        }
+ 
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
@@ -83,8 +91,13 @@ namespace Pandemic.Prism.ViewModels
 
             if (parameters.ContainsKey("report"))
             {
-                _reportResponse = parameters.GetValue<ReportResponse>("report");
-               Id=_reportResponse.Id;
+                Report = parameters.GetValue<ReportResponse>("report");
+                Id=Report.Id;
+                FirstName = Report.FirstName;
+                LastName = Report.LastName;
+                Document = Report.Document;
+                ReportDetails = Report.ReportDetails;
+            
             }
         }
 
