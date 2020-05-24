@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+         	 xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers"
+             x:Class="Pandemic.Prism.Views.ModifyStatusPage"
+             BackgroundColor="{StaticResource ColorBackgroud}"
+             Title="{Binding Title}">
+
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     Padding="5">
+            <ScrollView>
+                <StackLayout>
+
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Observation}"  
+                        FocusedColor="{StaticResource ColorAccent}"    >
+                        <Entry 
+                            Text="{Binding Report.ReportDetails.Observation}"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Date}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate AddressPlaceHolder}" >
+                        <Entry 
+                             Text="{Binding User.Address}"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Status}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate ModifyStatus}" >
+                        <Picker
+                            ItemDisplayBinding="{Binding Name}"
+                            ItemsSource="{Binding Roles}"
+                            SelectedItem="{Binding Role}"
+                            Title="{i18n:Translate ModifyStatus}"
+                            VerticalOptions="Center">
+                        </Picker>
+                    </inputLayout:SfTextInputLayout>
+
+                </StackLayout>
+            </ScrollView>
+            <Button Command="{Binding RegisterCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="{i18n:Translate Register}"/>
+        </StackLayout>
+       
+    </AbsoluteLayout>
+</ContentPage>

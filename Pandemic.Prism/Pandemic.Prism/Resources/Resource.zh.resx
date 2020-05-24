@@ -363,4 +363,25 @@
   <data name="ImageError" xml:space="preserve">
     <value>您必须添加文档图像</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>日期</value>
+  </data>
+  <data name="ModifyStatus" xml:space="preserve">
+    <value>修改状态</value>
+  </data>
+  <data name="ModifyT" xml:space="preserve">
+    <value>修改报告状态</value>
+  </data>
+  <data name="Observation" xml:space="preserve">
+    <value>观测</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>状态</value>
+  </data>
+  <data name="Negative" xml:space="preserve">
+    <value>负面</value>
+  </data>
+  <data name="Positive" xml:space="preserve">
+    <value>正面</value>
+  </data>
 </root>

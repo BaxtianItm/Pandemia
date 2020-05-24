@@ -178,7 +178,14 @@ namespace Pandemic.Prism.Helpers
 
         public static string LastNamePlaceHolderRep => Resource.LastNamePlaceHolderRep;
         public static string ImageError => Resource.ImageError;
+        public static string TitleModify => Resource.ModifyT;
+        public static string Date => Resource.Date;
+        public static string Status => Resource.Status;
+        public static string ModifyStatus => Resource.ModifyStatus;
+        public static string Observation => Resource.Observation;
 
+        public static string Positive => Resource.Positive;
 
+        public static string Negative => Resource.Negative;
     }
 }

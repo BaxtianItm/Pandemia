@@ -363,4 +363,25 @@
   <data name="ImageError" xml:space="preserve">
     <value>आपको दस्तावेज़ छवि जोड़ना होगा!</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>दिनांक</value>
+  </data>
+  <data name="ModifyStatus" xml:space="preserve">
+    <value>स्थिति को संशोधित करें!</value>
+  </data>
+  <data name="ModifyT" xml:space="preserve">
+    <value>रिपोर्ट की स्थिति को संशोधित करें!</value>
+  </data>
+  <data name="Observation" xml:space="preserve">
+    <value>पर्यवेक्षण</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>स्थिति</value>
+  </data>
+  <data name="Negative" xml:space="preserve">
+    <value>ऋणात्मक</value>
+  </data>
+  <data name="Positive" xml:space="preserve">
+    <value>धनात्मक</value>
+  </data>
 </root>

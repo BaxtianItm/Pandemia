@@ -17,7 +17,6 @@ namespace Pandemic.Prism.ViewModels
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
         private string _url;
-        private string FullName;
         private UserResponse _user;
         private TokenResponse _token;
         private List<ReportItemViewModel> _report;

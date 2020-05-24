@@ -15,5 +15,14 @@ namespace Pandemic.Prism.Helpers
                 new Role { Id = 2, Name = Languages.Emergency }
             };
         }
+
+        public static List<Role> GetStatus()
+        {
+            return new List<Role>
+            {
+                new Role { Id = 1, Name = Languages.Positive },
+                new Role { Id = 2, Name = Languages.Negative }
+            };
+        }
     }
 }
