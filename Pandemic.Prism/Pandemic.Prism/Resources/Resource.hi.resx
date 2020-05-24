@@ -384,4 +384,10 @@
   <data name="Positive" xml:space="preserve">
     <value>धनात्मक</value>
   </data>
+  <data name="StatusError" xml:space="preserve">
+    <value>Me kar sakti hu</value>
+  </data>
+  <data name="StateUpdate" xml:space="preserve">
+    <value>राज्य सफलतापूर्वक बदल गया!</value>
+  </data>
 </root>

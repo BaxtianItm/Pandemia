@@ -20,6 +20,7 @@ namespace Pandemic.Prism.ViewModels
         private UserResponse _user;
         private TokenResponse _token;
         private List<ReportItemViewModel> _report;
+        private List<ReportDetailsItemViewModel> _reportDetails;
         private bool _isRunning;
         private bool _isEnabled;
         public AdminReportPageViewModel(INavigationService navigationService, IApiService apiService
@@ -36,6 +37,11 @@ namespace Pandemic.Prism.ViewModels
         {
             get => _report;
             set => SetProperty(ref _report, value);
+        }
+        public List<ReportDetailsItemViewModel> ReportDetails
+        {
+            get => _reportDetails;
+            set => SetProperty(ref _reportDetails, value);
         }
 
         public bool IsRunning
@@ -91,10 +97,10 @@ namespace Pandemic.Prism.ViewModels
             IsRunning = false;
             IsEnabled = true;
 
-
+            
             List<MyReportsResponse> reports = (List<MyReportsResponse>)response.Result;
             Report = reports.Select(r => new ReportItemViewModel(_navigationService)
-            {
+            { 
                 Document=r.Document,
                 Id = r.Id,
                 FirstName=r.FirstName,
@@ -107,9 +113,10 @@ namespace Pandemic.Prism.ViewModels
                     Date=rd.Date,
                     Observation=rd.Observation,
                     Status=rd.Status
-                   
+
                 }).ToList()
             }).ToList();
+         
         }
 
     }

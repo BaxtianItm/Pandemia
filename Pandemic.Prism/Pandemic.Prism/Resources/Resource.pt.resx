@@ -384,4 +384,10 @@
   <data name="Positive" xml:space="preserve">
     <value>Positivo</value>
   </data>
+  <data name="StatusError" xml:space="preserve">
+    <value>você deve entrar no estado!</value>
+  </data>
+  <data name="StateUpdate" xml:space="preserve">
+    <value>Estado alterado com sucesso!</value>
+  </data>
 </root>

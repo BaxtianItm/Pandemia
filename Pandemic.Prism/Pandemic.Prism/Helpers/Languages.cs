@@ -187,5 +187,8 @@ namespace Pandemic.Prism.Helpers
         public static string Positive => Resource.Positive;
 
         public static string Negative => Resource.Negative;
+        public static string StatusError => Resource.StatusError;
+        public static string StateUpdate => Resource.StateUpdate;
+        
     }
 }

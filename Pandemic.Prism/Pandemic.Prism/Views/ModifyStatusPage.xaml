@@ -27,18 +27,17 @@
                     <inputLayout:SfTextInputLayout 
                         Hint="{i18n:Translate Date}"  
                         FocusedColor="{StaticResource ColorAccent}"   
-                        HelperText="{i18n:Translate AddressPlaceHolder}" >
+                        HelperText="{i18n:Translate Date}" >
                         <DatePicker x:Name="datePicker" Format="dd-MM-yyyy" Date ="{Binding DataSelect}"  />
                     </inputLayout:SfTextInputLayout>
 
                     <inputLayout:SfTextInputLayout 
                         Hint="{i18n:Translate Status}"  
-                        FocusedColor="{StaticResource ColorAccent}"   
-                        HelperText="{i18n:Translate ModifyStatus}" >
+                        FocusedColor="{StaticResource ColorAccent}">
                         <Picker
                             ItemDisplayBinding="{Binding Name}"
                             ItemsSource="{Binding Status}"
-                            SelectedItem="{Binding Role}"
+                            SelectedItem="{Binding Status}"
                             Title="{i18n:Translate Status}"
                             VerticalOptions="Center">
                         </Picker>
@@ -46,10 +45,22 @@
 
                 </StackLayout>
             </ScrollView>
-            <Button Command="{Binding RegisterCommand}"
+            <StackLayout>
+            <Button Command="{Binding ModifyCommand}"
                     IsEnabled="{Binding IsEnabled}"
                     Text="{i18n:Translate ModifyStatus}"/>
+            </StackLayout>
         </StackLayout>
-       
+        <busyindicator:SfBusyIndicator AnimationType="Globe" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   HorizontalOptions="Center"
+                                       BackgroundColor="{StaticResource ColorDanger}"
+                                       TextColor="{StaticResource ColorFontInverse}"
+                                       Title="{i18n:Translate Loading}"
+                	                   IsVisible="{Binding IsRunning}"
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
     </AbsoluteLayout>
 </ContentPage>

@@ -8,27 +8,28 @@ using System.Text;
 
 namespace Pandemic.Prism.ViewModels
 {
-     public class ReportItemViewModel : ReportResponse
+    public class ReportDetailsItemViewModel : ReportDetailsResponse
     {
         private readonly INavigationService _navigationService;
+        private DelegateCommand _selectTripCommand;
         private DelegateCommand _selectReportCommand;
-        private DelegateCommand _addDetailCommand;
 
-        public ReportItemViewModel(INavigationService navigationService)
+        public ReportDetailsItemViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
         }
-     public DelegateCommand SelectReportCommand => _selectReportCommand ?? (_selectReportCommand = new DelegateCommand(SelectReportAsync));
+
+        public DelegateCommand SelectReportDetailsCommand => _selectReportCommand ?? (_selectReportCommand = new DelegateCommand(SelectReportAsync));
 
         private async void SelectReportAsync()
         {
             var parameters = new NavigationParameters
             {
-                { "report", this }
+                { "reportDetails", this }
             };
 
             await _navigationService.NavigateAsync(nameof(ModifyStatusPage), parameters);
         }
-        
+
     }
 }

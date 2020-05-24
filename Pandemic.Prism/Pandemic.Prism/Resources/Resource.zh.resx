@@ -384,4 +384,10 @@
   <data name="Positive" xml:space="preserve">
     <value>正面</value>
   </data>
+  <data name="StatusError" xml:space="preserve">
+    <value>您必须进入状态！</value>
+  </data>
+  <data name="StateUpdate" xml:space="preserve">
+    <value>状态成功更改！</value>
+  </data>
 </root>
