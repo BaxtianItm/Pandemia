@@ -4,7 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
-         	 xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+         	 xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"    
              xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers"
              x:Class="Pandemic.Prism.Views.ModifyStatusPage"
              BackgroundColor="{StaticResource ColorBackgroud}"
@@ -28,8 +28,7 @@
                         Hint="{i18n:Translate Date}"  
                         FocusedColor="{StaticResource ColorAccent}"   
                         HelperText="{i18n:Translate AddressPlaceHolder}" >
-                        <Entry 
-                             Text="{Binding User.Address}"/>
+                        <DatePicker x:Name="datePicker" Format="dd-MM-yyyy" Date ="{Binding DataSelect}"  />
                     </inputLayout:SfTextInputLayout>
 
                     <inputLayout:SfTextInputLayout 
@@ -38,9 +37,9 @@
                         HelperText="{i18n:Translate ModifyStatus}" >
                         <Picker
                             ItemDisplayBinding="{Binding Name}"
-                            ItemsSource="{Binding Roles}"
+                            ItemsSource="{Binding Status}"
                             SelectedItem="{Binding Role}"
-                            Title="{i18n:Translate ModifyStatus}"
+                            Title="{i18n:Translate Status}"
                             VerticalOptions="Center">
                         </Picker>
                     </inputLayout:SfTextInputLayout>
@@ -49,7 +48,7 @@
             </ScrollView>
             <Button Command="{Binding RegisterCommand}"
                     IsEnabled="{Binding IsEnabled}"
-                    Text="{i18n:Translate Register}"/>
+                    Text="{i18n:Translate ModifyStatus}"/>
         </StackLayout>
        
     </AbsoluteLayout>
