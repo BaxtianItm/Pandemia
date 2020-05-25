@@ -1,15 +1,12 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Prism.Navigation;
-using Pandemic.Common.Models;
-using System.Collections.ObjectModel;
-using Pandemic.Prism.Helpers;
+﻿using Newtonsoft.Json;
 using Pandemic.Common.Helpers;
+using Pandemic.Common.Models;
 using Pandemic.Common.Services;
-using Newtonsoft.Json;
+using Pandemic.Prism.Helpers;
+using Prism.Navigation;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Pandemic.Prism.ViewModels
 {
@@ -72,64 +69,77 @@ namespace Pandemic.Prism.ViewModels
         private void LoadMenus()
         {
             List<Menu> menus = new List<Menu>
+                {
+                    new Menu
+                    {
+                        Icon = "ic_report",
+                        PageName = "HomePage",
+                        Title = Languages.CreateReport,
+                        IsLoginRequired = true
+
+                    },
+                    new Menu
+                    {
+                        Icon = "ic_admin",
+                        PageName = "AdminReportPage",
+                        Title = Languages.AdminReports,
+                        IsLoginRequired = true
+
+
+                    },
+                    new Menu
+                    {
+                        Icon = "ic_dashboard",
+                        PageName = "DashboardPage",
+                        Title = Languages.Dashboard,
+                    },
+                    new Menu
+                    {
+                        Icon = "ic_history",
+                        PageName = "HistoryPage",
+                        Title = Languages.CheckHistory,
+                        IsLoginRequired = true
+
+                    },
+                    new Menu
+                    {
+                        Icon = "ic_usermodify",
+                        PageName = "ModifyUserPage",
+                        Title = Languages.ModifyTitle,
+                        IsLoginRequired = true
+
+                    },
+                    new Menu
+                    {
+                        Icon = "ic_login",
+                        PageName = "LoginPage",
+                        Title = Settings.IsLogin ? Languages.Logout : Languages.Login
+                    }
+                };
+
+            if (Settings.IsLogin)
             {
-                new Menu
-                {
-                    Icon = "ic_report",
-                    PageName = "HomePage",
-                    Title = Languages.CreateReport,
-                    IsLoginRequired = true
 
-                },
-                new Menu
-                {
-                    Icon = "ic_admin",
-                    PageName = "AdminReportPage",
-                    Title = Languages.AdminReports,
-                    IsLoginRequired = true
-
-
-                },
-                new Menu
-                {
-                    Icon = "ic_dashboard",
-                    PageName = "DashboardPage",
-                    Title = Languages.Dashboard,
-                },
-                new Menu
-                {
-                    Icon = "ic_history",
-                    PageName = "HistoryPage",
-                    Title = Languages.CheckHistory,
-                    IsLoginRequired = true
-
-                },
-                new Menu
-                {
-                    Icon = "ic_usermodify",
-                    PageName = "ModifyUserPage",
-                    Title = Languages.ModifyTitle,
-                    IsLoginRequired = true
-
-                },
-                new Menu
-                {
-                    Icon = "ic_login",
-                    PageName = "LoginPage",
-                    Title = Settings.IsLogin ? Languages.Logout : Languages.Login
-                }
-            };
-
-
-            Menus = new ObservableCollection<MenuItemViewModel>(
-                menus.Select(m => new MenuItemViewModel(_navigationService)
-                {
-                    Icon = m.Icon,
-                    PageName = m.PageName,
-                    Title = m.Title,
-                    IsLoginRequired = m.IsLoginRequired
-
-                }).ToList());
+                Menus = new ObservableCollection<MenuItemViewModel>(
+                    menus.Select(m => new MenuItemViewModel(_navigationService)
+                    {
+                        Icon = m.Icon,
+                        PageName = m.PageName,
+                        Title = m.Title,
+                        IsLoginRequired = m.IsLoginRequired
+                    }).ToList());
+            }
+            else
+            {
+                Menus = new ObservableCollection<MenuItemViewModel>(
+                   menus.Where(r => r.IsLoginRequired != true).Select(m => new MenuItemViewModel(_navigationService)
+                   {
+                       Icon = m.Icon,
+                       PageName = m.PageName,
+                       Title = m.Title,
+                       IsLoginRequired = m.IsLoginRequired
+                   }).ToList());
+            }
         }
     }
 }

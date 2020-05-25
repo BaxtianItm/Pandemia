@@ -4,88 +4,100 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="Pandemic.Prism.Views.HistoryPage"
+              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers" 
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}">
 
+
     <AbsoluteLayout>
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
                      AbsoluteLayout.LayoutFlags="All" 
-                     Padding="10">
-            <StackLayout  VerticalOptions="CenterAndExpand">
-                <ListView 
-                HasUnevenRows="true" 
-                IsPullToRefreshEnabled="true"
-                ItemsSource="{Binding Reports}"
-                SeparatorVisibility="None">
-                    <ListView.ItemTemplate>
+                     Padding="5"
+                      Margin="0,25,0,5">
+            <StackLayout>
+                <CollectionView ItemsSource="{Binding Report}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
-                                <Frame
-                                CornerRadius="10"
-                                HasShadow="true"
-                                Margin="6"
-                                BackgroundColor="{StaticResource ColorPrimary}">
-                                    <Frame.GestureRecognizers>
-                                        <TapGestureRecognizer Command="{Binding SelectTripCommand}"/>
-                                    </Frame.GestureRecognizers>
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                        </Grid.ColumnDefinitions>
-                                        <StackLayout 
-                                        Grid.Column="0">
-                                            <Label 
-                                            FontAttributes="Bold"
-                                            FontSize="Medium" 
-                                            Text="{Binding City}"
-                                            TextColor="{StaticResource ColorFontInverse}">
-                                            </Label>
-                                            <Label 
-                                            Text="{Binding FirstName}"
-                                            LineBreakMode="TailTruncation"
-                                            FontAttributes="Italic" 
-                                            FontSize="Small" 
-                                            VerticalOptions="End">
-                                            </Label>
-                                            <Label
-                                            Text="{Binding LastName}"
-                                            FontAttributes="Italic" 
-                                            FontSize="Small">
-                                            </Label>
-                                        </StackLayout>
-                                        <StackLayout 
-                                        Grid.Column="1">
-                                            <Label>
-                                            </Label>
-                                            <Label
-                                        Text="{Binding Document}"
-                                            FontAttributes="Bold">
-                                            </Label>
-                                            <Label>
-                                            </Label>
-                                        </StackLayout>
-                                        <Image  
-                                        Grid.Column="2"
-                                        Source="ic_format_list_bulleted">
-                                        </Image>
-                                    </Grid>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
 
-                                </Frame>
-                            </ViewCell>
-
+                                <StackLayout Grid.Column="1"
+                                         VerticalOptions="Center">
+                                    <Label FontSize="14">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{Binding FirstName}" FontAttributes="Bold"  FontSize="Medium" />
+                                                    <Span Text=" " FontAttributes="Bold" />
+                                                    <Span Text="{Binding LastName}" FontAttributes="Bold"  FontSize="Medium" />
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label FontSize="14">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{i18n:Translate Document}" FontAttributes="Bold"  FontSize="Medium" />
+                                                    <Span Text="  " FontAttributes="Bold" />
+                                                    <Span Text="{Binding Document}"   FontSize="Medium" />
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label FontSize="14">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{i18n:Translate Observation}" FontAttributes="Bold"  FontSize="Medium" />
+                                                    <Span Text="  " FontAttributes="Bold" />
+                                                    <Span Text="{Binding Observation}"   FontSize="Medium" />
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label FontSize="14">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <FormattedString.Spans>
+                                                    <Span Text="{i18n:Translate Date}" FontAttributes="Bold"  FontSize="Medium" />
+                                                    <Span Text="  " FontAttributes="Bold" />
+                                                    <Span Text="{Binding DateLocal}"   FontSize="Medium" />
+                                                </FormattedString.Spans>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                    <Label Text=" "
+                                       VerticalOptions="End" />
+                                </StackLayout>
+                            </Grid>
                         </DataTemplate>
-
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </StackLayout>
-            <Button Command="{Binding CreateReportCommand}" 
-                        IsEnabled="{Binding IsEnabled}"
-                        Text="{i18n:Translate AddReport}"/>
+
+
         </StackLayout>
 
+        <busyindicator:SfBusyIndicator AnimationType="Globe" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   HorizontalOptions="Center"
+                                       BackgroundColor="{StaticResource ColorDanger}"
+                                       TextColor="{StaticResource ColorFontInverse}"
+                                       Title="{i18n:Translate Loading}"
+                	                   IsVisible="{Binding IsRunning}"
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
     </AbsoluteLayout>
 
 </ContentPage>
