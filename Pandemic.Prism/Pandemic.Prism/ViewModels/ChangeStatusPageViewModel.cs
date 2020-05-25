@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Forms.Xaml;
 
 namespace Pandemic.Prism.ViewModels
 {
@@ -131,7 +132,7 @@ namespace Pandemic.Prism.ViewModels
             }
 
             await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.StateUpdate, Languages.Accept);
-            await _navigationService.NavigateAsync(nameof(AdminReportPage));
+            await _navigationService.GoBackToRootAsync();
         }
 
     }
