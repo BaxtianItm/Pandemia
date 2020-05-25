@@ -241,7 +241,7 @@
     <value>Escribe una nueva contraseña</value>
   </data>
   <data name="Ok" xml:space="preserve">
-    <value>Aceptar</value>
+    <value>Ok</value>
   </data>
   <data name="PasswordConfirm" xml:space="preserve">
     <value>Confirmar contraseña</value>

@@ -3,6 +3,7 @@ using Pandemic.Common.Helpers;
 using Pandemic.Common.Models;
 using Pandemic.Common.Services;
 using Pandemic.Prism.Helpers;
+using Pandemic.Prism.Views;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -39,20 +40,8 @@ namespace Pandemic.Prism.ViewModels
             Status = new ObservableCollection<Role>(CombosHelper.GetStatus());
         }
 
-        //public DelegateCommand ModifyCommand => _modifyCommand ?? (_modifyCommand = new DelegateCommand(RegisterAsync));
-        public DateTime dateSelect = DateTime.Today;
-        public DateTime DataSelect
-        {
-            get
-            {
-                return dateSelect;
-            }
-            set
-            {
-                dateSelect = value;
-            }
-
-        }
+        public DelegateCommand ModifyCommand => _modifyCommand ?? (_modifyCommand = new DelegateCommand(UpdateStatusAsync));
+         
         public Role Role
         {
             get => _state;
@@ -95,8 +84,7 @@ namespace Pandemic.Prism.ViewModels
 
         private async Task<bool> ValidateDataAsync()
         {
-
-            if (Status == null)
+            if (Role == null)
             {
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.StatusError, Languages.Accept);
                 return false;
@@ -105,7 +93,7 @@ namespace Pandemic.Prism.ViewModels
             return true;
         }
 
-        private async void SaveAsync()
+        private async void UpdateStatusAsync()
         {
             bool isValid = await ValidateDataAsync();
             if (!isValid)
@@ -122,28 +110,28 @@ namespace Pandemic.Prism.ViewModels
 
             ChangeStatusRequest statusRequest = new ChangeStatusRequest
             {
-
                 UserId = _user.Id,
                 CultureInfo = Languages.Culture,
-               // Id= ReportDetails.ForEach(var id in ReportDetails)
+                StatusId= Role.Id,
+                Id= ReportDetails.FirstOrDefault().Id
 
             };
 
             TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
             string url = App.Current.Resources["UrlAPI"].ToString();
-            Response response = await _apiService.PutAsync(url, "/api", "/Reports/ChangeStatus", statusRequest, "bearer", token.Token);
+            Response response = await _apiService.ChangeStatusAsync(url, "/api", "/Reports/ChangeStatus", statusRequest, "bearer", token.Token);
 
             IsRunning = false;
             IsEnabled = true;
 
             if (!response.IsSuccess)
             {
-                await App.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
+                await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
                 return;
             }
 
-
             await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.StateUpdate, Languages.Accept);
+            await _navigationService.NavigateAsync(nameof(AdminReportPage));
         }
 
     }
