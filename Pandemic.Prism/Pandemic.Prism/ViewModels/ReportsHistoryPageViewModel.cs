@@ -6,6 +6,7 @@ using Pandemic.Prism.Helpers;
 using Prism.Commands;
 using Prism.Navigation;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Pandemic.Prism.ViewModels
 {
@@ -15,7 +16,10 @@ namespace Pandemic.Prism.ViewModels
         private readonly IApiService _apiService;
         private bool _isRunning;
         private bool _isEnabled;
-        private List<ReportResponse> _details;
+        private string _url;
+        private UserResponse _user;
+        private TokenResponse _token;
+        private List<ReportDetail> _report;
         private DelegateCommand _addReportCommand;
 
 
@@ -38,6 +42,12 @@ namespace Pandemic.Prism.ViewModels
             set => SetProperty(ref _isRunning, value);
         }
 
+        public List<ReportDetail> Report
+        {
+            get => _report;
+            set => SetProperty(ref _report, value);
+        }
+
         public bool IsEnabled
         {
             get => _isEnabled;
@@ -49,8 +59,8 @@ namespace Pandemic.Prism.ViewModels
             IsRunning = true;
             IsEnabled = false;
 
-            string url = App.Current.Resources["UrlAPI"].ToString();
-            bool connection = await _apiService.CheckConnectionAsync(url);
+            _url = App.Current.Resources["UrlAPI"].ToString();
+            bool connection = await _apiService.CheckConnectionAsync(_url);
             if (!connection)
             {
                 IsRunning = false;
@@ -59,15 +69,15 @@ namespace Pandemic.Prism.ViewModels
                 return;
             }
 
-            UserResponse user = JsonConvert.DeserializeObject<UserResponse>(Settings.User);
-            TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+            _user = JsonConvert.DeserializeObject<UserResponse>(Settings.User);
+            _token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
 
-            MyReportsRequest request = new MyReportsRequest
+            MyReportsRequest myReportsRequest = new MyReportsRequest
             {
-                UserId = user.Id
+                UserId = _user.Id
             };
 
-            Response response = await _apiService.ListReportsAsync(url, "/api", "/Travel/GetTravel", request, "bearer", token.Token);
+            Response response = await _apiService.ListReportsAsync<ReportResponse>(_url, "/api", "/Reports/GetMyReports", myReportsRequest, "bearer", _token.Token);
 
             IsRunning = false;
             IsEnabled = true;
@@ -77,10 +87,17 @@ namespace Pandemic.Prism.ViewModels
                 return;
             }
 
-
-
-
-
+            List<MyReportsResponse> reports = (List<MyReportsResponse>)response.Result;
+            Report = reports.Select(r => new ReportDetail()
+            {
+                DateLocal = r.ReportDetails.FirstOrDefault().DateLocal,
+                Document = r.Document,
+                FirstName = r.FirstName,
+                LastName = r.LastName,
+                Id = r.Id,
+                Observation = r.ReportDetails.FirstOrDefault().Observation,
+                Status = r.ReportDetails.FirstOrDefault().Status
+            }).ToList();
         }
 
         private async void CreateReport()
