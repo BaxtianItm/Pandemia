@@ -363,4 +363,37 @@
   <data name="ImageError" xml:space="preserve">
     <value>você deve adicionar uma imagem do documento</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ModifyStatus" xml:space="preserve">
+    <value>Modificar status</value>
+  </data>
+  <data name="ModifyT" xml:space="preserve">
+    <value>Modificar Relatório</value>
+  </data>
+  <data name="Observation" xml:space="preserve">
+    <value>Observação</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Negative" xml:space="preserve">
+    <value>Negativo</value>
+  </data>
+  <data name="Positive" xml:space="preserve">
+    <value>Positivo</value>
+  </data>
+  <data name="StatusError" xml:space="preserve">
+    <value>você deve entrar no estado!</value>
+  </data>
+  <data name="StateUpdate" xml:space="preserve">
+    <value>Estado alterado com sucesso!</value>
+  </data>
+  <data name="NewStatus" xml:space="preserve">
+    <value>Novo Status</value>
+  </data>
+  <data name="ReportStatus" xml:space="preserve">
+    <value>Status atual do relatório!</value>
+  </data>
 </root>

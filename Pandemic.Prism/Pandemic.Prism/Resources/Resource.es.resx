@@ -241,7 +241,7 @@
     <value>Escribe una nueva contraseña</value>
   </data>
   <data name="Ok" xml:space="preserve">
-    <value>Aceptar</value>
+    <value>Ok</value>
   </data>
   <data name="PasswordConfirm" xml:space="preserve">
     <value>Confirmar contraseña</value>
@@ -304,7 +304,7 @@
     <value>Modificar usuario</value>
   </data>
   <data name="AdminReports" xml:space="preserve">
-    <value>Reportes de administrador</value>
+    <value>Administrador de reportes</value>
   </data>
   <data name="CheckHistory" xml:space="preserve">
     <value>Verificar historial</value>
@@ -362,5 +362,38 @@
   </data>
   <data name="ImageError" xml:space="preserve">
     <value>debes agregar la imagen del documento</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="ModifyStatus" xml:space="preserve">
+    <value>Modificar estado</value>
+  </data>
+  <data name="ModifyT" xml:space="preserve">
+    <value>Modificar estado del reporte</value>
+  </data>
+  <data name="Observation" xml:space="preserve">
+    <value>Observación</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Negative" xml:space="preserve">
+    <value>Negativo</value>
+  </data>
+  <data name="Positive" xml:space="preserve">
+    <value>Positivo</value>
+  </data>
+  <data name="StatusError" xml:space="preserve">
+    <value>Debes ingresar el estado</value>
+  </data>
+  <data name="StateUpdate" xml:space="preserve">
+    <value>Estado modificado exitosamente</value>
+  </data>
+  <data name="NewStatus" xml:space="preserve">
+    <value>Nuevo estado</value>
+  </data>
+  <data name="ReportStatus" xml:space="preserve">
+    <value>Estado actual del reporte:</value>
   </data>
 </root>

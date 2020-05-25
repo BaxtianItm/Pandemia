@@ -159,4 +159,7 @@
   <data name="RequestJoinGroupEmailSent" xml:space="preserve">
     <value>आपके अनुरोध के साथ उपयोगकर्ता को एक ईमेल भेजा गया है, हम जल्द ही जवाब देने की उम्मीद करते हैं !!</value>
   </data>
+  <data name="ReportNotFoundError" xml:space="preserve">
+    <value>रिपोर्ट मौजूद नहीं है!</value>
+  </data>
 </root>

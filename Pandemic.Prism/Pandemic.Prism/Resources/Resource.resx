@@ -360,4 +360,37 @@
   <data name="ImageError" xml:space="preserve">
     <value>you must add document image</value>
   </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="ModifyStatus" xml:space="preserve">
+    <value>Modify status</value>
+  </data>
+  <data name="ModifyT" xml:space="preserve">
+    <value>Modify report status</value>
+  </data>
+  <data name="Observation" xml:space="preserve">
+    <value>Observation</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Negative" xml:space="preserve">
+    <value>Negative</value>
+  </data>
+  <data name="Positive" xml:space="preserve">
+    <value>Positive</value>
+  </data>
+  <data name="StatusError" xml:space="preserve">
+    <value>you must enter the state</value>
+  </data>
+  <data name="StateUpdate" xml:space="preserve">
+    <value>State successfully changed</value>
+  </data>
+  <data name="NewStatus" xml:space="preserve">
+    <value>New status</value>
+  </data>
+  <data name="ReportStatus" xml:space="preserve">
+    <value>Current status of the report</value>
+  </data>
 </root>

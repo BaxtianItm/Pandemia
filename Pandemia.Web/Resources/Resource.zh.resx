@@ -159,4 +159,7 @@
   <data name="RequestJoinGroupEmailSent" xml:space="preserve">
     <value>已经向您发送了一封包含您请求的电子邮件，我们希望尽快回复！</value>
   </data>
+  <data name="ReportNotFoundError" xml:space="preserve">
+    <value>报告不存在。</value>
+  </data>
 </root>

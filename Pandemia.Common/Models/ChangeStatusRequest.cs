@@ -13,6 +13,6 @@ namespace Pandemic.Common.Models
         public string CultureInfo { get; set; }
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
     }
 }
