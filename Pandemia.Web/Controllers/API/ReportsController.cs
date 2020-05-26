@@ -73,6 +73,28 @@ namespace Pandemic.Web.Controllers.API
 
 
         [HttpPost]
+        [Route("GetUserReports")]
+        public async Task<IActionResult> GetUserReports([FromBody] MyReportsRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            List<ReportEntity> reportEntity = await _context.Report
+                 .Include(r => r.User)
+                 .Include(r => r.ReportDetails)
+                 .ThenInclude(rp => rp.Status)
+                 .Include(c => c.City)
+                 .ThenInclude(c => c.Country)
+                 .Where(r => r.User.Id == request.UserId)
+                 .OrderByDescending(r => r.City)
+                 .ToListAsync();
+
+            return Ok(_converterHelper.ToReportResponse(reportEntity));
+        }
+
+
+        [HttpPost]
         public async Task<IActionResult> PostReportEntity([FromBody] ReportRequest request)
         {
             if (!ModelState.IsValid)

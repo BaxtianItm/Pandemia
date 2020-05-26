@@ -77,7 +77,7 @@ namespace Pandemic.Prism.ViewModels
                 UserId = _user.Id
             };
 
-            Response response = await _apiService.ListReportsAsync<ReportResponse>(_url, "/api", "/Reports/GetMyReports", myReportsRequest, "bearer", _token.Token);
+            Response response = await _apiService.ListReportsAsync<ReportResponse>(_url, "/api", "/Reports/GetUserReports", myReportsRequest, "bearer", _token.Token);
 
             IsRunning = false;
             IsEnabled = true;
