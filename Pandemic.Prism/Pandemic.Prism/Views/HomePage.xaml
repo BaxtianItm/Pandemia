@@ -46,11 +46,12 @@
                         FocusedColor="{StaticResource ColorAccent}"   
                         HelperText="{i18n:Translate AddressPlaceHolder}" >
                         <Entry 
-                             Text="{Binding Address}"/>
+                             Text="{Binding Source}"/>
                     </inputLayout:SfTextInputLayout>
-                    <Button Text="{i18n:Translate GetAddress}"
-                IsEnabled="{Binding IsEnabled}"
-                Style="{StaticResource DangerButton}"/>
+                     <Button Text="{i18n:Translate GetAddress}"
+                             IsEnabled="{Binding IsEnabled}"
+                             Command="{Binding GetAddressCommand}"
+                             Style="{StaticResource DangerButton}"/>
                     <StackLayout  WidthRequest="300" HeightRequest="300">
                         <maps:Map x:Name="MyMap"
                      MapType="Street"/>

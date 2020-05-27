@@ -399,4 +399,7 @@
   <data name="GetAddress" xml:space="preserve">
     <value>पता</value>
   </data>
+  <data name="GeolocationError" xml:space="preserve">
+    <value>आपका वर्तमान पता प्राप्त करना संभव नहीं था, कृपया बाद में प्रयास करें।</value>
+  </data>
 </root>

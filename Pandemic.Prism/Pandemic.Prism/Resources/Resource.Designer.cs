@@ -430,6 +430,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to It was not possible to get your current address, please try later..
+        /// </summary>
+        public static string GeolocationError {
+            get {
+                return ResourceManager.GetString("GeolocationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Get address.
         /// </summary>
         public static string GetAddress {

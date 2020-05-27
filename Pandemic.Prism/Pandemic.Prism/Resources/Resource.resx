@@ -396,4 +396,7 @@
   <data name="GetAddress" xml:space="preserve">
     <value>Get address</value>
   </data>
+  <data name="GeolocationError" xml:space="preserve">
+    <value>It was not possible to get your current address, please try later.</value>
+  </data>
 </root>
