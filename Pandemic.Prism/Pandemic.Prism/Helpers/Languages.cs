@@ -192,6 +192,7 @@ namespace Pandemic.Prism.Helpers
 
         public static string NewStatus => Resource.NewStatus;
         public static string ReportStatus => Resource.ReportStatus;
-
+        public static string GetAddress => Resource.GetAddress;
+        
     }
 }

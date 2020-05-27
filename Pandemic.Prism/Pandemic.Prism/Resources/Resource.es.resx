@@ -396,4 +396,7 @@
   <data name="ReportStatus" xml:space="preserve">
     <value>Estado actual del reporte:</value>
   </data>
+  <data name="GetAddress" xml:space="preserve">
+    <value>Obtener dirección</value>
+  </data>
 </root>

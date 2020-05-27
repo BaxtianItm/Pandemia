@@ -10,16 +10,64 @@
              x:Class="Pandemic.Prism.Views.HomePage"
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}" >
+    <AbsoluteLayout>
+        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
+                     AbsoluteLayout.LayoutFlags="All"
+                     Padding="5">
+            <ScrollView>
+                <StackLayout>
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Document}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate DocumentPlaceHolderRep}">
+                        <Entry 
+                            Text="{Binding Document}"
+                            Keyboard="Numeric"/>
+                    </inputLayout:SfTextInputLayout>
 
-    <StackLayout>
-        <maps:Map x:Name="MyMap"
-                  MapType="Street"/>
-    <StackLayout Padding="5">
-        <Button Text="{i18n:Translate Address}"
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate FirstName}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate FirstNamePlaceHolderRep}" >
+                        <Entry 
+                            Text="{Binding FirstName}"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate LastName}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate LastNamePlaceHolderRep}" >
+                        <Entry 
+                            Text="{Binding LastName}"/>
+                    </inputLayout:SfTextInputLayout>
+
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Address}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate AddressPlaceHolder}" >
+                        <Entry 
+                             Text="{Binding Address}"/>
+                    </inputLayout:SfTextInputLayout>
+                    <Button Text="{i18n:Translate GetAddress}"
                 IsEnabled="{Binding IsEnabled}"
                 Style="{StaticResource DangerButton}"/>
-    </StackLayout>
-    </StackLayout>
+                    <StackLayout  WidthRequest="300" HeightRequest="300">
+                        <maps:Map x:Name="MyMap"
+                     MapType="Street"/>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <StackLayout Orientation="Horizontal"
+                         VerticalOptions="EndAndExpand">
+
+                <Button Command="{Binding AddReportCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Text="{i18n:Translate CreateReport}"/>
+            </StackLayout>
+        </StackLayout>
+         
+    </AbsoluteLayout>
+ 
 
 </ContentPage>
 

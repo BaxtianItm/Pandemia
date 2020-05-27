@@ -430,6 +430,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Get address.
+        /// </summary>
+        public static string GetAddress {
+            get {
+                return ResourceManager.GetString("GetAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to you must add document image.
         /// </summary>
         public static string ImageError {

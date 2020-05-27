@@ -396,4 +396,7 @@
   <data name="ReportStatus" xml:space="preserve">
     <value>报告的当前状态！</value>
   </data>
+  <data name="GetAddress" xml:space="preserve">
+    <value>获取地址</value>
+  </data>
 </root>
