@@ -26,7 +26,6 @@ namespace Pandemic.Prism.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(bundle);
-            FacebookSdk.SdkInitialize(this);
             FacebookClientManager.Initialize(this);
             CrossCurrentActivity.Current.Init(this, bundle);
             global::Xamarin.Forms.Forms.Init(this, bundle);
