@@ -396,4 +396,7 @@
   <data name="ReportStatus" xml:space="preserve">
     <value>Status atual do relatório!</value>
   </data>
+  <data name="LoginFacebook" xml:space="preserve">
+    <value>Entrar via Facebook</value>
+  </data>
 </root>

@@ -502,6 +502,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login with Facebook.
+        /// </summary>
+        public static string LoginFacebook {
+            get {
+                return ResourceManager.GetString("LoginFacebook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
         public static string Logout {

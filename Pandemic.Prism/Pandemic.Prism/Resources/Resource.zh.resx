@@ -396,4 +396,7 @@
   <data name="ReportStatus" xml:space="preserve">
     <value>报告的当前状态！</value>
   </data>
+  <data name="LoginFacebook" xml:space="preserve">
+    <value>使用Facebook账号登录</value>
+  </data>
 </root>

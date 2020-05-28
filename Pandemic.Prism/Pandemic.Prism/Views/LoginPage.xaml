@@ -66,6 +66,14 @@
                         IsEnabled="{Binding IsEnabled}"
                         Text="{i18n:Translate Register}"
                         Style="{StaticResource DangerButton}"/>
+                <Button BackgroundColor="#4768AD" 
+                        Command="{Binding LoginFacebookCommand}"
+                        HeightRequest="45"
+                        IsEnabled="{Binding IsEnabled}"
+                        ImageSource="ic_fb"
+                        Text="{i18n:Translate LoginFacebook}"
+                        TextColor="#FFFFFF"/>
+
             </StackLayout>
         </StackLayout>
         <busyindicator:SfBusyIndicator AnimationType="Globe" 
