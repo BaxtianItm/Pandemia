@@ -26,7 +26,8 @@ namespace Pandemic.Web.Helpers
                 LastName = user.LastName,
                 PicturePath = user.PicturePath,
                 PhoneNumber = user.PhoneNumber,
-                UserType = user.UserType
+                UserType = user.UserType,
+                LoginType = user.LoginType
 
             };
 

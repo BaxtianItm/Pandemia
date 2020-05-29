@@ -22,6 +22,7 @@ namespace Pandemic.Prism.ViewModels
         private readonly IApiService _apiService;
         private bool _isRunning;
         private bool _isEnabled;
+        private bool _isPandemicUser;
         private UserResponse _user;
         private DelegateCommand _saveCommand;
         private DelegateCommand _changePasswordCommand;
@@ -32,6 +33,7 @@ namespace Pandemic.Prism.ViewModels
             _navigationService = navigationService;
             IsEnabled = true;
             User = JsonConvert.DeserializeObject<UserResponse>(Settings.User);
+            IsPandemicUser = User.LoginType == LoginType.Pandemic;
             _apiService = apiService;
             Title = Languages.ModifyTitle;
         }
@@ -46,6 +48,12 @@ namespace Pandemic.Prism.ViewModels
         {
             get => _user;
             set => SetProperty(ref _user, value);
+        }
+
+        public bool IsPandemicUser
+        {
+            get => _isPandemicUser;
+            set => SetProperty(ref _isPandemicUser, value);
         }
 
         public bool IsRunning

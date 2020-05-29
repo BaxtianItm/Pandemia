@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Pandemic.Common.Models;
 using Pandemic.Web.Data.Entities;
 using Pandemic.Web.Models;
 using System;
@@ -13,6 +14,9 @@ namespace Pandemic.Web.Helpers
         Task<UserEntity> GetUserAsync(string email);
 
         Task<UserEntity> GetUserAsync(Guid userId);
+
+        Task<UserEntity> AddUserAsync(FacebookProfile model);
+
         Task<UserEntity> GetUserRoleAsync(string id);
 
         Task<IdentityResult> AddUserAsync(UserEntity user, string password);

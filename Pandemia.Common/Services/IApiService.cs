@@ -15,6 +15,9 @@ namespace Pandemic.Common.Services
         string servicePrefix,
         string controller,
         TokenRequest request);
+
+        Task<Response> GetTokenAsync(string urlBase, string servicePrefix, string controller, FacebookProfile request);
+
         Task<Response> GetUserByEmailAsync(
         string urlBase,
         string servicePrefix,
