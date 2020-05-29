@@ -32,6 +32,10 @@ namespace Pandemic.Common.Models
          public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
        ? "https://pandemicweb0.azurewebsites.net//images/noimage.png"
        : $"";
-       
+
+        public LoginType LoginType { get; set; }
+
+
+
     }
 }

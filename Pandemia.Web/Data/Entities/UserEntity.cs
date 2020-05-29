@@ -34,5 +34,9 @@ namespace Pandemic.Web.Data.Entities
 
         public string FullNameWithDocument => $"{FirstName} {LastName} - {Document}";
 
+        [Display(Name = "Login Type")]
+        public LoginType LoginType { get; set; }
+
+
     }
 }
