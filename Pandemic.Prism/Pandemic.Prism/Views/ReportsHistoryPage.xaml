@@ -94,7 +94,7 @@
                                        BackgroundColor="{StaticResource ColorDanger}"
                                        TextColor="{StaticResource ColorFontInverse}"
                                        Title="{i18n:Translate Loading}"
-                	                   IsVisible="{Binding IsRunning}"
+                	                   IsBusy="{Binding IsRunning}"
                 	                   VerticalOptions="Center"
                 	                   ViewBoxWidth="80"
                 	                   ViewBoxHeight="80" />
