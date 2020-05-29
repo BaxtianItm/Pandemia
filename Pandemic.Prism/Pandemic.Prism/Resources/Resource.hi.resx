@@ -396,4 +396,10 @@
   <data name="ReportStatus" xml:space="preserve">
     <value>रिपोर्ट की वर्तमान स्थिति!</value>
   </data>
+  <data name="GetAddress" xml:space="preserve">
+    <value>पता</value>
+  </data>
+  <data name="GeolocationError" xml:space="preserve">
+    <value>आपका वर्तमान पता प्राप्त करना संभव नहीं था, कृपया बाद में प्रयास करें।</value>
+  </data>
 </root>

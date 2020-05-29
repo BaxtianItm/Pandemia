@@ -42,5 +42,12 @@ namespace Pandemic.Common.Services
         MyReportsRequest myReportsRequest, 
         string tokenType, 
         string accessToken);
+        Task<Response> CreateReportAsync(string urlBase,
+        string servicePrefix,
+        string controller,
+        ReportRequest reportRequest,
+        string tokenType,
+        string accessToken);
+
     }
 }

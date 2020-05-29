@@ -10,11 +10,30 @@ namespace Pandemic.Prism.Views
      public partial class HomePage : ContentPage
     {
         private readonly IGeolocatorService _geolocatorService;
+        private static HomePage _instance;
 
         public HomePage(IGeolocatorService geolocatorService)
         {
             InitializeComponent();
+            _instance = this;
             _geolocatorService = geolocatorService;
+             
+        }
+
+        public static HomePage GetInstance()
+        {
+            return _instance;
+        }
+
+        public void AddPin(Position position, string address, string label, PinType pinType)
+        {
+            MyMap.Pins.Add(new Pin
+            {
+                Address = address,
+                Label = label,
+                Position = position,
+                Type = pinType
+            });
         }
 
         protected override void OnAppearing()
@@ -37,11 +56,38 @@ namespace Pandemic.Prism.Views
                     Position position = new Position(
                         _geolocatorService.Latitude,
                         _geolocatorService.Longitude);
-                    MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(
-                        position,
-                        Distance.FromKilometers(.5)));
+                    MoveMap(position);
                 }
             }
+        }
+
+        private void MoveMap(Position position)
+        {
+            MyMap.MoveToRegion(MapSpan.FromCenterAndRadius(
+                position,
+                Distance.FromKilometers(.2)));
+        }
+
+        public void DrawLine(Position a, Position b)
+        {
+            if (Device.RuntimePlatform == Device.Android)
+            {
+                Polygon polygon = new Polygon
+                {
+                    StrokeWidth = 10,
+                    StrokeColor = Color.FromHex("#8D07F6"),
+                    FillColor = Color.FromHex("#8D07F6"),
+                    Geopath = { a, b }
+                };
+
+                MyMap.MapElements.Add(polygon);
+            }
+            else
+            {
+                AddPin(b, string.Empty, string.Empty, PinType.SavedPin);
+            }
+
+            MoveMap(b);
         }
 
         private async Task<bool> CheckLocationPermisionsAsync()
@@ -67,5 +113,4 @@ namespace Pandemic.Prism.Views
                    permissionLocationWhenInUse == PermissionStatus.Granted;
         }
     }
-
 }
