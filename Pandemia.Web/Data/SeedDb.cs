@@ -1216,7 +1216,7 @@ namespace Pandemic.Web.Data
                 _context.Report.Add(
                     new ReportEntity
                     {
-                        City = _context.Cities.Where(c => c.Name == "Medellin").FirstOrDefault(),
+                        City = _context.Cities.Where(c => c.Name == "Medellín").FirstOrDefault(),
                         Document = "123456789",
                         FirstName = "Andres",
                         LastName = "Palacio",
