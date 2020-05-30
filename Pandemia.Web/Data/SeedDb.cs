@@ -534,7 +534,7 @@ namespace Pandemic.Web.Data
             await AddCities("Marsella ", "Colombia");
             await AddCities("Marulanda ", "Colombia");
             await AddCities("Matanza ", "Colombia");
-            await AddCities("Medellin ", "Colombia");
+            await AddCities("Medellín ", "Colombia");
             await AddCities("Medina ", "Colombia");
             await AddCities("Medio Atrato ", "Colombia");
             await AddCities("Medio Baudó ", "Colombia");
@@ -1216,10 +1216,11 @@ namespace Pandemic.Web.Data
                 _context.Report.Add(
                     new ReportEntity
                     {
-                        City = _context.Cities.Where(c => c.Name == "Medellin").FirstOrDefault(),
+                        City = _context.Cities.Where(c => c.Name == "Medellín").FirstOrDefault(),
                         Document = "123456789",
                         FirstName = "Andres",
                         LastName = "Palacio",
+                        Address = "Cl. 56 #45646",
                         User = await _userHelper.GetUserAsync("sebastiangomezjimenez8@gmail.com"),
                         ReportDetails = new List<ReportDetailsEntity>
                         {
@@ -1243,6 +1244,7 @@ namespace Pandemic.Web.Data
                        Document = "123456789",
                        FirstName = "Pepe",
                        LastName = "Palacio",
+                       Address = "Cl. 56 #45646",
                        User = await _userHelper.GetUserAsync("sebastiangomezjimenez8@gmail.com"),
                        ReportDetails = new List<ReportDetailsEntity>
                        {

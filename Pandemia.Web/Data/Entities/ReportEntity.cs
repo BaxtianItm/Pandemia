@@ -22,6 +22,8 @@ namespace Pandemic.Web.Data.Entities
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string Document { get; set; }
 
+        public string Address { get; set; }
+
         public double SourceLatitude { get; set; }
 
         public double SourceLongitude { get; set; }
