@@ -41,7 +41,12 @@ namespace Pandemic.Web.Controllers.API
                 return BadRequest(ModelState);
             }
             List<ReportEntity> reportEntity = new List<ReportEntity>();
-            UserEntity userEntity = await _userHelper.GetUserRoleAsync(request.UserId);
+
+            UserEntity userEntity = await _userHelper.GetUserAsync(request.UserId);
+            if (userEntity == null)
+            {
+                return BadRequest(Resource.UserNotFoundError);
+            }
 
             if (userEntity.UserType == UserType.User)
             {
@@ -80,6 +85,13 @@ namespace Pandemic.Web.Controllers.API
             {
                 return BadRequest(ModelState);
             }
+
+            UserEntity userEntity = await _userHelper.GetUserAsync(request.UserId);
+            if (userEntity == null)
+            {
+                return BadRequest(Resource.UserNotFoundError);
+            }
+
             List<ReportEntity> reportEntity = await _context.Report
                  .Include(r => r.User)
                  .Include(r => r.ReportDetails)
@@ -111,9 +123,11 @@ namespace Pandemic.Web.Controllers.API
                 return BadRequest(Resource.UserNotFoundError);
             }
 
+            var addressSplit = request.Address.Split(",");
+
             ReportEntity newReport = new ReportEntity()
             {
-                City = _context.Cities.Where(c => c.Id == request.CityId).FirstOrDefault(),
+                City = _context.Cities.Where(c => c.Name == addressSplit[1].ToString().Trim()).FirstOrDefault(),
                 Document = request.Document,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
@@ -121,6 +135,7 @@ namespace Pandemic.Web.Controllers.API
                 SourceLongitude = request.SourceLongitude,
                 TargetLatitude = request.TargetLatitude,
                 TargetLongitude = request.TargetLongitude,
+                Address = addressSplit[0].ToString().Trim(),
                 User = userEntity
             };
 
