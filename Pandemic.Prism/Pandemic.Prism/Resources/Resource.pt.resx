@@ -405,4 +405,16 @@
   <data name="ReportCreated" xml:space="preserve">
     <value>Relatório criado com êxito.</value>
   </data>
+  <data name="ReportDetails" xml:space="preserve">
+    <value>Detalhes do relatório</value>
+  </data>
+  <data name="ObservationError" xml:space="preserve">
+    <value>Você deve entrar na observação!</value>
+  </data>
+  <data name="CreateDetails" xml:space="preserve">
+    <value>Detalhes do relatório adicionados corretamente!</value>
+  </data>
+  <data name="EndReport" xml:space="preserve">
+    <value>Relatório de fim de ano</value>
+  </data>
 </root>

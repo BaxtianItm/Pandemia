@@ -3,6 +3,7 @@ using Pandemic.Common.Helpers;
 using Pandemic.Common.Models;
 using Pandemic.Common.Services;
 using Pandemic.Prism.Helpers;
+using Pandemic.Prism.Views;
 using Prism.Commands;
 using Prism.Navigation;
 using System.Collections.Generic;
@@ -120,20 +121,32 @@ namespace Pandemic.Prism.ViewModels
             TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
             string url = App.Current.Resources["UrlAPI"].ToString();
             Response response = await _apiService.CreateReportAsync(url, "/api", "/Reports", reportRequest, "bearer", token.Token);
-
+            ReportResponse report = (ReportResponse)response.Result;
+            IsRunning = false;
+            IsEnabled = true;
 
             if (!response.IsSuccess)
             {
-                await App.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
+                await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
                 return;
             }
 
+            
+            
             await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.ReportCreated, Languages.Accept);
-            IsRunning = false;
-            IsEnabled = true;
-        }
+           // AddDetailAsync(report.Id);
 
-        private async Task<bool> ValidateDataAsync()
+
+        }
+        private async Task AddDetailAsync(int id)
+        {
+            NavigationParameters parameters = new NavigationParameters
+            {
+                { "reportId", id }
+            };
+            await _navigationService.NavigateAsync(nameof(AddDetailPage), parameters);
+        }
+            private async Task<bool> ValidateDataAsync()
         {
             if (string.IsNullOrEmpty(Document))
             {

@@ -402,4 +402,16 @@
   <data name="ReportCreated" xml:space="preserve">
     <value>Report created successfully</value>
   </data>
+  <data name="ReportDetails" xml:space="preserve">
+    <value>Report details</value>
+  </data>
+  <data name="ObservationError" xml:space="preserve">
+    <value>You must enter the observation</value>
+  </data>
+  <data name="CreateDetails" xml:space="preserve">
+    <value>Report details added correctly</value>
+  </data>
+  <data name="EndReport" xml:space="preserve">
+    <value>End report</value>
+  </data>
 </root>

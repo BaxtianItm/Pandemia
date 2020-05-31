@@ -11,7 +11,7 @@ namespace Pandemic.Common.Models
         public int StatusId { get; set; }
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
-        public Guid UserId { get; set; }
+        public string UserId { get; set; }
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public int ReportId { get; set; }

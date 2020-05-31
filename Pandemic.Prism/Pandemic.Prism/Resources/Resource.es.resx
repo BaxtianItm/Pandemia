@@ -405,4 +405,16 @@
   <data name="ReportCreated" xml:space="preserve">
     <value>Reporte creado correctamente</value>
   </data>
+  <data name="ReportDetails" xml:space="preserve">
+    <value>Detalles de reporte</value>
+  </data>
+  <data name="ObservationError" xml:space="preserve">
+    <value>Debes entrar en la observación</value>
+  </data>
+  <data name="CreateDetails" xml:space="preserve">
+    <value>Los detalles del reporte se agregaron correctamente</value>
+  </data>
+  <data name="EndReport" xml:space="preserve">
+    <value>Finalizar reporte</value>
+  </data>
 </root>

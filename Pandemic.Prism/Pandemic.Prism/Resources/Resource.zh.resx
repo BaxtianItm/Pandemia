@@ -405,4 +405,16 @@
   <data name="ReportCreated" xml:space="preserve">
     <value>已成功创建报告。</value>
   </data>
+  <data name="ReportDetails" xml:space="preserve">
+    <value>报表详细信息:</value>
+  </data>
+  <data name="ObservationError" xml:space="preserve">
+    <value>您必须输入观察！</value>
+  </data>
+  <data name="CreateDetails" xml:space="preserve">
+    <value>报告详细信息已正确添加！</value>
+  </data>
+  <data name="EndReport" xml:space="preserve">
+    <value>结束报告！</value>
+  </data>
 </root>
