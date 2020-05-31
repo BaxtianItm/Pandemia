@@ -5,6 +5,7 @@ using Pandemic.Common.Services;
 using Pandemic.Prism.Helpers;
 using Prism.Commands;
 using Prism.Navigation;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -90,13 +91,13 @@ namespace Pandemic.Prism.ViewModels
             List<MyReportsResponse> reports = (List<MyReportsResponse>)response.Result;
             Report = reports.Select(r => new ReportDetail()
             {
-                DateLocal = r.ReportDetails.FirstOrDefault().DateLocal,
+                DateLocal = r.ReportDetails.Count() == 0? DateTime.Now :  r.ReportDetails.FirstOrDefault().DateLocal,
                 Document = r.Document,
                 FirstName = r.FirstName,
                 LastName = r.LastName,
                 Id = r.Id,
-                Observation = r.ReportDetails.FirstOrDefault().Observation,
-                Status = r.ReportDetails.FirstOrDefault().Status
+                Observation = r.ReportDetails.Count() == 0 ? "" : r.ReportDetails.FirstOrDefault().Observation,
+                Status = r.ReportDetails.Count() == 0 ? "": r.ReportDetails.FirstOrDefault().Status
             }).ToList();
         }
 

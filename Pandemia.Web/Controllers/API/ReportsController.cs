@@ -42,7 +42,7 @@ namespace Pandemic.Web.Controllers.API
             }
             List<ReportEntity> reportEntity = new List<ReportEntity>();
 
-            UserEntity userEntity = await _userHelper.GetUserAsync(request.UserId);
+            UserEntity userEntity = await _userHelper.GetUserAsync(Guid.Parse(request.UserId));
             if (userEntity == null)
             {
                 return BadRequest(Resource.UserNotFoundError);
@@ -86,7 +86,7 @@ namespace Pandemic.Web.Controllers.API
                 return BadRequest(ModelState);
             }
 
-            UserEntity userEntity = await _userHelper.GetUserAsync(request.UserId);
+            UserEntity userEntity = await _userHelper.GetUserAsync(Guid.Parse(request.UserId));
             if (userEntity == null)
             {
                 return BadRequest(Resource.UserNotFoundError);
