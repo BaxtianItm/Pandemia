@@ -3,11 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
              x:Class="Pandemic.Prism.Views.DashboardPage"
+             xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers" 
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}">
-    <chart:SfChart>
+    <AbsoluteLayout>
+        <chart:SfChart>
         <chart:SfChart.PrimaryAxis>
             <chart:CategoryAxis>
                 <chart:CategoryAxis.Title>
@@ -27,5 +30,18 @@
             </chart:ColumnSeries>
         </chart:SfChart.Series>
     </chart:SfChart>
+
+    <busyindicator:SfBusyIndicator AnimationType="Globe" 
+                                       AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                	                   AbsoluteLayout.LayoutFlags="All"
+                	                   HorizontalOptions="Center"
+                                       BackgroundColor="{StaticResource ColorDanger}"
+                                       TextColor="{StaticResource ColorFontInverse}"
+                                       Title="{i18n:Translate Loading}"
+                	                   IsBusy="{Binding IsRunning}"
+                	                   VerticalOptions="Center"
+                	                   ViewBoxWidth="80"
+                	                   ViewBoxHeight="80" />
+    </AbsoluteLayout>
 
 </ContentPage>
