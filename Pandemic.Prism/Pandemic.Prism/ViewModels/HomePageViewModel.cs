@@ -1,4 +1,6 @@
-﻿using Pandemic.Common.Models;
+﻿using Newtonsoft.Json;
+using Pandemic.Common.Helpers;
+using Pandemic.Common.Models;
 using Pandemic.Common.Services;
 using Pandemic.Prism.Helpers;
 using Prism.Commands;
@@ -15,10 +17,13 @@ namespace Pandemic.Prism.ViewModels
         private readonly IApiService _apiService;
         private readonly IGeolocatorService _geolocatorService;
         private Position _position;
+        private string _url;
         private string _source;
         private string _buttonLabel;
         private bool _isRunning;
         private bool _isEnabled;
+        private UserResponse _user;
+        private TokenResponse _token;
         //private ReportResponse _report;
         private DelegateCommand _addReportCommand;
         private DelegateCommand _getAddressCommand;
@@ -72,6 +77,7 @@ namespace Pandemic.Prism.ViewModels
             set => SetProperty(ref _source, value);
         }
 
+   
         private async void AddReport()
         {
             bool isValid = await ValidateDataAsync();
@@ -83,6 +89,49 @@ namespace Pandemic.Prism.ViewModels
             IsRunning = true;
             IsEnabled = false;
 
+            _url = App.Current.Resources["UrlAPI"].ToString();
+            bool connection = await _apiService.CheckConnectionAsync(_url);
+            if (!connection)
+            {
+                IsRunning = false;
+                IsEnabled = true;
+                await App.Current.MainPage.DisplayAlert(
+                    Languages.Error,
+                    Languages.ConnectionError,
+                    Languages.Accept);
+                return;
+            }
+
+            _user = JsonConvert.DeserializeObject<UserResponse>(Settings.User);
+            _token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+
+
+            ReportRequest reportRequest = new ReportRequest
+            {
+                FirstName = FirstName,
+                LastName = LastName,
+                Document = Document,
+                Address = Source,
+                UserId = _user.Id,
+                CultureInfo = Languages.Culture
+
+            };
+
+            TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
+            string url = App.Current.Resources["UrlAPI"].ToString();
+            Response response = await _apiService.PutAsync(url, "/api", "/Reports", reportRequest, "bearer", token.Token);
+
+
+            if (!response.IsSuccess)
+            {
+                IsRunning = false;
+                IsEnabled = true;
+                await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.ReportCreated, Languages.Accept);
+                return;
+            }
+
+            IsRunning = false;
+            IsEnabled = true;
         }
 
         private async Task<bool> ValidateDataAsync()

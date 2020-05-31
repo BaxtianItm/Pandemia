@@ -402,4 +402,7 @@
   <data name="GeolocationError" xml:space="preserve">
     <value>No fue posible obtener su dirección actual, intente más tarde.</value>
   </data>
+  <data name="ReportCreated" xml:space="preserve">
+    <value>Reporte creado correctamente</value>
+  </data>
 </root>

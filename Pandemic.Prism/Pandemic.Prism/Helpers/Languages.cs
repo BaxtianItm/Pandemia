@@ -194,6 +194,7 @@ namespace Pandemic.Prism.Helpers
         public static string ReportStatus => Resource.ReportStatus;
         public static string GetAddress => Resource.GetAddress;
         public static string GeolocationError => Resource.GeolocationError;
+        public static string ReportCreated => Resource.ReportCreated;
         
 
     }

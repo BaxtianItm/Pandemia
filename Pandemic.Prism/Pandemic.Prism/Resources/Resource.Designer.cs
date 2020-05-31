@@ -817,6 +817,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Report created successfully.
+        /// </summary>
+        public static string ReportCreated {
+            get {
+                return ResourceManager.GetString("ReportCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Current status of the report.
         /// </summary>
         public static string ReportStatus {

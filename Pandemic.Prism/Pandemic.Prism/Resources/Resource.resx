@@ -399,4 +399,7 @@
   <data name="GeolocationError" xml:space="preserve">
     <value>It was not possible to get your current address, please try later.</value>
   </data>
+  <data name="ReportCreated" xml:space="preserve">
+    <value>Report created successfully</value>
+  </data>
 </root>
