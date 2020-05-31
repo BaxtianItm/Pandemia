@@ -194,7 +194,7 @@ namespace Pandemic.Web.Controllers.API
             CultureInfo cultureInfo = new CultureInfo(request.CultureInfo);
             Resource.Culture = cultureInfo;
 
-            UserEntity userEntity = await _userHelper.GetUserAsync(request.UserId);
+            UserEntity userEntity = await _userHelper.GetUserAsync(Guid.Parse(request.UserId));
             if (userEntity == null)
             {
                 return BadRequest(Resource.UserNotFoundError);
