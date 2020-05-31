@@ -56,7 +56,7 @@ namespace Pandemic.Prism.ViewModels
                 return;
             }
 
-            Response response = await _apiService.Statistics<Statistics>(_url, "/api", "/Reports/GetUserReports");
+            Response response = await _apiService.Statistics<Statistics>(_url, "/api", "/Reports/Statistics");
 
             IsRunning = false;
             IsEnabled = true;
