@@ -24,7 +24,7 @@ namespace Pandemic.Common.Models
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public Guid UserId { get; set; }
 
-        public int CityId { get; set; }
+        public string Address { get; set; }
 
         public double SourceLatitude { get; set; }
 
