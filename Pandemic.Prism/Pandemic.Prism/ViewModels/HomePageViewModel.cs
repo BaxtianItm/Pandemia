@@ -87,35 +87,29 @@ namespace Pandemic.Prism.ViewModels
 
         private async Task<bool> ValidateDataAsync()
         {
-            if (string.IsNullOrEmpty(/*Report.*/Document))
+            if (string.IsNullOrEmpty(Document))
             {
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.DocumentError, Languages.Accept);
                 return false;
             }
 
-            if (string.IsNullOrEmpty(/*Report.*/FirstName))
+            if (string.IsNullOrEmpty(FirstName))
             {
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.FirstNameError, Languages.Accept);
                 return false;
             }
 
-            if (string.IsNullOrEmpty(/*Report.*/LastName))
+            if (string.IsNullOrEmpty(LastName))
             {
                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.LastNameError, Languages.Accept);
                 return false;
             }
 
-            /* if (double.IsNaN(Report.TargetLatitude))
+             if (string.IsNullOrEmpty(Source))
              {
                  await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.AddressError, Languages.Accept);
                  return false;
-             }*/
-
-            /* if (double.IsNaN(Report.TargetLongitude))
-             {
-                 await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.AddressError, Languages.Accept);
-                 return false;
-             }*/
+             }
 
             return true;
         }
