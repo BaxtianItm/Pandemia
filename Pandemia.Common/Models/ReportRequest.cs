@@ -23,7 +23,13 @@ namespace Pandemic.Common.Models
 
         [Required(ErrorMessage = "The field {0} is mandatory.")]
         public string UserId { get; set; }
+        public double SourceLatitude { get; set; }
 
+        public double SourceLongitude { get; set; }
+
+        public double TargetLatitude { get; set; }
+
+        public double TargetLongitude { get; set; }
         public string Address { get; set; }
 
         [Required]

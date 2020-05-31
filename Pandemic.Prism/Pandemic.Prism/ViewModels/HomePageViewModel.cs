@@ -24,7 +24,7 @@ namespace Pandemic.Prism.ViewModels
         private bool _isEnabled;
         private UserResponse _user;
         private TokenResponse _token;
-        //private ReportResponse _report;
+        private ReportResponse _report;
         private DelegateCommand _addReportCommand;
         private DelegateCommand _getAddressCommand;
 
@@ -61,11 +61,11 @@ namespace Pandemic.Prism.ViewModels
 
         public string LastName { get; set; }
 
-        /*public ReportResponse Report
+       public ReportResponse Report
         {
             get => _report;
             set => SetProperty(ref _report, value);
-        }*/
+        }
         public string Source
         {
             get => _buttonLabel;
@@ -108,8 +108,8 @@ namespace Pandemic.Prism.ViewModels
 
             ReportRequest reportRequest = new ReportRequest
             {
-                FirstName = FirstName,
-                LastName = LastName,
+                FirstName =  FirstName,
+                LastName =  LastName,
                 Document = Document,
                 Address = Source,
                 UserId = _user.Id,
@@ -119,17 +119,16 @@ namespace Pandemic.Prism.ViewModels
 
             TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
             string url = App.Current.Resources["UrlAPI"].ToString();
-            Response response = await _apiService.PutAsync(url, "/api", "/Reports", reportRequest, "bearer", token.Token);
+            Response response = await _apiService.CreateReportAsync(url, "/api", "/Reports", reportRequest, "bearer", token.Token);
 
 
             if (!response.IsSuccess)
             {
-                IsRunning = false;
-                IsEnabled = true;
-                await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.ReportCreated, Languages.Accept);
+                await App.Current.MainPage.DisplayAlert("Error", response.Message, "Accept");
                 return;
             }
 
+            await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.ReportCreated, Languages.Accept);
             IsRunning = false;
             IsEnabled = true;
         }
