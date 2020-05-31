@@ -20,7 +20,7 @@ namespace Pandemic.Prism.ViewModels
         private string _url;
         private UserResponse _user;
         private TokenResponse _token;
-        private List<ReportDetail> _report;
+        private List<DetailReportItemViewModel> _report;
         private DelegateCommand _addReportCommand;
 
 
@@ -43,7 +43,7 @@ namespace Pandemic.Prism.ViewModels
             set => SetProperty(ref _isRunning, value);
         }
 
-        public List<ReportDetail> Report
+        public List<DetailReportItemViewModel> Report
         {
             get => _report;
             set => SetProperty(ref _report, value);
@@ -89,7 +89,7 @@ namespace Pandemic.Prism.ViewModels
             }
 
             List<MyReportsResponse> reports = (List<MyReportsResponse>)response.Result;
-            Report = reports.Select(r => new ReportDetail()
+            Report = reports.Select(r => new DetailReportItemViewModel(_navigationService)
             {
                 DateLocal = r.ReportDetails.Count() == 0? DateTime.Now :  r.ReportDetails.FirstOrDefault().DateLocal,
                 Document = r.Document,

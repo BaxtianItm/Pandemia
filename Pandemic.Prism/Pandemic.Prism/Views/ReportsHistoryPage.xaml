@@ -23,12 +23,14 @@
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding ReportDetailCommand}" />
+                                </Grid.GestureRecognizers>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
-
                                 <StackLayout Grid.Column="1"
                                          VerticalOptions="Center">
                                     <Label FontSize="14">

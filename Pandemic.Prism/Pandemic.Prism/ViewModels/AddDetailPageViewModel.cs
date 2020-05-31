@@ -19,9 +19,10 @@ namespace Pandemic.Prism.ViewModels
         private readonly IApiService _apiService;
         private bool _isRunning;
         private bool _isEnabled;
-        private int _reportId;
+        public int _reportId;
         private string _url;
         private UserResponse _user;
+        private ReportResponse _report;
         private TokenResponse _token;
         private DelegateCommand _addDetailCommand;
         public AddDetailPageViewModel(INavigationService navigationService, IApiService apiService)
@@ -33,8 +34,10 @@ namespace Pandemic.Prism.ViewModels
             Title = Languages.ReportDetails;
 
         }
+        public ReportDetail Report;
         public DelegateCommand AddDetailCommand => _addDetailCommand ?? (_addDetailCommand = new DelegateCommand(AddDetailstAsync));
         public string Observation { get; set; }
+        public int idReport { get; set; }
         public bool IsRunning
         {
             get => _isRunning;
@@ -50,10 +53,16 @@ namespace Pandemic.Prism.ViewModels
         {
             base.OnNavigatedTo(parameters);
 
-            _reportId = parameters.GetValue<int>("reportId");
-           
+            if (parameters.ContainsKey("report"))
+            {
+                Report = parameters.GetValue<ReportDetail>("report");
+                RecivedId(Report.Id);
+            }
         }
-       
+        public void RecivedId(int id)
+        {
+            idReport = id;
+        }
 
         private async void AddDetailstAsync()
         {
@@ -88,7 +97,7 @@ namespace Pandemic.Prism.ViewModels
                 StatusId=2,
                 UserId = _user.Id,
                 CultureInfo = Languages.Culture,
-                ReportId = _reportId
+                ReportId = idReport
             };
 
             TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
@@ -105,7 +114,7 @@ namespace Pandemic.Prism.ViewModels
             }
            
             await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.CreateDetails, Languages.Accept);
-
+            await _navigationService.GoBackToRootAsync();
         }
         private async Task<bool> ValidateDataAsync()
         {
