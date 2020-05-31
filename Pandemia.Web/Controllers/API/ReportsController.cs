@@ -17,7 +17,6 @@ using System.Threading.Tasks;
 namespace Pandemic.Web.Controllers.API
 {
     [Route("api/[controller]")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     [ApiController]
     public class ReportsController : ControllerBase
     {
@@ -105,6 +104,23 @@ namespace Pandemic.Web.Controllers.API
             return Ok(_converterHelper.ToReportResponse(reportEntity));
         }
 
+        [HttpGet]
+        [Route("Statistics")]
+        public async Task<IActionResult> Statistics()
+        {
+            var cities = await _context.Report.Include(r => r.City).Select(r => r.City).Distinct().ToListAsync();
+            var statistics = new List<Statistics>();
+            foreach (var city in cities)
+            {
+                var statistic = new Statistics
+                {
+                    Name = city.Name,
+                    Height = _context.Report.Include(r => r.City).Where(r => r.City == city).Count()
+                };
+                statistics.Add(statistic);
+            }
+            return Ok(statistics);
+        }
 
         [HttpPost]
         public async Task<IActionResult> PostReportEntity([FromBody] ReportRequest request)

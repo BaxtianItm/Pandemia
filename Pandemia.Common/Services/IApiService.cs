@@ -49,5 +49,10 @@ namespace Pandemic.Common.Services
         string tokenType,
         string accessToken);
 
+
+        Task<Response> Statistics<T>(string urlBase,
+        string servicePrefix,
+        string controller);
+
     }
 }
