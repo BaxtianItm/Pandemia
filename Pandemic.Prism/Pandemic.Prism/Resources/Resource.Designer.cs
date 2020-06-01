@@ -214,6 +214,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Report details added correctly.
+        /// </summary>
+        public static string CreateDetails {
+            get {
+                return ResourceManager.GetString("CreateDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create report.
         /// </summary>
         public static string CreateReport {
@@ -345,6 +354,15 @@ namespace Pandemic.Prism.Resources {
         public static string Emergency {
             get {
                 return ResourceManager.GetString("Emergency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to End report.
+        /// </summary>
+        public static string EndReport {
+            get {
+                return ResourceManager.GetString("EndReport", resourceCulture);
             }
         }
         
@@ -610,6 +628,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must enter the observation.
+        /// </summary>
+        public static string ObservationError {
+            get {
+                return ResourceManager.GetString("ObservationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
         public static string Ok {
@@ -813,6 +840,24 @@ namespace Pandemic.Prism.Resources {
         public static string Remembering {
             get {
                 return ResourceManager.GetString("Remembering", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report created successfully.
+        /// </summary>
+        public static string ReportCreated {
+            get {
+                return ResourceManager.GetString("ReportCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Report details.
+        /// </summary>
+        public static string ReportDetails {
+            get {
+                return ResourceManager.GetString("ReportDetails", resourceCulture);
             }
         }
         

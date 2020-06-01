@@ -20,7 +20,6 @@ namespace Pandemic.Prism.ViewModels
         private UserResponse _user;
         private TokenResponse _token;
         private List<ReportItemViewModel> _report;
-        
         private bool _isRunning;
         private bool _isEnabled;
         public AdminReportPageViewModel(INavigationService navigationService, IApiService apiService

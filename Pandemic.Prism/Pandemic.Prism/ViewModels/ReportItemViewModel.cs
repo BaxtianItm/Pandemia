@@ -19,6 +19,7 @@ namespace Pandemic.Prism.ViewModels
             _navigationService = navigationService;
         }
      public DelegateCommand SelectReportCommand => _selectReportCommand ?? (_selectReportCommand = new DelegateCommand(SelectReportAsync));
+     public DelegateCommand ReportCommand => _addDetailCommand ?? (_addDetailCommand = new DelegateCommand(ReportAsync));
 
         private async void SelectReportAsync()
         {
@@ -30,6 +31,16 @@ namespace Pandemic.Prism.ViewModels
 
             await _navigationService.NavigateAsync(nameof(ChangeStatusPage), parameters);
         }
-        
+        private async void  ReportAsync()
+        {
+            var parameters = new NavigationParameters
+            {
+                { "report", this },
+
+            };
+
+            await _navigationService.NavigateAsync(nameof(AddDetailPage), parameters);
+        }
+
     }
 }

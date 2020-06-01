@@ -402,4 +402,19 @@
   <data name="GeolocationError" xml:space="preserve">
     <value>आपका वर्तमान पता प्राप्त करना संभव नहीं था, कृपया बाद में प्रयास करें।</value>
   </data>
+  <data name="ReportCreated" xml:space="preserve">
+    <value>रिपोर्ट सफलतापूर्वक बनाई गई!</value>
+  </data>
+  <data name="ReportDetails" xml:space="preserve">
+    <value>विवरण की रिपोर्ट करें!</value>
+  </data>
+  <data name="ObservationError" xml:space="preserve">
+    <value>Me kar sakti hu</value>
+  </data>
+  <data name="CreateDetails" xml:space="preserve">
+    <value>सही ढंग से रिपोर्ट विवरण जोड़ा गया!</value>
+  </data>
+  <data name="EndReport" xml:space="preserve">
+    <value>रिपोर्ट</value>
+  </data>
 </root>
