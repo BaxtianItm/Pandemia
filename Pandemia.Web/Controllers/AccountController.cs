@@ -209,7 +209,7 @@ namespace Pandemic.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RecoverPassword(RecoverPasswordViewModel model)
+        public async Task<IActionResult> RecoverPasswordMVC(RecoverPasswordViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -225,8 +225,8 @@ namespace Pandemic.Web.Controllers
                     "ResetPassword",
                     "Account",
                     new { token = myToken }, protocol: HttpContext.Request.Scheme);
-                _mailHelper.SendMail(model.Email, "Taxi Password Reset", $"<h1>Taxi Password Reset</h1>" +
-                    $"To reset the password click in this link:</br></br>" +
+                _mailHelper.SendMail(model.Email, "Pandemic Password Reset", $"<h1>Pandemic Password Reset</h1>" +
+                    $"To reset the password click in this link: </br></br>" +
                     $"<a href = \"{link}\">Reset Password</a>");
                 ViewBag.Message = "The instructions to recover your password has been sent to email.";
                 return View();
