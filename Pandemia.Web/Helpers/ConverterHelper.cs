@@ -1,9 +1,7 @@
 ﻿using Pandemic.Common.Models;
 using Pandemic.Web.Data.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Pandemic.Web.Helpers
 {
@@ -26,8 +24,8 @@ namespace Pandemic.Web.Helpers
                 LastName = user.LastName,
                 PicturePath = user.PicturePath,
                 PhoneNumber = user.PhoneNumber,
-                UserType = user.UserType
-
+                UserType = user.UserType,
+                PictureUserPath = user.PictureUserPath
             };
 
         }
@@ -105,9 +103,9 @@ namespace Pandemic.Web.Helpers
             {
                 Id = reportDetailEntity.Id,
                 Observation = reportDetailEntity.Observation,
-               
+
                 Date = reportDetailEntity.Date,
-                
+
 
             };
         }

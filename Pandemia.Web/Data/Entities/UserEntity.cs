@@ -26,6 +26,7 @@ namespace Pandemic.Web.Data.Entities
 
         [Display(Name = "Picture")]
         public string PicturePath { get; set; }
+        public string PictureUserPath { get; set; }
 
         [Display(Name = "User Type")]
         public UserType UserType { get; set; }

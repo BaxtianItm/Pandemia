@@ -1,7 +1,4 @@
 ﻿using Pandemic.Common.Enums;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Pandemic.Common.Models
 {
@@ -18,6 +15,7 @@ namespace Pandemic.Common.Models
         public string Address { get; set; }
 
         public string PicturePath { get; set; }
+        public string PictureUserPath { get; set; }
 
         public UserType UserType { get; set; }
 
@@ -29,9 +27,9 @@ namespace Pandemic.Common.Models
 
         public string PhoneNumber { get; set; }
 
-         public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
-       ? "https://pandemicweb0.azurewebsites.net//images/noimage.png"
-       : $"";
-       
+        public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
+      ? "https://pandemicweb0.azurewebsites.net//images/noimage.png"
+      : $"";
+
     }
 }
