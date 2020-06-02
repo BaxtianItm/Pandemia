@@ -12,9 +12,19 @@
     <AbsoluteLayout>
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
                      AbsoluteLayout.LayoutFlags="All"
-                     Padding="5">
+                     Padding="5"  
+                     Margin="0,40,0,5">
             <ScrollView>
                 <StackLayout>
+
+                    <inputLayout:SfTextInputLayout 
+                        Hint="{i18n:Translate Date}"  
+                        FocusedColor="{StaticResource ColorAccent}"   
+                        HelperText="{i18n:Translate Date}">
+                        <Entry IsEnabled="False"
+                            Text="{Binding Date}"/>
+                    </inputLayout:SfTextInputLayout>
+
                     <inputLayout:SfTextInputLayout 
                         Hint="{i18n:Translate Observation}"  
                         FocusedColor="{StaticResource ColorAccent}"   

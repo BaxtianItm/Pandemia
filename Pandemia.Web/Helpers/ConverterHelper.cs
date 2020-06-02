@@ -47,6 +47,7 @@ namespace Pandemic.Web.Helpers
                 FirstName = reportEntity.FirstName,
                 Id = reportEntity.Id,
                 LastName = reportEntity.LastName,
+                Address = reportEntity.Address,
                 SourceLongitude = reportEntity.SourceLongitude,
                 SourceLatitude = reportEntity.SourceLatitude,
                 ReportDetails = reportEntity.ReportDetails?.Select(rd => new ReportDetailsResponse

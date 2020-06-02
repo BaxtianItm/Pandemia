@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Pandemic.Common.Models
+﻿namespace Pandemic.Common.Models
 {
     public class Menu
     {
@@ -11,6 +7,7 @@ namespace Pandemic.Common.Models
         public string Title { get; set; }
 
         public string PageName { get; set; }
+        public bool IsAdmin { get; set; }
 
         public bool IsLoginRequired { get; set; }
     }

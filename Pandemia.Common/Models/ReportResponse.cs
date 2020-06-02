@@ -11,6 +11,7 @@ namespace Pandemic.Common.Models
         public string LastName { get; set; }
 
         public string Document { get; set; }
+        public string Address { get; set; }
 
         public double SourceLatitude { get; set; }
 

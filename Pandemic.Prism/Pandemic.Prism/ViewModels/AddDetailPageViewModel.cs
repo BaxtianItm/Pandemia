@@ -32,11 +32,13 @@ namespace Pandemic.Prism.ViewModels
             _apiService = apiService;
             IsEnabled = true;
             Title = Languages.ReportDetails;
-
+            Date = DateTime.Now.ToString("dd/MM/yyyy");
         }
-        public ReportDetail Report;
+        public ReportResponse Report;
         public DelegateCommand AddDetailCommand => _addDetailCommand ?? (_addDetailCommand = new DelegateCommand(AddDetailstAsync));
         public string Observation { get; set; }
+        public string Address { get; set; }
+        public string Date { get; set; }
         public int idReport { get; set; }
         public bool IsRunning
         {
@@ -55,7 +57,7 @@ namespace Pandemic.Prism.ViewModels
 
             if (parameters.ContainsKey("report"))
             {
-                Report = parameters.GetValue<ReportDetail>("report");
+                Report = parameters.GetValue<ReportResponse>("report");
                 RecivedId(Report.Id);
             }
         }
@@ -94,7 +96,7 @@ namespace Pandemic.Prism.ViewModels
             ReportDetailRequest reportDetailRequest = new ReportDetailRequest
             {
                 Observation = Observation,
-                StatusId=2,
+                StatusId = 2,
                 UserId = _user.Id,
                 CultureInfo = Languages.Culture,
                 ReportId = idReport
@@ -103,16 +105,16 @@ namespace Pandemic.Prism.ViewModels
             TokenResponse token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
             string url = App.Current.Resources["UrlAPI"].ToString();
             Response response = await _apiService.CreateReportDetailsAsync(url, "/api", "/Reports/AddDetails", reportDetailRequest, "bearer", token.Token);
-            
+
             IsRunning = false;
             IsEnabled = true;
 
             if (!response.IsSuccess)
             {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message,Languages.Accept);
+                await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
                 return;
             }
-           
+
             await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.CreateDetails, Languages.Accept);
             await _navigationService.GoBackToRootAsync();
         }

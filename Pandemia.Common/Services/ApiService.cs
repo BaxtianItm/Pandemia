@@ -431,10 +431,11 @@ namespace Pandemic.Common.Services
                         Message = answer,
                     };
                 }
-
+                ReportResponse report = JsonConvert.DeserializeObject<ReportResponse>(answer);
                 return new Response
                 {
-                    IsSuccess = true
+                    IsSuccess = true,
+                    Result = report
                 };
             }
             catch (Exception ex)

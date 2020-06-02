@@ -132,7 +132,7 @@ namespace Pandemic.Prism.ViewModels
             }
             await App.Current.MainPage.DisplayAlert(Languages.Ok, Languages.ReportCreated, Languages.Accept);
             _report = (ReportResponse)response.Result;
-            // AddDetailAsync(_report);
+            AddDetailAsync(_report);
         }
         private async void AddDetailAsync(ReportResponse report)
         {

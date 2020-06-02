@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Pandemic.Common.Enums;
 using Pandemic.Common.Helpers;
 using Pandemic.Common.Models;
 using Pandemic.Common.Services;
@@ -75,30 +76,31 @@ namespace Pandemic.Prism.ViewModels
                         Icon = "ic_report",
                         PageName = "HomePage",
                         Title = Languages.CreateReport,
-                        IsLoginRequired = true
-
+                        IsLoginRequired = true,
+                        IsAdmin = false
                     },
                     new Menu
                     {
                         Icon = "ic_admin",
                         PageName = "AdminReportPage",
                         Title = Languages.AdminReports,
-                        IsLoginRequired = true
-
-
+                        IsLoginRequired = true,
+                        IsAdmin =  true
                     },
                     new Menu
                     {
                         Icon = "ic_dashboard",
                         PageName = "DashboardPage",
                         Title = Languages.Dashboard,
+                        IsAdmin = false
                     },
                     new Menu
                     {
                         Icon = "ic_history",
                         PageName = "HistoryPage",
                         Title = Languages.CheckHistory,
-                        IsLoginRequired = true
+                        IsLoginRequired = true,
+                        IsAdmin = false
 
                     },
                     new Menu
@@ -106,28 +108,51 @@ namespace Pandemic.Prism.ViewModels
                         Icon = "ic_usermodify",
                         PageName = "ModifyUserPage",
                         Title = Languages.ModifyTitle,
-                        IsLoginRequired = true
+                        IsLoginRequired = true,
+                        IsAdmin = false
 
                     },
                     new Menu
                     {
                         Icon = "ic_login",
                         PageName = "LoginPage",
-                        Title = Settings.IsLogin ? Languages.Logout : Languages.Login
+                        Title = Settings.IsLogin ? Languages.Logout : Languages.Login,
+                        IsAdmin = false
                     }
                 };
+            UserResponse user = JsonConvert.DeserializeObject<UserResponse>(Settings.User);
+           
 
             if (Settings.IsLogin)
             {
+                bool isUser = false;
 
-                Menus = new ObservableCollection<MenuItemViewModel>(
-                    menus.Select(m => new MenuItemViewModel(_navigationService)
-                    {
-                        Icon = m.Icon,
-                        PageName = m.PageName,
-                        Title = m.Title,
-                        IsLoginRequired = m.IsLoginRequired
-                    }).ToList());
+                if (user.UserType == UserType.User)
+                {
+                    isUser = true;
+                }
+                if (isUser)
+                {
+                    Menus = new ObservableCollection<MenuItemViewModel>(
+                       menus.Where(m => m.IsAdmin == false).Select(m => new MenuItemViewModel(_navigationService)
+                       {
+                           Icon = m.Icon,
+                           PageName = m.PageName,
+                           Title = m.Title,
+                           IsLoginRequired = m.IsLoginRequired
+                       }).ToList());
+                }
+                else
+                {
+                    Menus = new ObservableCollection<MenuItemViewModel>(
+                        menus.Select(m => new MenuItemViewModel(_navigationService)
+                        {
+                            Icon = m.Icon,
+                            PageName = m.PageName,
+                            Title = m.Title,
+                            IsLoginRequired = m.IsLoginRequired
+                        }).ToList());
+                }
             }
             else
             {

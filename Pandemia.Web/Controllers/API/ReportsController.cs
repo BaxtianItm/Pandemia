@@ -133,7 +133,7 @@ namespace Pandemic.Web.Controllers.API
             CultureInfo cultureInfo = new CultureInfo(request.CultureInfo);
             Resource.Culture = cultureInfo;
 
-            UserEntity userEntity = await _userHelper.GetUserAsync(request.UserId);
+            UserEntity userEntity = await _userHelper.GetUserAsync(Guid.Parse(request.UserId));
             if (userEntity == null)
             {
                 return BadRequest(Resource.UserNotFoundError);
@@ -157,7 +157,16 @@ namespace Pandemic.Web.Controllers.API
 
             await _context.Report.AddAsync(newReport);
             await _context.SaveChangesAsync();
-            return Ok(newReport);
+            ReportEntity reportEntity = await _context.Report
+                .Include(r => r.User)
+                .Include(r => r.ReportDetails)
+                .ThenInclude(rp => rp.Status)
+                .Include(c => c.City)
+                .ThenInclude(c => c.Country)
+                .Where(r => r.Id == newReport.Id)
+                .OrderByDescending(r => r.City)
+                .FirstOrDefaultAsync();
+            return Ok(_converterHelper.ToReportResponse(reportEntity));
         }
 
         [HttpPost]
@@ -172,7 +181,7 @@ namespace Pandemic.Web.Controllers.API
             CultureInfo cultureInfo = new CultureInfo(request.CultureInfo);
             Resource.Culture = cultureInfo;
 
-            UserEntity userEntity = await _userHelper.GetUserAsync(request.UserId);
+            UserEntity userEntity = await _userHelper.GetUserAsync(Guid.Parse(request.UserId));
             if (userEntity == null)
             {
                 return BadRequest(Resource.UserNotFoundError);
