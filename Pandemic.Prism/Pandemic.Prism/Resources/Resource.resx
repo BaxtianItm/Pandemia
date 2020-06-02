@@ -414,4 +414,10 @@
   <data name="EndReport" xml:space="preserve">
     <value>End report</value>
   </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Cases" xml:space="preserve">
+    <value>Reported cases</value>
+  </data>
 </root>

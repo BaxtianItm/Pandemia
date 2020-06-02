@@ -11,27 +11,27 @@
              Title="{Binding Title}">
     <AbsoluteLayout>
         <chart:SfChart>
-        <chart:SfChart.PrimaryAxis>
-            <chart:CategoryAxis>
-                <chart:CategoryAxis.Title>
-                    <chart:ChartAxisTitle Text="Name"></chart:ChartAxisTitle>
-                </chart:CategoryAxis.Title>
-            </chart:CategoryAxis>
-        </chart:SfChart.PrimaryAxis>
-        <chart:SfChart.SecondaryAxis>
-            <chart:NumericalAxis>
-                <chart:NumericalAxis.Title>
-                    <chart:ChartAxisTitle Text="Height (in cm)"></chart:ChartAxisTitle>
-                </chart:NumericalAxis.Title>
-            </chart:NumericalAxis>
-        </chart:SfChart.SecondaryAxis>
-        <chart:SfChart.Series>
-            <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Name" YBindingPath="Height">
-            </chart:ColumnSeries>
-        </chart:SfChart.Series>
-    </chart:SfChart>
+            <chart:SfChart.PrimaryAxis>
+                <chart:CategoryAxis>
+                    <chart:CategoryAxis.Title>
+                        <chart:ChartAxisTitle Text="{i18n:Translate City}"></chart:ChartAxisTitle>
+                    </chart:CategoryAxis.Title>
+                </chart:CategoryAxis>
+            </chart:SfChart.PrimaryAxis>
+            <chart:SfChart.SecondaryAxis>
+                <chart:NumericalAxis>
+                    <chart:NumericalAxis.Title>
+                        <chart:ChartAxisTitle Text="{i18n:Translate Cases}"></chart:ChartAxisTitle>
+                    </chart:NumericalAxis.Title>
+                </chart:NumericalAxis>
+            </chart:SfChart.SecondaryAxis>
+            <chart:SfChart.Series>
+                <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Name" YBindingPath="Height">
+                </chart:ColumnSeries>
+            </chart:SfChart.Series>
+        </chart:SfChart>
 
-    <busyindicator:SfBusyIndicator AnimationType="Globe" 
+        <busyindicator:SfBusyIndicator AnimationType="Globe" 
                                        AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
                 	                   AbsoluteLayout.LayoutFlags="All"
                 	                   HorizontalOptions="Center"
