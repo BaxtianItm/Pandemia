@@ -8,5 +8,6 @@ namespace Pandemic.Common.Helpers
     public interface IFilesHelper
     {
         byte[] ReadFully(Stream input);
+        byte[] ReadFully2(Stream input);
     }
 }

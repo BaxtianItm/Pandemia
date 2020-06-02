@@ -70,7 +70,7 @@ namespace Pandemic.Web.Controllers.API
             string picturePath = string.Empty;
             if (request.PictureArray != null && request.PictureArray.Length > 0)
             {
-                picturePath = _imageHelper.UploadImage(request.PictureArray, "Users");
+                picturePath = _imageHelper.UploadImage(request.PictureArray, "Documents");
             }
             string pictureUserPath = string.Empty;
             if (request.PictureProfileArray != null && request.PictureProfileArray.Length > 0)
@@ -80,6 +80,7 @@ namespace Pandemic.Web.Controllers.API
 
             user = new UserEntity
             {
+                PictureUserPath = pictureUserPath,
                 Address = request.Address,
                 Document = request.Document,
                 Email = request.Email,
@@ -88,7 +89,6 @@ namespace Pandemic.Web.Controllers.API
                 PhoneNumber = request.Phone,
                 UserName = request.Email,
                 PicturePath = picturePath,
-                PictureUserPath=pictureUserPath,
                 UserType = request.UserTypeId == 1 ? UserType.User : UserType.Emergency
             };
 

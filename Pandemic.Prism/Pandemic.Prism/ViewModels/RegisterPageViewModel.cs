@@ -158,7 +158,7 @@ namespace Pandemic.Prism.ViewModels
                     new StoreCameraMediaOptions
                     {
                         Directory = "Sample",
-                        Name = "test.jpg",
+                        Name = "tests.jpg",
                         PhotoSize = PhotoSize.Small,
                     }
                 );
@@ -206,7 +206,7 @@ namespace Pandemic.Prism.ViewModels
 
             if (_fileProfile != null)
             {
-                imageProfileArray = _filesHelper.ReadFully(_fileProfile.GetStream());
+                imageProfileArray = _filesHelper.ReadFully2(_fileProfile.GetStream());
             }
 
 
