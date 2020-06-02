@@ -4,6 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms"
              xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers" 
              prism:ViewModelLocator.AutowireViewModel="True"
              BackgroundColor="{StaticResource ColorBackgroud}"
@@ -43,11 +44,12 @@
                 <StackLayout
                        HorizontalOptions="Center"
                        Orientation="Horizontal">
-                    <Label
-                       Text="{i18n:Translate Remember}"
-                       VerticalOptions="Center"/>
-                    <CheckBox
-                       IsChecked="{Binding IsRemember}"/>
+                    <syncfusion:SfCheckBox IsChecked="{Binding IsRemember}"
+                                           Text="{i18n:Translate Remember}"
+                                           VerticalOptions="Center"
+                                           CornerRadius="5"
+                                           CheckedColor="#15BD93"
+                                           UncheckedColor="#1D146B"/>
                 </StackLayout>
 
                 <Label FontAttributes="Bold"

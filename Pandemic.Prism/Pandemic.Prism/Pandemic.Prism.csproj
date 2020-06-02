@@ -6,7 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
-    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.53" />
+    <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="18.1.0.55" />
+    <PackageReference Include="Syncfusion.Xamarin.Core" Version="18.1.0.55" />
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="18.1.0.53" />
     <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="18.1.0.53" />
     <PackageReference Include="Xam.Plugin.Media" Version="5.0.1" />
