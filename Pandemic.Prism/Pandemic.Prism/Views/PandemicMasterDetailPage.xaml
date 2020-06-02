@@ -3,6 +3,8 @@
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   xmlns:prism="http://prismlibrary.com"
                   prism:ViewModelLocator.AutowireViewModel="True"
+                   xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+                  xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
                   x:Class="Pandemic.Prism.Views.PandemicMasterDetailPage">
 
     <MasterDetailPage.Master>
@@ -11,7 +13,23 @@
             <StackLayout Padding="20">
                 <Image HeightRequest="150"
                        Source="virus"/>
-                
+                <ffimageloading:CachedImage x:Name="Picture" 
+                                                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Logo,Property=Y,Factor=1,Constant=30}"
+                                                Aspect="AspectFill"
+                                                Source="{Binding User.PictureUserPath}" 
+                                                CacheDuration= "50"
+                                                HeightRequest="110"
+                                                Margin="5"
+                                                RetryCount= "3"
+                                                RetryDelay= "600"
+                                                WidthRequest="110">
+                    <ffimageloading:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding ModifyUserCommand}"/>
+                    </ffimageloading:CachedImage.GestureRecognizers>
+                    <ffimageloading:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation />
+                    </ffimageloading:CachedImage.Transformations>
+                </ffimageloading:CachedImage>
                 <Label FontAttributes="Bold"
                        FontSize="Large"
                 Text="{Binding User.FullName}"

@@ -45,5 +45,45 @@ namespace Pandemic.Web.Helpers
 
             return $"/images/{folder}/{file}";
         }
+
+        public async Task<string> UploadImageProfileAsync(IFormFile imageProfile, string folder)
+        {
+            string guid = Guid.NewGuid().ToString();
+            string file = $"{guid}.jpg";
+            string path = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                $"wwwroot\\images\\{folder}",
+                file);
+
+            using (FileStream stream = new FileStream(path, FileMode.Create))
+            {
+                await imageProfile.CopyToAsync(stream);
+            }
+
+            return $"/images/{folder}/{file}";
+        }
+
+        public string UploadImageProfileAsync(byte[] pictureProfileArray, string folder)
+        {
+            MemoryStream stream = new MemoryStream(pictureProfileArray);
+            string guid = Guid.NewGuid().ToString();
+            string file = $"{guid}.jpg";
+
+            try
+            {
+                stream.Position = 0;
+                string path = Path.Combine(Directory.GetCurrentDirectory(), $"wwwroot\\images\\{folder}", file);
+                File.WriteAllBytes(path, stream.ToArray());
+            }
+            catch
+            {
+                return string.Empty;
+            }
+
+            return $"/images/{folder}/{file}";
+        }
+
+       
+
     }
 }
