@@ -157,7 +157,7 @@ namespace Pandemic.Web.Controllers.API
 
             await _context.Report.AddAsync(newReport);
             await _context.SaveChangesAsync();
-            return NoContent();
+            return Ok(newReport);
         }
 
         [HttpPost]
