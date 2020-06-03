@@ -35,5 +35,6 @@ namespace Pandemic.Common.Models
         public string CultureInfo { get; set; }
 
         public byte[] PictureArray { get; set; }
+        public byte[] PictureProfileArray { get; set; }
     }
 }

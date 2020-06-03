@@ -15,5 +15,13 @@ namespace Pandemic.Common.Helpers
                 return ms.ToArray();
             }
         }
+        public byte[] ReadFully2(Stream input)
+        {
+            using (MemoryStream ms = new MemoryStream())
+            {
+                input.CopyTo(ms);
+                return ms.ToArray();
+            }
+        }
     }
 }

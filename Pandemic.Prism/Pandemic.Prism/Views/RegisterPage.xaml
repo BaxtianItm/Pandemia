@@ -18,6 +18,20 @@
                      Padding="5">
             <ScrollView>
                 <StackLayout>
+                    <ffimageloading:CachedImage Aspect="AspectFit"
+                                                Source="{Binding ImageProfile}" 
+                                                CacheDuration= "50"
+                                                HeightRequest="150"
+                                                Margin="5"
+                                                RetryCount= "3"
+                                                RetryDelay= "600">
+                        <ffimageloading:CachedImage.Transformations>
+                            <fftransformations:CircleTransformation />
+                        </ffimageloading:CachedImage.Transformations>
+                        <ffimageloading:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding ChangeImageProfileCommand}"/>
+                        </ffimageloading:CachedImage.GestureRecognizers>
+                    </ffimageloading:CachedImage>
                     <inputLayout:SfTextInputLayout 
                         Hint="{i18n:Translate Document}"  
                         FocusedColor="{StaticResource ColorAccent}"   

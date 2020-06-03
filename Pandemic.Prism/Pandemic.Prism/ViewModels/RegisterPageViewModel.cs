@@ -19,6 +19,7 @@ namespace Pandemic.Prism.ViewModels
         private readonly IFilesHelper _filesHelper;
         private readonly IRegexHelper _regexHelper;
         private ImageSource _image;
+        private ImageSource _imageProfile;
         private UserRequest _user;
         private Role _role;
         private ObservableCollection<Role> _roles;
@@ -26,7 +27,9 @@ namespace Pandemic.Prism.ViewModels
         private bool _isEnabled;
         private DelegateCommand _registerCommand;
         private MediaFile _file;
+        private MediaFile _fileProfile;
         private DelegateCommand _changeImageCommand;
+        private DelegateCommand _changeImageProfileCommand;
 
 
         public RegisterPageViewModel(
@@ -43,17 +46,23 @@ namespace Pandemic.Prism.ViewModels
             User = new UserRequest();
             _regexHelper = regexHelper;
             Image = App.Current.Resources["UrlNoImage"].ToString();
+            ImageProfile = App.Current.Resources["UrlNoImage"].ToString();
             Roles = new ObservableCollection<Role>(CombosHelper.GetRoles());
         }
 
         public DelegateCommand ChangeImageCommand => _changeImageCommand ?? (_changeImageCommand = new DelegateCommand(ChangeImageAsync));
-        
+        public DelegateCommand ChangeImageProfileCommand => _changeImageProfileCommand ?? (_changeImageProfileCommand = new DelegateCommand(ChangeImageProfileAsync));
         public DelegateCommand RegisterCommand => _registerCommand ?? (_registerCommand = new DelegateCommand(RegisterAsync));
 
         public ImageSource Image
         {
             get => _image;
             set => SetProperty(ref _image, value);
+        }
+        public ImageSource ImageProfile
+        {
+            get => _imageProfile;
+            set => SetProperty(ref _imageProfile, value);
         }
 
         public UserRequest User
@@ -126,6 +135,48 @@ namespace Pandemic.Prism.ViewModels
                 });
             }
         }
+        private async void ChangeImageProfileAsync()
+        {
+            await CrossMedia.Current.Initialize();
+
+            string source = await Application.Current.MainPage.DisplayActionSheet(
+                Languages.PictureSource,
+                Languages.Cancel,
+                null,
+                Languages.FromGallery,
+                Languages.FromCamera);
+
+            if (source == Languages.Cancel)
+            {
+                _fileProfile = null;
+                return;
+            }
+
+            if (source == Languages.FromCamera)
+            {
+                _fileProfile = await CrossMedia.Current.TakePhotoAsync(
+                    new StoreCameraMediaOptions
+                    {
+                        Directory = "Sample",
+                        Name = "tests.jpg",
+                        PhotoSize = PhotoSize.Small,
+                    }
+                );
+            }
+            else
+            {
+                _fileProfile = await CrossMedia.Current.PickPhotoAsync();
+            }
+
+            if (_fileProfile != null)
+            {
+                ImageProfile = ImageSource.FromStream(() =>
+                {
+                    System.IO.Stream stream = _fileProfile.GetStream();
+                    return stream;
+                });
+            }
+        }
 
         private async void RegisterAsync()
         {
@@ -146,14 +197,21 @@ namespace Pandemic.Prism.ViewModels
                 return;
             }
             byte[] imageArray = null;
+            byte[] imageProfileArray = null;
 
             if (_file != null)
             {
                 imageArray = _filesHelper.ReadFully(_file.GetStream());
             }
 
+            if (_fileProfile != null)
+            {
+                imageProfileArray = _filesHelper.ReadFully2(_fileProfile.GetStream());
+            }
+
 
             User.PictureArray = imageArray;
+            User.PictureProfileArray = imageProfileArray;
             User.UserTypeId = Role.Id;
             User.CultureInfo = Languages.Culture;
             Response response = await _apiService.RegisterUserAsync(url, "/api", "/Account", User);
