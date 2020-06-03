@@ -199,6 +199,9 @@ namespace Pandemic.Prism.Helpers
         public static string ObservationError => Resource.ObservationError;
         public static string CreateDetails => Resource.CreateDetails;
         public static string EndReport => Resource.EndReport;
+        public static string City => Resource.City;
+        public static string Cases => Resource.Cases;
+        public static string GraphicTitle1 => Resource.GraphicTitle1;
 
     }
 }

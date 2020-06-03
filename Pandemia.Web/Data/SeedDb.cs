@@ -437,7 +437,7 @@ namespace Pandemic.Web.Data
                 _context.Report.Add(
                     new ReportEntity
                     {
-                        City = _context.Cities.Where(c => c.Name == "Medellín").FirstOrDefault(),
+                        City = _context.Cities.Where(c => c.Name == "Envigado").FirstOrDefault(),
                         Document = "32352085",
                         FirstName = "Lizdey",
                         LastName = "Galeano",
@@ -485,7 +485,7 @@ namespace Pandemic.Web.Data
                 _context.Report.Add(
                     new ReportEntity
                     {
-                        City = _context.Cities.Where(c => c.Name == "Valencia").FirstOrDefault(),
+                        City = _context.Cities.Where(c => c.Name == "Barranquilla").FirstOrDefault(),
                         Document = "123456789",
                         FirstName = "Andres",
                         LastName = "Palacio",

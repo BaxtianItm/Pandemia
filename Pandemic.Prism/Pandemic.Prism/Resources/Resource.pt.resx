@@ -417,4 +417,13 @@
   <data name="EndReport" xml:space="preserve">
     <value>Relatório de fim de ano</value>
   </data>
+  <data name="City" xml:space="preserve">
+    <value>Cidade</value>
+  </data>
+  <data name="Cases" xml:space="preserve">
+    <value>Casos relatados!</value>
+  </data>
+  <data name="GraphicTitle1" xml:space="preserve">
+    <value>Casos relatados pela prefeitura!</value>
+  </data>
 </root>
