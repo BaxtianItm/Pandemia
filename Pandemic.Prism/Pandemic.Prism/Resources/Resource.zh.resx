@@ -423,4 +423,7 @@
   <data name="Cases" xml:space="preserve">
     <value>报告案例！</value>
   </data>
+  <data name="GraphicTitle1" xml:space="preserve">
+    <value>城市报告的案件！</value>
+  </data>
 </root>

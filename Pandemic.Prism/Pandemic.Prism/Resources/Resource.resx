@@ -420,4 +420,7 @@
   <data name="Cases" xml:space="preserve">
     <value>Reported cases</value>
   </data>
+  <data name="GraphicTitle1" xml:space="preserve">
+    <value>Cases reported by city</value>
+  </data>
 </root>

@@ -11,6 +11,12 @@
              Title="{Binding Title}">
     <AbsoluteLayout>
         <chart:SfChart>
+            <chart:SfChart.ChartBehaviors>
+                <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
+            </chart:SfChart.ChartBehaviors>
+            <chart:SfChart.Title>
+                <chart:ChartTitle Text="{i18n:Translate GraphicTitle1}" TextAlignment="Start"/>
+            </chart:SfChart.Title>
             <chart:SfChart.PrimaryAxis>
                 <chart:CategoryAxis>
                     <chart:CategoryAxis.Title>
@@ -26,7 +32,12 @@
                 </chart:NumericalAxis>
             </chart:SfChart.SecondaryAxis>
             <chart:SfChart.Series>
+                <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Name" YBindingPath="Value" EnableTooltip="True"/>
                 <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Name" YBindingPath="Height">
+
+                    <chart:ColumnSeries.ColorModel>
+                        <chart:ChartColorModel Palette="Pineapple"/>
+                    </chart:ColumnSeries.ColorModel>
                 </chart:ColumnSeries>
             </chart:SfChart.Series>
         </chart:SfChart>

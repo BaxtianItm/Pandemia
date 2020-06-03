@@ -423,4 +423,7 @@
   <data name="Cases" xml:space="preserve">
     <value>Casos reportados</value>
   </data>
+  <data name="GraphicTitle1" xml:space="preserve">
+    <value>Casos reportados por ciudad</value>
+  </data>
 </root>

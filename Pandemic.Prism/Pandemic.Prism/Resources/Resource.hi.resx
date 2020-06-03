@@ -423,4 +423,7 @@
   <data name="Cases" xml:space="preserve">
     <value>मामलों की रिपोर्ट!</value>
   </data>
+  <data name="GraphicTitle1" xml:space="preserve">
+    <value>शहर द्वारा सूचित मामलों!</value>
+  </data>
 </root>
