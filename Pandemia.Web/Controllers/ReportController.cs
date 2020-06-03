@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.CodeAnalysis.Differencing;
 using Microsoft.EntityFrameworkCore;
 using Pandemic.Web.Data;
 using Pandemic.Web.Data.Entities;
@@ -17,9 +13,11 @@ namespace Pandemic.Web.Controllers
     {
         private readonly DataContext _context;
         private readonly ICombosHelper _combosHelper;
+        private readonly IUserHelper _userHelper;
 
-        public ReportController(DataContext context, ICombosHelper combosHelper)
+        public ReportController(DataContext context, ICombosHelper combosHelper ,IUserHelper userHelper )
         {
+            _userHelper = userHelper;
             _combosHelper = combosHelper;
             _context = context;
         }
@@ -28,6 +26,20 @@ namespace Pandemic.Web.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Report.Include(r => r.User).Include(r => r.ReportDetails).Select(r => new ReportViewModel()
+            {
+                Id = r.Id,
+                City = r.City.Name,
+                FirstName = r.FirstName,
+                LastName = r.LastName,
+                Document = r.Document,
+
+            }).ToListAsync());
+        }
+
+        public async Task<IActionResult> IndexMyReports(string id)
+        {
+            UserEntity user = await _userHelper.GetUserAsync(id);
+            return View(await _context.Report.Include(r => r.User).Include(r => r.ReportDetails).Where(u => u.User.Id == user.Id).Select(r => new ReportViewModel()
             {
                 Id = r.Id,
                 City = r.City.Name,
