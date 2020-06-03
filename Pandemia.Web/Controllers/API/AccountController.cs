@@ -70,7 +70,7 @@ namespace Pandemic.Web.Controllers.API
             string picturePath = string.Empty;
             if (request.PictureArray != null && request.PictureArray.Length > 0)
             {
-                picturePath = _imageHelper.UploadImage(request.PictureArray, "Documents");
+                picturePath = _imageHelper.UploadImage(request.PictureArray, "Users");
             }
             string pictureUserPath = string.Empty;
             if (request.PictureProfileArray != null && request.PictureProfileArray.Length > 0)

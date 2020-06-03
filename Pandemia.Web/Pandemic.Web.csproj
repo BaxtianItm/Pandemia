@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\images\Documents\**" />
+    <Content Remove="wwwroot\images\Documents\**" />
+    <EmbeddedResource Remove="wwwroot\images\Documents\**" />
+    <None Remove="wwwroot\images\Documents\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Remove="Migrations\20200503155229_Initial.cs" />
     <Compile Remove="Migrations\20200503155229_Initial.Designer.cs" />
     <Compile Remove="Migrations\20200505032123_relationDetailtoReport.cs" />
@@ -23,11 +30,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Pandemia.Common\Pandemic.Common.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\images\Documents\" />
-    <Folder Include="wwwroot\images\Users\" />
   </ItemGroup>
 
   <ItemGroup>
