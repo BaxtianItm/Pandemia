@@ -426,4 +426,7 @@
   <data name="GraphicTitle1" xml:space="preserve">
     <value>Casos relatados pela prefeitura!</value>
   </data>
+  <data name="LoginFacebook" xml:space="preserve">
+    <value>Entrar via Facebook</value>
+  </data>
 </root>

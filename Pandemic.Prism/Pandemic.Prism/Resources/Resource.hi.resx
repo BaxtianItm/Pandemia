@@ -426,4 +426,7 @@
   <data name="GraphicTitle1" xml:space="preserve">
     <value>शहर द्वारा सूचित मामलों!</value>
   </data>
+  <data name="LoginFacebook" xml:space="preserve">
+    <value>फेसबुक से लॉग इन करें</value>
+  </data>
 </root>

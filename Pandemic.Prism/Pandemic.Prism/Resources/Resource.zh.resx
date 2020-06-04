@@ -426,4 +426,7 @@
   <data name="GraphicTitle1" xml:space="preserve">
     <value>城市报告的案件！</value>
   </data>
+  <data name="LoginFacebook" xml:space="preserve">
+    <value>使用Facebook账号登录</value>
+  </data>
 </root>

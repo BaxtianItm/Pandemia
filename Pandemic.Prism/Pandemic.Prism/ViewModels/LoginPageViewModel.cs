@@ -3,12 +3,12 @@ using Pandemic.Common.Helpers;
 using Pandemic.Common.Models;
 using Pandemic.Common.Services;
 using Pandemic.Prism.Helpers;
+using Plugin.FacebookClient;
 using Prism.Commands;
-using Prism.Mvvm;
 using Prism.Navigation;
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Pandemic.Prism.ViewModels
 {
@@ -16,6 +16,7 @@ namespace Pandemic.Prism.ViewModels
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
+        private readonly IFacebookClient _facebookService = CrossFacebookClient.Current;
         private bool _isRunning;
         private bool _isEnabled;
         private bool _isRemember;
@@ -23,6 +24,7 @@ namespace Pandemic.Prism.ViewModels
         private DelegateCommand _loginCommand;
         private DelegateCommand _registerCommand;
         private DelegateCommand _forgotPasswordCommand;
+        private DelegateCommand _loginFacebookCommand;
 
         public LoginPageViewModel(
             INavigationService navigationService,
@@ -34,6 +36,8 @@ namespace Pandemic.Prism.ViewModels
             IsEnabled = true;
             IsRemember = true;
         }
+
+        public DelegateCommand LoginFacebookCommand => _loginFacebookCommand ?? (_loginFacebookCommand = new DelegateCommand(LoginFacebookAsync));
 
         public DelegateCommand LoginCommand => _loginCommand ?? (_loginCommand = new DelegateCommand(Login));
 
@@ -108,7 +112,7 @@ namespace Pandemic.Prism.ViewModels
 
             TokenResponse token = (TokenResponse)response.Result;
 
-            var emailRequest = new EmailRequest
+            EmailRequest emailRequest = new EmailRequest
             {
                 Email = Email,
                 CultureInfo = Languages.Culture
@@ -134,7 +138,7 @@ namespace Pandemic.Prism.ViewModels
 
             await _navigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/HistoryPage");
             Password = string.Empty;
-            
+
 
         }
 
@@ -147,6 +151,49 @@ namespace Pandemic.Prism.ViewModels
         private async void ForgotPassword()
         {
             await _navigationService.NavigateAsync("RememberPasswordPage");
+        }
+
+        private async void LoginFacebookAsync()
+        {
+            try
+            {
+
+                if (_facebookService.IsLoggedIn)
+                {
+                    _facebookService.Logout();
+                }
+
+                async void userDataDelegate(object sender, FBEventArgs<string> e)
+                {
+                    switch (e.Status)
+                    {
+                        case FacebookActionStatus.Completed:
+                            FacebookProfile facebookProfile = await Task.Run(() => JsonConvert.DeserializeObject<FacebookProfile>(e.Data));
+                            break;
+                        case FacebookActionStatus.Canceled:
+                            await App.Current.MainPage.DisplayAlert("Facebook Auth", "Canceled", "Ok");
+                            break;
+                        case FacebookActionStatus.Error:
+                            await App.Current.MainPage.DisplayAlert("Facebook Auth", "Error", "Ok");
+                            break;
+                        case FacebookActionStatus.Unauthorized:
+                            await App.Current.MainPage.DisplayAlert("Facebook Auth", "Unauthorized", "Ok");
+                            break;
+                    }
+
+                    _facebookService.OnUserData -= userDataDelegate;
+                }
+
+                _facebookService.OnUserData += userDataDelegate;
+
+                string[] fbRequestFields = { "email", "first_name", "picture", "gender", "last_name" };
+                string[] fbPermisions = { "email" };
+                await _facebookService.RequestUserDataAsync(fbRequestFields, fbPermisions);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
         }
 
 

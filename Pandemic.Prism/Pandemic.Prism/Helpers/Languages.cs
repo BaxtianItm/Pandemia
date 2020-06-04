@@ -202,6 +202,7 @@ namespace Pandemic.Prism.Helpers
         public static string City => Resource.City;
         public static string Cases => Resource.Cases;
         public static string GraphicTitle1 => Resource.GraphicTitle1;
+        public static string LoginFacebook => Resource.LoginFacebook;
 
     }
 }
