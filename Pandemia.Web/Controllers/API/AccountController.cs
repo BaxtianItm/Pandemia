@@ -61,7 +61,7 @@ namespace Pandemic.Web.Controllers.API
                 }
                 else
                 {
-                    user.PicturePath = model.Picture.Data.Url;
+                    user.PictureUserPath = model.Picture.Data.Url;
                     user.FirstName = model.FirstName;
                     user.LastName = model.LastName;
                     await _userHelper.UpdateUserAsync(user);

@@ -71,7 +71,6 @@ namespace Pandemic.Prism.ViewModels
             set => SetProperty(ref _password, value);
         }
 
-
         private async void Login()
         {
             if (string.IsNullOrEmpty(Email))
@@ -232,7 +231,7 @@ namespace Pandemic.Prism.ViewModels
             IsRunning = false;
             IsEnabled = true;
 
-            await _navigationService.NavigateAsync("/SoccerMasterDetailPage/NavigationPage/TournamentsPage");
+            await _navigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/HistoryPage");
             Password = string.Empty;
         }
     }
