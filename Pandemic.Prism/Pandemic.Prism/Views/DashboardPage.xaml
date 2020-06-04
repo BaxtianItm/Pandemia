@@ -10,37 +10,12 @@
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}">
     <AbsoluteLayout>
-        <chart:SfChart>
-            <chart:SfChart.ChartBehaviors>
-                <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
-            </chart:SfChart.ChartBehaviors>
-            <chart:SfChart.Title>
-                <chart:ChartTitle Text="{i18n:Translate GraphicTitle1}" TextAlignment="Start"/>
-            </chart:SfChart.Title>
-            <chart:SfChart.PrimaryAxis>
-                <chart:CategoryAxis>
-                    <chart:CategoryAxis.Title>
-                        <chart:ChartAxisTitle Text="{i18n:Translate City}"></chart:ChartAxisTitle>
-                    </chart:CategoryAxis.Title>
-                </chart:CategoryAxis>
-            </chart:SfChart.PrimaryAxis>
-            <chart:SfChart.SecondaryAxis>
-                <chart:NumericalAxis>
-                    <chart:NumericalAxis.Title>
-                        <chart:ChartAxisTitle Text="{i18n:Translate Cases}"></chart:ChartAxisTitle>
-                    </chart:NumericalAxis.Title>
-                </chart:NumericalAxis>
-            </chart:SfChart.SecondaryAxis>
-            <chart:SfChart.Series>
-                <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Name" YBindingPath="Value" EnableTooltip="True"/>
-                <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Name" YBindingPath="Height">
+        <Button Command="{Binding BarGraphCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="{i18n:Translate GraphicTitle1}"
+                ImageSource="ic_admin">
+        </Button>
 
-                    <chart:ColumnSeries.ColorModel>
-                        <chart:ChartColorModel Palette="Pineapple"/>
-                    </chart:ColumnSeries.ColorModel>
-                </chart:ColumnSeries>
-            </chart:SfChart.Series>
-        </chart:SfChart>
 
         <busyindicator:SfBusyIndicator AnimationType="Globe" 
                                        AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"

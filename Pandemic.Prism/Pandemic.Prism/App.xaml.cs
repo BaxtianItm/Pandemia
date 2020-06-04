@@ -57,6 +57,7 @@ namespace Pandemic.Prism
             containerRegistry.RegisterForNavigation<RememberPasswordPage, RememberPasswordPageViewModel>();
             containerRegistry.RegisterForNavigation<ChangeStatusPage, ChangeStatusPageViewModel>();
             containerRegistry.RegisterForNavigation<AddDetailPage, AddDetailPageViewModel>();
+            containerRegistry.RegisterForNavigation<BarGraphPage, BarGraphPageViewModel>();
         }
     }
 }
