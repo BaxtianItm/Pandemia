@@ -231,7 +231,7 @@ namespace Pandemic.Prism.ViewModels
             IsRunning = false;
             IsEnabled = true;
 
-            await _navigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/HistoryPage");
+            await _navigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/ModifyUserPage");
             Password = string.Empty;
         }
     }
