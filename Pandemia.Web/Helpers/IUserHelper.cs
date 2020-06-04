@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Pandemic.Common.Models;
 using Pandemic.Web.Data.Entities;
 using Pandemic.Web.Models;
 using System;
@@ -35,6 +36,8 @@ namespace Pandemic.Web.Helpers
         Task<string> GeneratePasswordResetTokenAsync(UserEntity user);
         Task<IdentityResult> ResetPasswordAsync(UserEntity user, string token, string password);
         Task<SignInResult> ValidatePasswordAsync(UserEntity user, string password);
+        Task<UserEntity> AddUserAsync(FacebookProfile model);
+
 
     }
 }

@@ -19,13 +19,13 @@
             <StackLayout Padding="20">
                 <RelativeLayout>
                     <Image x:Name="Logo" HorizontalOptions="Center"
-                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=X,Factor=1,Constant=60}"
+                           RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,Property=X,Factor=1,Constant=70}"
                            HeightRequest="150"
                            Source="virus"/>
                     <ffimageloading:CachedImage x:Name="Picture" 
                                                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Logo,Property=Y,Factor=1,Constant=30}"
                                                 Aspect="AspectFill"
-                                                Source="{Binding User.PictureProfileArray}" 
+                                                Source="{Binding User.PictureUserPath}" 
                                                 CacheDuration= "50"
                                                 HeightRequest="110"
                                                 Margin="5"
@@ -42,6 +42,7 @@
                     <Label RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=Picture,Property=Y,Factor=1,Constant=110}"
                            FontAttributes="Bold"
                            FontSize="Large"
+                           Margin="6"
                            Text="{Binding User.FullName}"
                            TextColor="Black"/>
                 </RelativeLayout>

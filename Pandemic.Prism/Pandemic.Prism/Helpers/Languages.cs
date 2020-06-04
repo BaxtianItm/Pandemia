@@ -204,6 +204,7 @@ namespace Pandemic.Prism.Helpers
         public static string GraphicTitle1 => Resource.GraphicTitle1;
         public static string LoginFacebook => Resource.LoginFacebook;
         public static string GraphicTitle2 => Resource.GraphicTitle2;
+        public static string ChangePhotoNoPandemicUser => Resource.ChangePhotoNoPandemicUser;
 
     }
 }

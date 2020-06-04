@@ -59,6 +59,7 @@ namespace Pandemic.Common.Services
         Task<Response> Statistics<T>(string urlBase,
         string servicePrefix,
         string controller);
+        Task<Response> GetTokenAsync(string urlBase, string servicePrefix, string controller, FacebookProfile request);
 
     }
 }
