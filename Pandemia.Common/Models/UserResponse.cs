@@ -26,6 +26,7 @@ namespace Pandemic.Common.Models
         public string Email { get; set; }
 
         public string PhoneNumber { get; set; }
+        public LoginType LoginType { get; set; }
 
         public string PictureFullPath => string.IsNullOrEmpty(PicturePath)
       ? "https://pandemicweb0.azurewebsites.net//images/noimage.png"
