@@ -82,7 +82,9 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </StackLayout>
-
+            <Button Command="{Binding CreateReportCommand}"
+                        IsEnabled="{Binding IsEnabled}"
+                        Text="{i18n:Translate CreateReport}"/>
 
         </StackLayout>
 

@@ -29,11 +29,11 @@ namespace Pandemic.Prism
             var token = JsonConvert.DeserializeObject<TokenResponse>(Settings.Token);
             if (Settings.IsRemembered && token?.Expiration > DateTime.Now)
             {
-                await NavigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/HomePage");
+                await NavigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/ReportsHistoryPage");
            }
             else
             {
-                await NavigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/LoginPage");
+                await NavigationService.NavigateAsync("/PandemicMasterDetailPage/NavigationPage/DashboardPage");
 
             }
         }
