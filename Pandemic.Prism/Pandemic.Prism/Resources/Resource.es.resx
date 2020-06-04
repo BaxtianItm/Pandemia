@@ -435,4 +435,7 @@
   <data name="ChangePhotoNoPandemicUser" xml:space="preserve">
     <value>Los usuarios creados por redes sociales, deben cambiar la contraseña en la red social.</value>
   </data>
+  <data name="DashBoardLable" xml:space="preserve">
+    <value>Aquí encontrará las principales estadísticas relacionadas con la pandemia, toque el gráfico que desea observar. Si es un usuario registrado, ingrese desde el menú y seleccione iniciar sesión.</value>
+  </data>
 </root>

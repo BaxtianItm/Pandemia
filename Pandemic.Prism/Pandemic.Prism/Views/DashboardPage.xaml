@@ -13,11 +13,22 @@
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
                      AbsoluteLayout.LayoutFlags="All" 
                      Padding="5"
-                      Margin="0,250,0,5">
+                      Margin="0,25,0,5">
             <StackLayout>
+                <Label  Text="{i18n:Translate DashBoardLable}" 
+                        HorizontalTextAlignment="Center"
+                                            FontSize="20"
+                                            FontAttributes="Bold"/>
+                <Image HeightRequest="200"
+                   Margin="0,20,0,5"
+                   Source="virus"/>
+            </StackLayout>
+
+            <StackLayout Margin="0,25,0,5">
                 <Button Command="{Binding BarGraphCommand}"
                     IsEnabled="{Binding IsEnabled}"
                     Text="{i18n:Translate GraphicTitle1}"
+                         Style="{StaticResource DangerButton}"
                      ImageSource="ic_bar">
                 </Button>
             </StackLayout>
@@ -25,6 +36,7 @@
                 <Button Command="{Binding CakeGraphCommand}"
                     IsEnabled="{Binding IsEnabled}"
                     Text="{i18n:Translate GraphicTitle2}"
+                         Style="{StaticResource DangerButton}"
                     ImageSource="ic_cake">
                 </Button>
             </StackLayout>
