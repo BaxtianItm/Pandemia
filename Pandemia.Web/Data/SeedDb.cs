@@ -126,6 +126,7 @@ namespace Pandemic.Web.Data
             await AddCities("Belmira ", "Colombia");
             await AddCities("Betulia ", "Colombia");
             await AddCities("Betulia ", "Colombia");
+            await AddCities("Bogotá", "Colombia");
             await AddCities("Carepa ", "Colombia");
             await AddCities("Carmen del Darien ", "Colombia");
             await AddCities("Carolina ", "Colombia");
@@ -254,7 +255,7 @@ namespace Pandemic.Web.Data
             await AddCities("Güepsa ", "Colombia");
             await AddCities("Isnos ", "Colombia");
             await AddCities("Istmina ", "Colombia");
-            await AddCities("Itagui ", "Colombia");
+            await AddCities("Itagüí ", "Colombia");
             await AddCities("Jambaló ", "Colombia");
             await AddCities("Medellín ", "Colombia");
             await AddCities("Morales ", "Colombia");
@@ -391,9 +392,9 @@ namespace Pandemic.Web.Data
                     new ReportEntity
                     {
                         City = _context.Cities.Where(c => c.Name == "Medellín").FirstOrDefault(),
-                        Document = "123456789",
-                        FirstName = "Andres",
-                        LastName = "Palacio",
+                        Document = "32895678",
+                        FirstName = "Arister",
+                        LastName = "Cifuentes",
                         Address = "Cl. 56 #45646",
                         User = await _userHelper.GetUserAsync("sebastiangomezjimenez8@gmail.com"),
                         ReportDetails = new List<ReportDetailsEntity>
@@ -416,8 +417,8 @@ namespace Pandemic.Web.Data
                    {
                        City = _context.Cities.Where(c => c.Name == "Valencia").FirstOrDefault(),
                        Document = "123456789",
-                       FirstName = "Pepe",
-                       LastName = "Palacio",
+                       FirstName = "Federico",
+                       LastName = "Aguirre",
                        Address = "Cl. 56 #45646",
                        User = await _userHelper.GetUserAsync("sebastiangomezjimenez8@gmail.com"),
                        ReportDetails = new List<ReportDetailsEntity>
@@ -482,14 +483,85 @@ namespace Pandemic.Web.Data
                           }
                         }
                     });
+                _context.Report.Add(
+                                   new ReportEntity
+                                   {
+                                       City = _context.Cities.Where(c => c.Name == "Bogotá").FirstOrDefault(),
+                                       Document = "1026185697",
+                                       FirstName = "Dominic",
+                                       LastName = "Kishner",
+                                       Address = "Cl. 56 #45646",
+                                       User = await _userHelper.GetUserAsync("sebastiangomezjimenez8@gmail.com"),
+                                       ReportDetails = new List<ReportDetailsEntity>
+                                       {
+                          new ReportDetailsEntity
+                          {
+                              Date = DateTime.Now,
+                              Observation = "Esta bien",
+                              Status = new StatusReport
+                              {
+                                  Name = "Negative"
+                              },
+                              User = await _userHelper.GetUserAsync("katherin.moreno4@gmail.com")
+                          }
+                                       }
+                                   });
 
                 _context.Report.Add(
                     new ReportEntity
                     {
-                        City = _context.Cities.Where(c => c.Name == "Barranquilla").FirstOrDefault(),
-                        Document = "123456789",
-                        FirstName = "Andres",
-                        LastName = "Palacio",
+                        City = _context.Cities.Where(c => c.Name == "Envigado").FirstOrDefault(),
+                        Document = "32352085",
+                        FirstName = "Marcela",
+                        LastName = "Buritica",
+                        Address = "Cl. 85 #34 25",
+                        User = await _userHelper.GetUserAsync("sebastiangomezjimenez8@gmail.com"),
+                        ReportDetails = new List<ReportDetailsEntity>
+                        {
+                          new ReportDetailsEntity
+                          {
+                              Date = DateTime.Now,
+                              Observation = "Tenía los sintomas reportados por el gobierno",
+                              Status = new StatusReport
+                              {
+                                  Name = "Negative"
+                              },
+                              User = await _userHelper.GetUserAsync("katherin.moreno4@gmail.com")
+                          }
+                        }
+                    });
+
+                _context.Report.Add(
+                    new ReportEntity
+                    {
+                        City = _context.Cities.Where(c => c.Name == "Bogotá").FirstOrDefault(),
+                        Document = "78895149",
+                        FirstName = "Pablo",
+                        LastName = "Zuluaga",
+                        Address = "Cl. 25 #46 38",
+                        User = await _userHelper.GetUserAsync("sebastiangomezjimenez8@gmail.com"),
+                        ReportDetails = new List<ReportDetailsEntity>
+                        {
+                          new ReportDetailsEntity
+                          {
+                              Date = DateTime.Now,
+                              Observation = "Está tosiendo mucho",
+                              Status = new StatusReport
+                              {
+                                  Name = "Negative"
+                              },
+                              User = await _userHelper.GetUserAsync("katherin.moreno4@gmail.com")
+                          }
+                        }
+                    });
+
+                _context.Report.Add(
+                    new ReportEntity
+                    {
+                        City = _context.Cities.Where(c => c.Name == "Bogotá").FirstOrDefault(),
+                        Document = "890548790",
+                        FirstName = "Augusto",
+                        LastName = "Rodriguez",
                         Address = "Cl. 56 #45646",
                         User = await _userHelper.GetUserAsync("sebastiangomezjimenez8@gmail.com"),
                         ReportDetails = new List<ReportDetailsEntity>
@@ -497,7 +569,7 @@ namespace Pandemic.Web.Data
                           new ReportDetailsEntity
                           {
                               Date = DateTime.Now,
-                              Observation = "Esta enfermo",
+                              Observation = "Esta enfermo, con mucha fiebre",
                               Status = new StatusReport
                               {
                                   Name = "Positive"
