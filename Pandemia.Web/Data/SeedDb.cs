@@ -255,7 +255,7 @@ namespace Pandemic.Web.Data
             await AddCities("Güepsa ", "Colombia");
             await AddCities("Isnos ", "Colombia");
             await AddCities("Istmina ", "Colombia");
-            await AddCities("Itagüí ", "Colombia");
+            await AddCities("Itagüi ", "Colombia");
             await AddCities("Jambaló ", "Colombia");
             await AddCities("Medellín ", "Colombia");
             await AddCities("Morales ", "Colombia");
