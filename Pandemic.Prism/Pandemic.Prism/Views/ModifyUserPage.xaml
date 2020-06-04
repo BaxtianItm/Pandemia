@@ -31,6 +31,7 @@
                         FocusedColor="{StaticResource ColorAccent}"   
                         HelperText="{i18n:Translate FirstNamePlaceHolder}" >
                         <Entry 
+                            IsEnabled="{Binding IsPandemicUser}"
                             Text="{Binding User.FirstName}"/>
                     </inputLayout:SfTextInputLayout>
 
@@ -39,6 +40,7 @@
                         FocusedColor="{StaticResource ColorAccent}"   
                         HelperText="{i18n:Translate LastNamePlaceHolder}" >
                         <Entry 
+                            IsEnabled="{Binding IsPandemicUser}"
                             Text="{Binding User.LastName}"/>
                     </inputLayout:SfTextInputLayout>
 

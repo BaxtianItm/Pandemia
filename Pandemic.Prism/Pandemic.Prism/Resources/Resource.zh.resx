@@ -432,4 +432,7 @@
   <data name="GraphicTitle2" xml:space="preserve">
     <value>按城市情况进行阳性案例！</value>
   </data>
+  <data name="ChangePhotoNoPandemicUser" xml:space="preserve">
+    <value>由社交网络创建的用户，必须更改社交网络上的照片或密码。</value>
+  </data>
 </root>

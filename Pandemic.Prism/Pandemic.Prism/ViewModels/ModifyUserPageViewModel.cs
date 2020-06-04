@@ -24,6 +24,7 @@ namespace Pandemic.Prism.ViewModels
         private bool _isEnabled;
         private UserResponse _user;
         private DelegateCommand _saveCommand;
+        private bool _isPandemicUser;
         private DelegateCommand _changePasswordCommand;
 
         public ModifyUserPageViewModel(INavigationService navigationService,IApiService apiService)
@@ -34,6 +35,7 @@ namespace Pandemic.Prism.ViewModels
             User = JsonConvert.DeserializeObject<UserResponse>(Settings.User);
             _apiService = apiService;
             Title = Languages.ModifyTitle;
+            IsPandemicUser = User.LoginType == LoginType.Pandemic;
         }
 
         public DelegateCommand ChangePasswordCommand => _changePasswordCommand ?? (_changePasswordCommand = new DelegateCommand(ChangePasswordAsync));
@@ -41,7 +43,11 @@ namespace Pandemic.Prism.ViewModels
         public DelegateCommand SaveCommand => _saveCommand ?? (_saveCommand = new DelegateCommand(SaveAsync));
 
 
-   
+        public bool IsPandemicUser
+        {
+            get => _isPandemicUser;
+            set => SetProperty(ref _isPandemicUser, value);
+        }
         public UserResponse User
         {
             get => _user;
@@ -62,6 +68,11 @@ namespace Pandemic.Prism.ViewModels
 
         private async void ChangePasswordAsync()
         {
+            if (!IsPandemicUser)
+            {
+                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.ChangePhotoNoPandemicUser, Languages.Accept);
+                return;
+            }
             await _navigationService.NavigateAsync("ChangePasswordPage");
         }
 

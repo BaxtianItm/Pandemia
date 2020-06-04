@@ -429,4 +429,7 @@
   <data name="GraphicTitle2" xml:space="preserve">
     <value>Positive cases by city</value>
   </data>
+  <data name="ChangePhotoNoPandemicUser" xml:space="preserve">
+    <value>Users created by social networks, must change the photo or password on the social network.</value>
+  </data>
 </root>
