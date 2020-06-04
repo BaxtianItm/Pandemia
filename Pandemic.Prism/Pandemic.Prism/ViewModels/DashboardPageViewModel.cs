@@ -16,6 +16,7 @@ namespace Pandemic.Prism.ViewModels
         private string _url;
         private List<Statistics> _data;
         private DelegateCommand _barGraphCommand;
+        private DelegateCommand _cakeGraphCommand;
 
         public DashboardPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
         {
@@ -27,6 +28,7 @@ namespace Pandemic.Prism.ViewModels
         }
 
         public DelegateCommand BarGraphCommand => _barGraphCommand ?? (_barGraphCommand = new DelegateCommand(BarGraphAsync));
+        public DelegateCommand CakeGraphCommand => _cakeGraphCommand ?? (_cakeGraphCommand = new DelegateCommand(CakeGraphAsync));
 
         public bool IsRunning
         {
@@ -51,33 +53,10 @@ namespace Pandemic.Prism.ViewModels
             await _navigationService.NavigateAsync("BarGraphPage");
 
         }
-
-        private async void LoadReports()
+        private async void CakeGraphAsync()
         {
-            IsRunning = true;
-            IsEnabled = false;
+            await _navigationService.NavigateAsync("CakeGraphPage");
 
-            _url = App.Current.Resources["UrlAPI"].ToString();
-            bool connection = await _apiService.CheckConnectionAsync(_url);
-            if (!connection)
-            {
-                IsRunning = false;
-                IsEnabled = true;
-                await App.Current.MainPage.DisplayAlert(Languages.Error, Languages.ConnectionError, Languages.Accept);
-                return;
-            }
-
-            Response response = await _apiService.Statistics<Statistics>(_url, "/api", "/Reports/Statistics");
-
-            IsRunning = false;
-            IsEnabled = true;
-            if (!response.IsSuccess)
-            {
-                await App.Current.MainPage.DisplayAlert(Languages.Error, response.Message, Languages.Accept);
-                return;
-            }
-
-            Data = (List<Statistics>)response.Result;
         }
     }
 }

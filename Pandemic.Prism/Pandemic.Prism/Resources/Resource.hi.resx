@@ -429,4 +429,7 @@
   <data name="LoginFacebook" xml:space="preserve">
     <value>फेसबुक से लॉग इन करें</value>
   </data>
+  <data name="GraphicTitle2" xml:space="preserve">
+    <value>शहर द्वारा सकारात्मक मामले!</value>
+  </data>
 </root>

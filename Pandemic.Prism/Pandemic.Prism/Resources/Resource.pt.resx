@@ -429,4 +429,7 @@
   <data name="LoginFacebook" xml:space="preserve">
     <value>Entrar via Facebook</value>
   </data>
+  <data name="GraphicTitle2" xml:space="preserve">
+    <value>Casos positivos por cidade!</value>
+  </data>
 </root>

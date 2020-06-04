@@ -429,4 +429,7 @@
   <data name="LoginFacebook" xml:space="preserve">
     <value>使用Facebook账号登录</value>
   </data>
+  <data name="GraphicTitle2" xml:space="preserve">
+    <value>按城市情况进行阳性案例！</value>
+  </data>
 </root>

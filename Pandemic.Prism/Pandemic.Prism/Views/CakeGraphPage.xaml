@@ -5,30 +5,24 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
-             x:Class="Pandemic.Prism.Views.DashboardPage"
+             x:Class="Pandemic.Prism.Views.CakeGraphPage"
              xmlns:i18n="clr-namespace:Pandemic.Prism.Helpers" 
              BackgroundColor="{StaticResource ColorBackgroud}"
              Title="{Binding Title}">
     <AbsoluteLayout>
-        <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
-                     AbsoluteLayout.LayoutFlags="All" 
-                     Padding="5"
-                      Margin="0,250,0,5">
-            <StackLayout>
-                <Button Command="{Binding BarGraphCommand}"
-                    IsEnabled="{Binding IsEnabled}"
-                    Text="{i18n:Translate GraphicTitle1}"
-                     ImageSource="ic_bar">
-                </Button>
-            </StackLayout>
-            <StackLayout>
-                <Button Command="{Binding CakeGraphCommand}"
-                    IsEnabled="{Binding IsEnabled}"
-                    Text="{i18n:Translate GraphicTitle2}"
-                    ImageSource="ic_cake">
-                </Button>
-            </StackLayout>
-        </StackLayout>
+        <chart:SfChart>
+            <chart:SfChart.ChartBehaviors>
+                <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
+            </chart:SfChart.ChartBehaviors>
+            <chart:SfChart.Title>
+                <chart:ChartTitle Text="{i18n:Translate GraphicTitle2}" TextAlignment="Start"/>
+            </chart:SfChart.Title>
+            <chart:SfChart.Legend>
+                <chart:ChartLegend/>
+            </chart:SfChart.Legend>
+            <chart:PieSeries ExplodeIndex="1" ItemsSource ="{Binding Data}" XBindingPath="Name"
+	            YBindingPath="Height"/>
+        </chart:SfChart>
 
         <busyindicator:SfBusyIndicator AnimationType="Globe" 
                                        AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"

@@ -493,6 +493,15 @@ namespace Pandemic.Prism.Resources {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Positive cases by city.
+        /// </summary>
+        public static string GraphicTitle2 {
+            get {
+                return ResourceManager.GetString("GraphicTitle2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a you must add document image.
         /// </summary>
         public static string ImageError {

@@ -122,6 +122,28 @@ namespace Pandemic.Web.Controllers.API
             return Ok(statistics);
         }
 
+        [HttpGet]
+        [Route("StatisticsCake")]
+        public async Task<IActionResult> StatisticsCake()
+        {
+            var cities = await _context.Report.Include(r => r.City).Include(r => r.ReportDetails).Select(r => r.City).Distinct().ToListAsync();
+            var statistics = new List<Statistics>();
+            foreach (var city in cities)
+            {
+                var height = _context.Report.Include(r => r.City).Where(r => r.City == city && r.ReportDetails.FirstOrDefault().Status.Name == "Positive").Count();
+                if (height != 0)
+                {
+                    var statistic = new Statistics
+                    {
+                        Name = city.Name,
+                        Height = height
+                    };
+                    statistics.Add(statistic);
+                }
+            }
+            return Ok(statistics);
+        }
+
         [HttpPost]
         public async Task<IActionResult> PostReportEntity([FromBody] ReportRequest request)
         {

@@ -426,4 +426,7 @@
   <data name="LoginFacebook" xml:space="preserve">
     <value>Login with Facebook</value>
   </data>
+  <data name="GraphicTitle2" xml:space="preserve">
+    <value>Positive cases by city</value>
+  </data>
 </root>
