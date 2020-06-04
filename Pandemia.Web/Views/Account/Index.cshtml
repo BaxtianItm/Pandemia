@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Pandemic.Web.Data.Entities.UserEntity>
+
 @{
     ViewData["Title"] = " Users";
 }
@@ -30,7 +31,10 @@
                                 @Html.DisplayNameFor(model => model.UserType)
                             </th>
                             <th>
-                               Images User
+                                User Image
+                            </th>
+                            <th>
+                                Document Image
                             </th>
                         </tr>
                     </thead>
@@ -54,6 +58,8 @@
                                 <a href=@item.PictureUserPath alt="ImageUser" target="_blank">
                                     <img src=@item.PictureUserPath alt="ImageUser" style="width:50px;height:51px" />
                                 </a>
+                            </td>
+                            <td>
                                 <a href=@item.PicturePath alt="Document" target="_blank">
                                     <img src=@item.PicturePath alt="Document" style="width:50px;height:51px" />
                                 </a>
@@ -69,6 +75,7 @@
         </div>
     </div>
 </div>
+
 <style type="text/css">
     img {
         width: 50px !important;

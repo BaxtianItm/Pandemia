@@ -35,7 +35,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact"><i class="glyphicon glyphicon-phone" aria-hidden="true" style="color:white"></i> Contact</a></li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-area="" asp-controller="Report" asp-action="IndexMyReports" asp-route-id="@User.Identity.Name"><i class="glyphicon glyphicon-cog" aria-hidden="true" style="color:white"></i> My reportes</a></li>
+                        <li><a asp-area="" asp-controller="Report" asp-action="IndexMyReports" asp-route-id="@User.Identity.Name"><i class="glyphicon glyphicon-cog" aria-hidden="true" style="color:white"></i> My reports</a></li>
                     }
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {

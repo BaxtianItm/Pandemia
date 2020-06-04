@@ -10,7 +10,7 @@ namespace Pandemic.Web
         public static void Main(string[] args)
         {
             IWebHost host = CreateWebHostBuilder(args).Build();
-            RunSeeding(host);
+          //  RunSeeding(host);
             host.Run();
         }
 
