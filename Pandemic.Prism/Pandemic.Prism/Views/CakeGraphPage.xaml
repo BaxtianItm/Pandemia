@@ -17,7 +17,7 @@
             <chart:SfChart.Title>
                 <chart:ChartTitle Text="{i18n:Translate GraphicTitle2}" 
                                   TextAlignment="Center"
-                                  Font="Bold, 24"/>
+                                  Font="Bold, 22"/>
             </chart:SfChart.Title>
             <chart:SfChart.Legend>
                 <chart:ChartLegend/>

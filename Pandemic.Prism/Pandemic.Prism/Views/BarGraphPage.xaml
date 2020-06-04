@@ -15,26 +15,37 @@
                 <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
             </chart:SfChart.ChartBehaviors>
             <chart:SfChart.Title>
-                <chart:ChartTitle Text="{i18n:Translate GraphicTitle1}" TextAlignment="Start"/>
+                <chart:ChartTitle Text="{i18n:Translate GraphicTitle1}" 
+                                  TextAlignment="Center"
+                                  Font="Bold, 22"/>
             </chart:SfChart.Title>
             <chart:SfChart.PrimaryAxis>
                 <chart:CategoryAxis>
                     <chart:CategoryAxis.Title>
-                        <chart:ChartAxisTitle Text="{i18n:Translate City}"></chart:ChartAxisTitle>
+                        <chart:ChartAxisTitle Text="{i18n:Translate City}" Font="Bold, 16"></chart:ChartAxisTitle>
                     </chart:CategoryAxis.Title>
                 </chart:CategoryAxis>
             </chart:SfChart.PrimaryAxis>
             <chart:SfChart.SecondaryAxis>
                 <chart:NumericalAxis>
                     <chart:NumericalAxis.Title>
-                        <chart:ChartAxisTitle Text="{i18n:Translate Cases}"></chart:ChartAxisTitle>
+                        <chart:ChartAxisTitle Text="{i18n:Translate Cases}" Font="Bold, 16"></chart:ChartAxisTitle>
                     </chart:NumericalAxis.Title>
                 </chart:NumericalAxis>
             </chart:SfChart.SecondaryAxis>
             <chart:SfChart.Series>
-                <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Name" YBindingPath="Value" EnableTooltip="True"/>
-                <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Name" YBindingPath="Height">
+                <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Name" YBindingPath="Value" EnableTooltip="True" EnableAnimation="True"/>
+                <chart:ColumnSeries ItemsSource="{Binding Data}" XBindingPath="Name" YBindingPath="Height" EnableAnimation="True" EnableTooltip="True">
+                    <chart:ColumnSeries.DataMarker>
+                        <chart:ChartDataMarker LabelContent="Percentage">
+                            <chart:ChartDataMarker.LabelStyle>
+                                <chart:DataMarkerLabelStyle Font="12" 
+                                                            LabelPosition="Inner">
+                                </chart:DataMarkerLabelStyle>
+                            </chart:ChartDataMarker.LabelStyle>
 
+                        </chart:ChartDataMarker>
+                    </chart:ColumnSeries.DataMarker>
                     <chart:ColumnSeries.ColorModel>
                         <chart:ChartColorModel Palette="Pineapple"/>
                     </chart:ColumnSeries.ColorModel>
