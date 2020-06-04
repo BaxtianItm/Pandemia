@@ -426,4 +426,7 @@
   <data name="GraphicTitle1" xml:space="preserve">
     <value>Casos reportados por ciudad</value>
   </data>
+  <data name="LoginFacebook" xml:space="preserve">
+    <value>Iniciar sesión con Facebook</value>
+  </data>
 </root>
