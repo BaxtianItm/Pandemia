@@ -1,13 +1,12 @@
 ﻿using Pandemic.Common.Models;
 using Pandemic.Common.Services;
 using Pandemic.Prism.Helpers;
-using Prism.Commands;
 using Prism.Navigation;
 using System.Collections.Generic;
 
 namespace Pandemic.Prism.ViewModels
 {
-    public class DashboardPageViewModel : ViewModelBase
+    public class BarGraphPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
@@ -15,19 +14,15 @@ namespace Pandemic.Prism.ViewModels
         private bool _isEnabled;
         private string _url;
         private List<Statistics> _data;
-        private DelegateCommand _barGraphCommand;
 
-        public DashboardPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
+        public BarGraphPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
         {
-            _navigationService = navigationService;
             _apiService = apiService;
             Title = Languages.Dashboard;
             IsEnabled = true;
+            LoadReports();
 
         }
-
-        public DelegateCommand BarGraphCommand => _barGraphCommand ?? (_barGraphCommand = new DelegateCommand(BarGraphAsync));
-
         public bool IsRunning
         {
             get => _isRunning;
@@ -44,12 +39,6 @@ namespace Pandemic.Prism.ViewModels
         {
             get => _isEnabled;
             set => SetProperty(ref _isEnabled, value);
-        }
-
-        private async void BarGraphAsync()
-        {
-            await _navigationService.NavigateAsync("BarGraphPage");
-
         }
 
         private async void LoadReports()
