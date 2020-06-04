@@ -15,7 +15,7 @@
                 <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
             </chart:SfChart.ChartBehaviors>
             <chart:SfChart.Title>
-                <chart:ChartTitle Text="{i18n:Translate GraphicTitle1}" TextAlignment="Start"/>
+                <chart:ChartTitle Text="{i18n:Translate GraphicTitle1}" TextAlignment="Center"/>
             </chart:SfChart.Title>
             <chart:SfChart.PrimaryAxis>
                 <chart:CategoryAxis>

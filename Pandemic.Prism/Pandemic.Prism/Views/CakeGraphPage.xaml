@@ -15,14 +15,21 @@
                 <chart:ChartZoomPanBehavior EnableSelectionZooming="True"/>
             </chart:SfChart.ChartBehaviors>
             <chart:SfChart.Title>
-                <chart:ChartTitle Text="{i18n:Translate GraphicTitle2}" TextAlignment="Start"/>
+                <chart:ChartTitle Text="{i18n:Translate GraphicTitle2}" 
+                                  TextAlignment="Center"/>
             </chart:SfChart.Title>
             <chart:SfChart.Legend>
                 <chart:ChartLegend/>
             </chart:SfChart.Legend>
-            <chart:PieSeries ExplodeIndex="1" ItemsSource ="{Binding Data}" XBindingPath="Name"
-	            YBindingPath="Height"/>
+            
+            <chart:PieSeries ExplodeIndex="1" 
+                             ItemsSource ="{Binding Data}" 
+                             XBindingPath="Name"
+	                         YBindingPath="Height"
+                             EnableSmartLabels="True"
+                             EnableTooltip="True"/>
         </chart:SfChart>
+        
 
         <busyindicator:SfBusyIndicator AnimationType="Globe" 
                                        AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
