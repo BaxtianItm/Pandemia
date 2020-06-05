@@ -12,61 +12,77 @@
     <AbsoluteLayout>
         <StackLayout AbsoluteLayout.LayoutBounds="0,0,1,1"
                      AbsoluteLayout.LayoutFlags="All" 
-                     Padding="5"
-                      Margin="0,25,0,5">
-            <StackLayout>
-                <CollectionView ItemsSource="{Binding Report}">
-                    <CollectionView.ItemsLayout>
-                        <GridItemsLayout Orientation="Vertical"/>
-                    </CollectionView.ItemsLayout>
-                    <CollectionView.ItemTemplate>
+                     Padding="10">
+            <StackLayout  VerticalOptions="CenterAndExpand">
+                <ListView 
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                ItemsSource="{Binding Report}"
+                SeparatorVisibility="None">
+                    <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectReportCommand}" />
-                                </Grid.GestureRecognizers>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
+                            <ViewCell>
+                                <Frame
+                                CornerRadius="10"
+                                HasShadow="true"
+                                Margin="6"
+                                BackgroundColor="#A9BDFF">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectReportCommand}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout 
+                                        Grid.Column="0">
+                                            <Label FontSize="14">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="{Binding FirstName}" FontAttributes="Bold"  FontSize="Medium" />
+                                                            <Span Text=" " FontAttributes="Bold" />
+                                                            <Span Text="{Binding LastName}" FontAttributes="Bold"  FontSize="Medium" />
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label FontSize="14">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="{i18n:Translate Document}" FontAttributes="Bold"  FontSize="Medium" />
+                                                            <Span Text="  " FontAttributes="Bold" />
+                                                            <Span Text="{Binding Document}"   FontSize="Medium" />
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                        <StackLayout 
+                                        Grid.Column="1">
+                                            <Label>
+                                            </Label>
 
-                                <StackLayout Grid.Column="1"
-                                         VerticalOptions="Center">
-                                    <Label FontSize="14">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <FormattedString.Spans>
-                                                    <Span Text="{Binding FirstName}" FontAttributes="Bold"  FontSize="Medium" />
-                                                    <Span Text=" " FontAttributes="Bold" />
-                                                    <Span Text="{Binding LastName}" FontAttributes="Bold"  FontSize="Medium" />
-                                                </FormattedString.Spans>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                    <Label FontSize="14">
-                                        <Label.FormattedText>
-                                            <FormattedString>
-                                                <FormattedString.Spans>
-                                                    <Span Text="{i18n:Translate Document}" FontAttributes="Bold"  FontSize="Medium" />
-                                                    <Span Text="  " FontAttributes="Bold" />
-                                                    <Span Text="{Binding Document}"   FontSize="Medium" />
-                                                </FormattedString.Spans>
-                                            </FormattedString>
-                                        </Label.FormattedText>
-                                    </Label>
-                                    <Label Text=" "
-                                       VerticalOptions="End" />
-                                </StackLayout>
-                                <Image Grid.Column="2" 
-                                   Source="ic_go"/>
-                            </Grid>
+                                            <Label>
+                                            </Label>
+                                        </StackLayout>
+                                        <Image  
+                                        Grid.Column="2"
+                                        Source="ic_go">
+                                        </Image>
+                                    </Grid>
+
+                                </Frame>
+                            </ViewCell>
+
                         </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
 
-            
         </StackLayout>
 
         <busyindicator:SfBusyIndicator AnimationType="Globe" 
